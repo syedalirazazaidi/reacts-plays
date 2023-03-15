@@ -10,8 +10,10 @@ const getAllTasks = async (req, res) => {
 }
 
 const createTask = async (req, res) => {
+  console.log(req.body)
   try {
     const task = await Task.create(req.body)
+    console.log(task, 'TASK')
     res.status(201).json({ task })
   } catch (error) {
     res.status(500).json({ msg: error })
