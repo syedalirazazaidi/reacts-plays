@@ -1,30 +1,51 @@
-import {
-  Button,
-  Card,
-  CardBody,
-  Flex,
-  HStack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
-import React from "react";
-import { TTask } from "../types/interface";
-import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
+import { Box, Card, CardBody, Flex, HStack, Text } from "@chakra-ui/react";
 
-function TodoCard({
-  dataProps,
-}: {
-  dataProps: { name: string; completed: boolean; _id?: string };
-}) {
-  const { _id, name, completed } = dataProps;
+import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
+import axios from "axios";
+import { API_URL } from "../api/config";
+import React from "react";
+interface TypeProps {
+  name: string;
+  completed: boolean;
+  _id?: string;
+}
+interface TypeObj {
+  dataProps: TypeProps;
+  setRenderUI?: (renderUI: boolean) => void;
+}
+
+function TodoCard({ dataProps, setRenderUI }: TypeObj) {
+  const { _id: taskId, name, completed } = dataProps;
+  const deleteTodo = (id: string | undefined) => {
+    axios
+      .delete(`${API_URL}/${id}`)
+      .then((res) => {
+        console.log(res, "DELE");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <Card my="10px">
       <CardBody>
         <Flex justifyContent={"space-between"} width="450px">
           <Text>{name}</Text>
           <HStack>
-            <EditIcon w={6} h={6} color="green.500" />
-            <DeleteIcon w={6} h={6} color="red.900" />
+            <EditIcon
+              w={6}
+              h={6}
+              color="green.500"
+              _hover={{ cursor: "pointer", opacity: 0.2 }}
+            />
+            <Box />
+            <DeleteIcon
+              w={6}
+              h={6}
+              color="red.900"
+              _hover={{ cursor: "pointer", opacity: 0.2 }}
+              onClick={() => deleteTodo(taskId)}
+            />
           </HStack>
         </Flex>
       </CardBody>

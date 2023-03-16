@@ -7,16 +7,19 @@ import TodoCard from "./todoCard";
 
 function AllTodos() {
   const [todo, setTodo] = useState([]);
+  const [renderUI, setRenderUI] = useState(false);
+
   useEffect(() => {
     axios
       .get(`${API_URL}`)
       .then((res) => {
         setTodo(res.data.tasks);
+        setRenderUI((prev) => !prev);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [renderUI]);
 
   if (!todo.length) {
     <p>Loading..</p>;
@@ -25,7 +28,7 @@ function AllTodos() {
     <VStack>
       <ul>
         {todo.map((data: TTask) => (
-          <TodoCard dataProps={data} />
+          <TodoCard dataProps={data} setRenderUI={setRenderUI} />
         ))}
       </ul>
     </VStack>
@@ -33,3 +36,4 @@ function AllTodos() {
 }
 
 export default AllTodos;
+//
