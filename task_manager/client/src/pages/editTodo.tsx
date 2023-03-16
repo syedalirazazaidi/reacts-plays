@@ -1,14 +1,10 @@
 import {
   Card,
   CardBody,
-  HStack,
   Text,
   Checkbox,
-  CheckboxGroup,
   Flex,
   Box,
-  grid,
-  Spacer,
   Input,
   Button,
 } from "@chakra-ui/react";
@@ -54,7 +50,13 @@ function EditTodo() {
         </CardBody>
       </Card>
       <Box py="50px" />
-      <Button>Back To Task</Button>
+      <Button
+        bg="blackAlpha.800"
+        padding="0px 40px 0px 40px"
+        _hover={{ bg: "blackAlpha.800", border: "none", opacity: "0.8" }}
+      >
+        Back To Task
+      </Button>
     </Box>
   );
 }

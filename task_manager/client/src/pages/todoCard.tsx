@@ -4,6 +4,7 @@ import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { API_URL } from "../api/config";
 import React from "react";
+import { Link } from "react-router-dom";
 interface TypeProps {
   name: string;
   completed: boolean;
@@ -34,12 +35,14 @@ function TodoCard({ dataProps, setRenderUI }: TypeObj) {
             {name}
           </Text>
           <HStack>
-            <EditIcon
-              w={6}
-              h={6}
-              color="green.500"
-              _hover={{ cursor: "pointer", opacity: 0.2 }}
-            />
+            <Link to={`tasks/${taskId}`}>
+              <EditIcon
+                w={6}
+                h={6}
+                color="green.500"
+                _hover={{ cursor: "pointer", opacity: 0.2 }}
+              />
+            </Link>
             <Box />
             <DeleteIcon
               w={6}

@@ -12,7 +12,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/tasks",
+    path: "/tasks/:id",
     element: <EditTodo />,
   },
 ]);
