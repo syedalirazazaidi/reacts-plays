@@ -30,7 +30,9 @@ function TodoCard({ dataProps, setRenderUI }: TypeObj) {
     <Card my="10px">
       <CardBody>
         <Flex justifyContent={"space-between"} width="450px">
-          <Text>{name}</Text>
+          <Text fontSize={"18px"} fontFamily={"Roboto Mono, monospace"}>
+            {name}
+          </Text>
           <HStack>
             <EditIcon
               w={6}

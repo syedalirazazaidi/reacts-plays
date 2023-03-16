@@ -3,6 +3,7 @@ import {
   Button,
   Card,
   CardBody,
+  FormHelperText,
   Input,
   Text,
   VStack,
@@ -14,7 +15,7 @@ import { TTask } from "../types/interface";
 
 function Todos() {
   const [data, setData] = useState<TTask>({ name: "", completed: false });
-
+  const [taskadded, setTaskAdded] = useState("");
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const todoown = {
@@ -26,12 +27,15 @@ function Todos() {
       .post(`${API_URL}`, todoown)
       .then((res) => {
         setData({ name: "", completed: false });
-        console.log(res.data);
+        setTaskAdded(res?.data?.success);
       })
       .catch((err) => {
         console.log("Error couldn't create TODO");
         console.log(err.message);
       });
+    setTimeout(() => {
+      setTaskAdded("");
+    }, 1000);
   };
   return (
     <VStack pt="60px">
@@ -70,6 +74,14 @@ function Todos() {
               Submit
             </Button>
           </form>
+          <Text
+            fontWeight={500}
+            fontSize={"12px"}
+            textAlign="left"
+            color={"green.500"}
+          >
+            {taskadded}
+          </Text>
         </CardBody>
       </Card>
     </VStack>
