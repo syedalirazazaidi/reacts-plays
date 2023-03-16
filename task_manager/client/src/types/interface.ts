@@ -1,8 +1,8 @@
 export interface TTask {
   name: string;
-  description: boolean;
+  completed: boolean;
   _id?: string;
 }
 export interface TaskType {
-  task: TTask;
+  tasks: TTask[];
 }

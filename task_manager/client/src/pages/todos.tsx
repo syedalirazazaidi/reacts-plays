@@ -13,19 +13,19 @@ import { API_URL } from "../api/config";
 import { TTask } from "../types/interface";
 
 function Todos() {
-  const [data, setData] = useState<TTask>({ name: "", description: false });
+  const [data, setData] = useState<TTask>({ name: "", completed: false });
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const todoown = {
       name: data.name,
-      description: data.description,
+      completed: data.completed,
     };
 
     axios
       .post(`${API_URL}`, todoown)
       .then((res) => {
-        setData({ name: "", description: false });
+        setData({ name: "", completed: false });
         console.log(res.data);
       })
       .catch((err) => {
@@ -34,10 +34,10 @@ function Todos() {
       });
   };
   return (
-    <VStack pt="130px">
+    <VStack pt="60px">
       <Card>
         <CardBody>
-          <Text py="20px" fontSize={"25px"} fontWeight="600">
+          <Text py="10px" fontSize={"25px"} fontWeight="600">
             Task Manager.
           </Text>
           <Box pb="20px" />
