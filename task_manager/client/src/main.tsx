@@ -4,11 +4,22 @@ import { ChakraProvider } from "@chakra-ui/react";
 import App from "./App";
 import "./index.css";
 import customTheme from "./theme";
-
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import EditTodo from "./pages/editTodo";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "/tasks",
+    element: <EditTodo />,
+  },
+]);
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ChakraProvider theme={customTheme}>
-      <App />
+      <RouterProvider router={router} />
     </ChakraProvider>
   </React.StrictMode>
 );

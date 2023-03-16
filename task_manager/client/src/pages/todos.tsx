@@ -35,7 +35,7 @@ function Todos() {
       });
     setTimeout(() => {
       setTaskAdded("");
-    }, 1000);
+    }, 1500);
   };
   return (
     <VStack pt="60px">
