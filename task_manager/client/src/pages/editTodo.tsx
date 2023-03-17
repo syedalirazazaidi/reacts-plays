@@ -15,17 +15,26 @@ import { API_URL } from "../api/config";
 import { useState } from "react";
 import { TTask } from "../types/interface";
 function EditTodo() {
-  const [idData, setIdDate] = useState<TTask>({
+  const [idData, setIdData] = useState<TTask>({
     name: "",
     completed: false,
   });
   const [isData, setIsDate] = useState(false);
   let { id } = useParams();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIdData((idData) => ({
+      ...idData,
+      name: e.target.value,
+      completed: e.target.checked,
+    }));
+  };
+
   useEffect(() => {
     axios
       .get(`${API_URL}/${id}`)
       .then((res) => {
-        setIdDate({
+        setIdData({
           ...idData,
           name: res?.data.task.name,
           completed: res?.data.task.completed,
@@ -68,18 +77,17 @@ function EditTodo() {
                   size="sm"
                   w="270px"
                   bg="gray.50"
+                  type="text"
                   value={idData.name}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                    setIdDate((idData) => ({
-                      ...idData,
-                      name: e.target.value,
-                      completed: e.target.checked,
-                    }))
-                  }
+                  onChange={handleChange}
                 />
               </Text>
               <Checkbox
                 isChecked={idData.completed}
+                id="completed"
+                type="checkbox"
+                onChange={handleChange}
+                // value=
                 // onChange={(e) => setIdDate(completed, e.target.checked)}
                 py="5px"
               ></Checkbox>
