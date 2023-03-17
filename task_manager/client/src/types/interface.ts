@@ -6,3 +6,6 @@ export interface TTask {
 export interface TaskType {
   tasks: TTask[];
 }
+export interface newTaskType {
+  task: TTask[];
+}

@@ -3,7 +3,6 @@ import {
   Button,
   Card,
   CardBody,
-  FormHelperText,
   Input,
   Text,
   VStack,
@@ -57,7 +56,7 @@ function Todos() {
                 setData((dataPass) => ({
                   ...dataPass,
                   name: e.target.value,
-                  description: true,
+                  completed: true,
                 }))
               }
             />

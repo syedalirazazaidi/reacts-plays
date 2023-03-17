@@ -3,7 +3,6 @@ import { Box, Card, CardBody, Flex, HStack, Text } from "@chakra-ui/react";
 import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import { API_URL } from "../api/config";
-import React from "react";
 import { Link } from "react-router-dom";
 interface TypeProps {
   name: string;
