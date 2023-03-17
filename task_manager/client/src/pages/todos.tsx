@@ -56,7 +56,7 @@ function Todos() {
                 setData((dataPass) => ({
                   ...dataPass,
                   name: e.target.value,
-                  completed: true,
+                  // completed: false,
                 }))
               }
             />
