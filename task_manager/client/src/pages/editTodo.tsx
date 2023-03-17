@@ -8,6 +8,7 @@ import {
   Input,
   Button,
   FormControl,
+  FormErrorMessage,
 } from "@chakra-ui/react";
 import { Form, Link, useParams } from "react-router-dom";
 import React, { useEffect } from "react";
@@ -21,8 +22,9 @@ function EditTodo() {
     name: "",
     completed: false,
   });
+  const isError = idData.name === "";
 
-  const [isData, setIsDate] = useState(false);
+  const [taskedit, setTaskEddited] = useState("");
   let { id } = useParams();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,10 +36,22 @@ function EditTodo() {
       return { ...preFormData, [name]: value };
     });
   };
+
+  const updatedData = {
+    completed: idData.completed,
+    name: idData.name,
+  };
+
   const updateTask = () => {
-    axios.patch(`${API_URL}/${id}`, { idData }).then((res) => {
-      console.log(res.data, "LLLL");
+    axios.patch(`${API_URL}/${id}`, updatedData).then((res) => {
+      setTaskEddited(res?.data?.success);
     });
+    setIdData((pre) => {
+      return { ...pre, name: "", completed: false };
+    });
+    setTimeout(() => {
+      setTaskEddited("");
+    }, 1500);
   };
   useEffect(() => {
     axios
@@ -82,6 +96,7 @@ function EditTodo() {
                 <Text py="3px">{id}</Text>
                 <Box py="3px">
                   <Input
+                    required
                     name="name"
                     placeholder="Edit Task"
                     size="sm"
@@ -106,6 +121,15 @@ function EditTodo() {
           <Button bg="blue.400" w="460px" onClick={updateTask}>
             Edit Task
           </Button>
+          <Text
+            fontWeight={500}
+            marginTop="3px"
+            fontSize={"12px"}
+            textAlign="center"
+            color={"green.500"}
+          >
+            {taskedit}
+          </Text>
         </CardBody>
       </Card>
       <Box py="50px" />

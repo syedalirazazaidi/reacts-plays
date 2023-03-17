@@ -31,7 +31,7 @@ function TodoCard({ dataProps, setRenderUI }: TypeObj) {
       <CardBody>
         <Flex justifyContent={"space-between"} width="450px">
           <Text
-            bg={completed ? "red" : "green"}
+            textDecoration={completed ? "line-through" : "none"}
             fontSize={"18px"}
             fontFamily={"Roboto Mono, monospace"}
           >
