@@ -1,11 +1,24 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { Box } from "@chakra-ui/react";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import RootLayout from "./layouts/RootLayoout";
+import Products from "./pages/Products";
+import Testing from "./pages/Testing";
+// router and routes
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Products />} />
+      <Route path="testing" element={<Testing />} />
+    </Route>
+  )
+);
 
 function App() {
-  return <Box bg="red">Store APi</Box>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;
