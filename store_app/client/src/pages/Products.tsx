@@ -23,7 +23,7 @@ function Products() {
   const { data } = useLoaderData() as LoaderData;
   const [gridUI, setGridUI] = useState({
     w: "250px",
-    show: false,
+    show: true,
   });
   const changeGrid = (button1: string) => {
     if (button1 === "button1") {
@@ -32,7 +32,7 @@ function Products() {
       });
     } else {
       setGridUI((prev) => {
-        return { ...prev, w: "600px", show: true };
+        return { ...prev, w: "600px", show: false };
       });
     }
   };
@@ -44,12 +44,16 @@ function Products() {
           border={"1px solid black"}
           borderRadius="2px"
           onClick={() => changeGrid("button1")}
+          bg={gridUI.show ? "black" : "white"}
+          color={gridUI.show ? "white" : "black"}
         >
           <IoAppsSharp />
         </Box>
         <Box
           border={"1px solid black"}
           _hover={{ cursor: "pointer" }}
+          bg={!gridUI.show ? "black" : "white"}
+          color={!gridUI.show ? "white" : "black"}
           borderRadius="2px"
           onClick={() => changeGrid("button2")}
         >
