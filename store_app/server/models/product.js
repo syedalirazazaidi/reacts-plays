@@ -17,6 +17,9 @@ const productSchema = new mongoose.Schema({
     type: Number,
     default: 4.5,
   },
+  image: {
+    type: String,
+  },
   createdAt: {
     type: Date,
     default: Date.now(),

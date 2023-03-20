@@ -63,8 +63,9 @@ const getAllProducts = async (req, res) => {
   // 23
   // 4 7 7 7 2
 
-  const products = await result
-  res.status(200).json({ products, nbHits: products.length })
+  const data = await result
+
+  res.status(200).json({ data, nbHits: data.length })
 }
 
 module.exports = {
