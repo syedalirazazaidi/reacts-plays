@@ -13,8 +13,6 @@ import React from "react";
 import { IoAppsSharp, IoReorderFourSharp } from "react-icons/io5";
 
 function Products() {
-  // IoAppsSharp
-  // IoReorderFourSharp
   return (
     <Box>
       <Flex textAlign="center" alignItems="center" p={2} m={2}>
