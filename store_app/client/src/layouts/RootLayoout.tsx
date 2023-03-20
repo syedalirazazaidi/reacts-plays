@@ -8,7 +8,7 @@ export default function RootLayout() {
     <Box>
       {" "}
       <Navbar />
-      <Container maxW="6xl">
+      <Container maxW="6xl" pb="20px">
         <Grid templateColumns="repeat(6,1fr)" marginTop={"90px"}>
           <GridItem
             as="aside"
