@@ -2,6 +2,7 @@ export interface ProductTypeData {
   data?: ProductsEntity;
 }
 export interface ProductsType {
+  name: any;
   data?: ProductsEntity[];
   nbHits?: number;
 }

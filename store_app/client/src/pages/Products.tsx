@@ -1,9 +1,12 @@
 import {
   Box,
+  Card,
   Divider,
   Flex,
   Grid,
   GridItem,
+  HStack,
+  Image,
   Select,
   SimpleGrid,
   Spacer,
@@ -11,45 +14,49 @@ import {
 } from "@chakra-ui/react";
 import { IoAppsSharp, IoReorderFourSharp } from "react-icons/io5";
 import { useLoaderData } from "react-router-dom";
-import { ProductsType } from "../types/interface";
+import { ProductsEntity, ProductsType } from "../types/interface";
+import { useState } from "react";
 type LoaderData = {
   data?: ProductsType;
 };
 function Products() {
   const { data } = useLoaderData() as LoaderData;
-  console.log(data?.data && data.data.map((s) => s.name));
-  // console.log(
-  //   data?.map((d: any) => d.name),
-  //   ">>>"
-  // );
-  // console.log(
-  //   data?.data.map((dat: any) => dat.name),
-  //   "LLL"
-  // );
-  // console.log(products, ">+=============+>");
-  // const { data } = products;
-  // data.map((data: any) => console.log(data.name, "LLL")), "?-------?";
-
-  //   const [products, setAllProducts] = useState([]);
-  //   useEffect(() => {
-  //     axios
-  //       .get(`${API_URL}`)
-  //       .then((res) => {
-  //         setAllProducts(res.data.products);
-  //         // setRenderUI((prev) => !prev);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }, []);
-  // console.log(products, "%%^%6");
+  const [gridUI, setGridUI] = useState({
+    w: "250px",
+    show: false,
+  });
+  const changeGrid = (button1: string) => {
+    if (button1 === "button1") {
+      setGridUI((prev) => {
+        return { ...prev, w: "250px", show: true };
+      });
+    } else {
+      setGridUI((prev) => {
+        return { ...prev, w: "600px", show: true };
+      });
+    }
+  };
   return (
     <Box>
-      <Flex textAlign="center" alignItems="center" p={2} m={2}>
-        <IoAppsSharp />
-        <IoReorderFourSharp />
+      <Flex textAlign="center" alignItems="center" gap="2" p={2} m={2}>
+        <Box
+          _hover={{ cursor: "pointer" }}
+          border={"1px solid black"}
+          borderRadius="2px"
+          onClick={() => changeGrid("button1")}
+        >
+          <IoAppsSharp />
+        </Box>
+        <Box
+          border={"1px solid black"}
+          _hover={{ cursor: "pointer" }}
+          borderRadius="2px"
+          onClick={() => changeGrid("button2")}
+        >
+          <IoReorderFourSharp />
+        </Box>
         <Text>8 Products Found</Text>
-        <Divider m={4} w="420px" />
+        <Divider m={4} w="350px" />
         <Spacer />
         <Text>Sort By</Text>
         <Select variant="flushed" w="200px" placeholder="">
@@ -58,11 +65,25 @@ function Products() {
           <option value="option3">Option 3</option>
         </Select>
       </Flex>
-      <SimpleGrid my="20px" p="14px" spacing={10} minChildWidth="250px">
-        {/* {products &&
-          products?.data?.map((product) => {
-            product.name;
-          })} */}
+      <SimpleGrid my="20px" p="14px" spacing={10} minChildWidth={gridUI.w}>
+        {data?.data &&
+          data?.data?.map((product: ProductsEntity) => (
+            <Box>
+              <Card>
+                <Image
+                  boxSize="200px"
+                  objectFit="cover"
+                  src={`${product?.image}`}
+                  alt="tableimg"
+                />
+              </Card>
+              <Flex marginTop="10px">
+                <Text>{product.name}</Text>
+                <Spacer />
+                <Text>{product.price}</Text>
+              </Flex>
+            </Box>
+          ))}
       </SimpleGrid>
     </Box>
   );

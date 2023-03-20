@@ -2,8 +2,10 @@ import { Container, Grid, GridItem, Box } from "@chakra-ui/react";
 import { Outlet } from "react-router-dom";
 import Navbar from "../componets/Navbar";
 import Sidebar from "../componets/Sidebar";
+import { useState } from "react";
 
 export default function RootLayout() {
+  const [gridUI, setGridUI] = useState();
   return (
     <Box>
       {" "}
@@ -17,6 +19,7 @@ export default function RootLayout() {
           >
             <Sidebar />
           </GridItem>
+
           <GridItem as="aside" colSpan={5}>
             <Outlet />
           </GridItem>
