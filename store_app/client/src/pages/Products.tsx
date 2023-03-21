@@ -73,6 +73,7 @@ function Products() {
       });
     }
   };
+
   return (
     <Box>
       <Flex textAlign="center" alignItems="center" gap="2" p={2} m={2}>
@@ -96,7 +97,7 @@ function Products() {
         >
           <IoReorderFourSharp />
         </Box>
-        <Text>8 Products Found</Text>
+        <Text>9 Products Found</Text>
         <Divider m={4} w="350px" />
         <Spacer />
         <Text fontWeight={"550"}>Sort By</Text>

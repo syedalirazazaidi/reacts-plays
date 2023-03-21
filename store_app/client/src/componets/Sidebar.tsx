@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { categories } from "../helperfunctions/categories";
+// import { categories } from "../helperfunctions/categories";
 import {
   Spacer,
   Flex,
@@ -19,7 +19,15 @@ import {
   Select,
   Text,
 } from "@chakra-ui/react";
-
+const categories: string[] = [
+  " All",
+  "Office",
+  "Living Room",
+  "Kitchen",
+  "Bedroom",
+  "Dining",
+  "Kids",
+];
 function Sidebar() {
   return (
     <Box>
@@ -28,26 +36,18 @@ function Sidebar() {
         <Text fontWeight={500} marginTop="20px">
           Category
         </Text>
-        <ListItem color="#859baf" fontWeight={300} fontSize={14}></ListItem>
-        <ListItem fontWeight={200} fontSize={14}>
-          asdsa
-        </ListItem>
-        <ListItem fontWeight={200} fontSize={14}>
-          asdsa
-        </ListItem>
-        <ListItem fontWeight={200} fontSize={14}>
-          asdsa
-        </ListItem>
-        <ListItem fontWeight={200} fontSize={14}>
-          asdsa
-        </ListItem>
 
-        <ListItem fontWeight={200} fontSize={14}>
-          asdsa
-        </ListItem>
-        <ListItem fontWeight={200} fontSize={14}>
-          asdsa
-        </ListItem>
+        {categories.map((category: string) => (
+          <ListItem
+            fontWeight={400}
+            fontSize={14}
+            color="#8b9fb3"
+            _hover={{ cursor: "pointer" }}
+            _active={{ backgroundColor: "red" }}
+          >
+            {category}
+          </ListItem>
+        ))}
       </List>
       <Text fontWeight={500} marginTop="20px">
         Company

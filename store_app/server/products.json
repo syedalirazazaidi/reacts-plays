@@ -184,6 +184,14 @@
     "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
   },
   {
+    "name": "wooden hardware",
+    "price": 106,
+    "featured": false,
+    "company": "caressa",
+    "image": "./img/table_b.png",
+    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+  },
+  {
     "name": "a first wooden table",
     "price": 23,
     "featured": true,
