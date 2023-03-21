@@ -5,7 +5,8 @@
     "company": "marcos",
     "rating": 4,
     "image": "./img/table_b.png",
-    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "dining"
   },
   {
     "name": "albany sectional",
@@ -13,7 +14,8 @@
     "company": "liddy",
     "rating": 5,
     "image": "./img/table_a.png",
-    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   },
   {
     "name": "albany table",
@@ -21,7 +23,8 @@
     "company": "liddy",
     "rating": 4.9,
     "image": "./img/table_b.png",
-    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   },
   {
     "name": "armchair",
@@ -29,15 +32,18 @@
     "company": "marcos",
     "rating": 4.8,
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   },
+
   {
     "name": "bar stool",
     "price": 40,
     "company": "liddy",
     "rating": 4.6,
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "living room"
   },
   {
     "name": "dining table",
@@ -45,7 +51,8 @@
     "company": "ikea",
     "rating": 4.55,
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "living room"
   },
   {
     "name": "emperor bed",
@@ -53,8 +60,8 @@
     "company": "ikea",
     "rating": 4.55,
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-  
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kitchen"
   },
   {
     "name": "entertainment center",
@@ -62,8 +69,8 @@
     "featured": true,
     "company": "caressa",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "bedroom"
   },
   {
     "name": "high-back bench",
@@ -71,17 +78,18 @@
     "featured": true,
     "company": "ikea",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "dining"
   },
 
   {
     "name": "leather sofa",
     "price": 99,
+    "featured": false,
     "company": "caressa",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kids"
   },
   {
     "name": "modern bookshelf",
@@ -89,48 +97,48 @@
     "featured": true,
     "company": "caressa",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kitchen"
   },
   {
     "name": "modern poster",
     "price": 30,
     "company": "liddy",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kids"
   },
   {
     "name": "shelf",
     "price": 30,
     "company": "ikea",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kitchen"
   },
   {
     "name": "simple chair",
     "price": 109,
     "company": "liddy",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "dinning"
   },
   {
     "name": "sofa set",
     "price": 129,
     "company": "marcos",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "living room"
   },
   {
     "name": "suede armchair",
     "price": 15,
     "company": "caressa",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   },
   {
     "name": "utopia sofa",
@@ -138,8 +146,8 @@
     "featured": true,
     "company": "liddy",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kids"
   },
   {
     "name": "vase table",
@@ -147,24 +155,24 @@
     "featured": true,
     "company": "marcos",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kitchen"
   },
   {
     "name": "wooden bed",
     "price": 25,
     "company": "ikea",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   },
   {
     "name": "wooden desk",
     "price": 15,
     "company": "ikea",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "dinning"
   },
   {
     "name": "vase table",
@@ -172,8 +180,8 @@
     "featured": true,
     "company": "marcos",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
-
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   },
   {
     "name": "wooden table",
@@ -181,7 +189,8 @@
     "featured": true,
     "company": "caressa",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "kids"
   },
   {
     "name": "wooden hardware",
@@ -189,7 +198,8 @@
     "featured": false,
     "company": "caressa",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   },
   {
     "name": "a first wooden table",
@@ -197,6 +207,7 @@
     "featured": true,
     "company": "caressa",
     "image": "./img/table_b.png",
-    "detail":"Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ..."
+    "detail": "Cloud bread VHS hell of banjo bicycle rights jianbing umami mumblecore etsy 8-bit pok pok +1 wolf. Vexillologist yr dreamcatcher waistcoat, authentic ...",
+    "type": "office"
   }
 ]

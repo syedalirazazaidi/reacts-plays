@@ -1,26 +1,23 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 // import { categories } from "../helperfunctions/categories";
 import {
-  Spacer,
   Flex,
   Slider,
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
   Button,
-} from "@chakra-ui/react";
-import {
   Box,
   Checkbox,
   Input,
   List,
   ListItem,
-  Radio,
   Select,
   Text,
 } from "@chakra-ui/react";
+
 const categories: string[] = [
-  " All",
+  "All",
   "Office",
   "Living Room",
   "Kitchen",
@@ -29,6 +26,10 @@ const categories: string[] = [
   "Kids",
 ];
 function Sidebar() {
+  const CategorySelected = (category: string) => {
+    console.log("first", category);
+  };
+
   return (
     <Box>
       <Input placeholder="Search" border="none" bg="gray.50" />
@@ -36,16 +37,19 @@ function Sidebar() {
         <Text fontWeight={500} marginTop="20px">
           Category
         </Text>
-
         {categories.map((category: string) => (
-          <ListItem
-            fontWeight={400}
-            fontSize={14}
-            color="#8b9fb3"
-            _hover={{ cursor: "pointer" }}
-            _active={{ backgroundColor: "red" }}
-          >
-            {category}
+          <ListItem fontWeight={300} fontSize={14} color="#8b9fb3">
+            <Button
+              variant="link"
+              _focus={{
+                textDecoration: "underline",
+                textUnderlineOffset: "4px",
+              }}
+              _hover={{ cursor: "pointer", textUnderlineOffset: "4px" }}
+              onClick={() => CategorySelected(category)}
+            >
+              <Text marginRight="60px"> {category}</Text>
+            </Button>
           </ListItem>
         ))}
       </List>
