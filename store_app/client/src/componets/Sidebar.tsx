@@ -1,4 +1,5 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { categories } from "../helperfunctions/categories";
 import {
   Spacer,
   Flex,
@@ -27,9 +28,7 @@ function Sidebar() {
         <Text fontWeight={500} marginTop="20px">
           Category
         </Text>
-        <ListItem fontWeight={200} fontSize={14}>
-          asdsa
-        </ListItem>
+        <ListItem color="#859baf" fontWeight={300} fontSize={14}></ListItem>
         <ListItem fontWeight={200} fontSize={14}>
           asdsa
         </ListItem>

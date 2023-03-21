@@ -3,11 +3,7 @@ import {
   Card,
   Divider,
   Flex,
-  Grid,
-  GridItem,
-  HStack,
   Image,
-  Select,
   SimpleGrid,
   Spacer,
   Text,
@@ -16,15 +12,56 @@ import { IoAppsSharp, IoReorderFourSharp } from "react-icons/io5";
 import { useLoaderData } from "react-router-dom";
 import { ProductsEntity, ProductsType } from "../types/interface";
 import { useState } from "react";
+import Select from "react-select";
+
 type LoaderData = {
   data?: ProductsType;
 };
+
 function Products() {
   const { data } = useLoaderData() as LoaderData;
+  const [newLoSorted, setLoSorted] = useState(data?.data);
   const [gridUI, setGridUI] = useState({
     w: "250px",
     show: true,
   });
+  const options = [
+    { value: "lowest", label: "Price(Lowest)" },
+    { value: "highest", label: "Price(Highest)" },
+    { value: "az", label: "Name(A - Z)" },
+    { value: "za", label: "Name(Z - A)" },
+  ];
+
+  const handleChange = (e: any) => {
+    const newvalue = e.value;
+    if (newvalue === "az") {
+      const copyData = newLoSorted;
+      const sort: any =
+        copyData &&
+        [...copyData]?.sort((a: any, b: any) => (a.name > b.name ? 1 : -1));
+
+      setLoSorted(sort);
+    } else if (newvalue === "za") {
+      const copyData = newLoSorted;
+      const sort: any =
+        copyData && [...copyData]?.sort((a, b) => (a.name > b.name ? -1 : 1));
+
+      setLoSorted(sort);
+    } else if (newvalue === "lowest") {
+      const copyData = newLoSorted;
+      const sort: any =
+        copyData && [...copyData]?.sort((a: any, b: any) => a.price - b.price);
+
+      setLoSorted(sort);
+    } else if (newvalue === "highest") {
+      const copyData = newLoSorted;
+      const sort: any =
+        copyData && [...copyData]?.sort((a: any, b: any) => b.price - a.price);
+
+      setLoSorted(sort);
+    }
+  };
+
   const changeGrid = (button1: string) => {
     if (button1 === "button1") {
       setGridUI((prev) => {
@@ -62,16 +99,17 @@ function Products() {
         <Text>8 Products Found</Text>
         <Divider m={4} w="350px" />
         <Spacer />
-        <Text>Sort By</Text>
-        <Select variant="flushed" w="200px" placeholder="">
-          <option value="option1">Option 1</option>
-          <option value="option2">Option 2</option>
-          <option value="option3">Option 3</option>
-        </Select>
+        <Text fontWeight={"550"}>Sort By</Text>
+        <Select
+          options={options}
+          placeholder="select a value"
+          onChange={handleChange}
+        />
       </Flex>
       <SimpleGrid my="20px" p="14px" spacing={10} minChildWidth={gridUI.w}>
-        {data?.data &&
-          data?.data?.map((product: ProductsEntity) => (
+        {newLoSorted?.length &&
+          newLoSorted &&
+          newLoSorted?.map((product: ProductsEntity) => (
             <Box>
               <Card>
                 <Image
