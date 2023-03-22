@@ -1,5 +1,6 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 // import { categories } from "../helperfunctions/categories";
+import { useState } from "react";
 import {
   Flex,
   Slider,
@@ -25,10 +26,31 @@ const categories: string[] = [
   "Dining",
   "Kids",
 ];
+const colorPicker: string[] = [
+  "red",
+  "orange",
+  "yellow",
+  "green",
+  "teal",
+  "blue",
+];
+
 function Sidebar() {
-  const CategorySelected = (category: string) => {
-    console.log("first", category);
-  };
+  var checkmark = "✓";
+  const [selectedColor, setSelectedColor] = useState(checkmark);
+  const [selectedNum, setSelectedNum] = useState<number | string>(null ?? "");
+
+  const options = [
+    { value: "all", label: "all" },
+    { value: "marcos", label: "marcos" },
+    { value: "liddy", label: "liddy" },
+    { value: "ikea", label: "ikea" },
+    { value: "caressa", label: "caressa" },
+  ];
+
+  function CategorySelected(category: string): void {
+    throw new Error("Function not implemented.");
+  }
 
   return (
     <Box>
@@ -60,23 +82,52 @@ function Sidebar() {
         icon={<ChevronDownIcon />}
         variant="filled"
         placeholder="all"
-        w="110px"
+        w="100px"
         fontSize={12}
-        fontWeight="400"
-        marginTop="12px"
+        fontWeight="500"
+        marginTop="14px"
+        padding="1px 1px 1px 1px"
       >
-        <option value="option1">Option 1</option>
-        <option value="option2">Option 2</option>
-        <option value="option3">Option 3</option>
+        <option value="liddy">liddy</option>
+        <option value="ikea">ikea</option>
+        <option value="marcos">marcos</option>
+        <option value="caressa">caressa</option>
       </Select>
+
       <Text fontWeight={500} marginTop="20px">
         Colors
       </Text>
-      <Flex gap={2} marginTop="12px">
-        <Checkbox variant="circular" colorScheme="red"></Checkbox>
-        <Checkbox variant="circular" colorScheme="red"></Checkbox>
-        <Checkbox variant="circular" colorScheme="red"></Checkbox>
-        <Checkbox variant="circular" colorScheme="red"></Checkbox>
+      <Flex gap={1} marginTop="12px" ml="-10px">
+        <Button
+          variant="link"
+          _focus={{
+            textDecoration: "underline",
+            textUnderlineOffset: "4px",
+          }}
+          _hover={{ cursor: "pointer", textUnderlineOffset: "4px" }}
+        >
+          <Text> All </Text>
+        </Button>
+
+        {colorPicker.map((color, i) => (
+          <Box borderRadius="full" borderWidth="thin">
+            <Box
+              key={i}
+              width={5}
+              height={5}
+              bg={`${color}.400`}
+              borderRadius="full"
+              cursor="pointer"
+              onClick={() => setSelectedNum(i)}
+            >
+              {selectedColor && (
+                <Text paddingLeft={"1"} paddingTop={"-9"}>
+                  {selectedNum === i ? selectedColor : null}
+                </Text>
+              )}
+            </Box>
+          </Box>
+        ))}
       </Flex>
       <Text fontWeight={500} marginTop="20px">
         Price
