@@ -16,6 +16,7 @@ import {
   Select,
   Text,
 } from "@chakra-ui/react";
+import Colors from "./Colors";
 
 const categories: string[] = [
   "All",
@@ -25,14 +26,6 @@ const categories: string[] = [
   "Bedroom",
   "Dining",
   "Kids",
-];
-const colorPicker: string[] = [
-  "red",
-  "orange",
-  "yellow",
-  "green",
-  "teal",
-  "blue",
 ];
 
 function Sidebar() {
@@ -97,38 +90,12 @@ function Sidebar() {
       <Text fontWeight={500} marginTop="20px">
         Colors
       </Text>
-      <Flex gap={1} marginTop="12px" ml="-10px">
-        <Button
-          variant="link"
-          _focus={{
-            textDecoration: "underline",
-            textUnderlineOffset: "4px",
-          }}
-          _hover={{ cursor: "pointer", textUnderlineOffset: "4px" }}
-        >
-          <Text> All </Text>
-        </Button>
+      <Colors
+        selectedNum={selectedNum}
+        selectedColor={selectedColor}
+        setSelectedNum={setSelectedNum}
+      />
 
-        {colorPicker.map((color, i) => (
-          <Box borderRadius="full" borderWidth="thin">
-            <Box
-              key={i}
-              width={5}
-              height={5}
-              bg={`${color}.400`}
-              borderRadius="full"
-              cursor="pointer"
-              onClick={() => setSelectedNum(i)}
-            >
-              {selectedColor && (
-                <Text paddingLeft={"1"} paddingTop={"-9"}>
-                  {selectedNum === i ? selectedColor : null}
-                </Text>
-              )}
-            </Box>
-          </Box>
-        ))}
-      </Flex>
       <Text fontWeight={500} marginTop="20px">
         Price
       </Text>

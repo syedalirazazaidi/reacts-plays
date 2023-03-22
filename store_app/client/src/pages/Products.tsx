@@ -13,6 +13,7 @@ import { useLoaderData } from "react-router-dom";
 import { ProductsEntity, ProductsType } from "../types/interface";
 import { useState } from "react";
 import Select from "react-select";
+import { options } from "../helperfunctions/options";
 
 type LoaderData = {
   data?: ProductsType;
@@ -25,12 +26,6 @@ function Products() {
     w: "250px",
     show: true,
   });
-  const options = [
-    { value: "lowest", label: "Price(Lowest)" },
-    { value: "highest", label: "Price(Highest)" },
-    { value: "az", label: "Name(A - Z)" },
-    { value: "za", label: "Name(Z - A)" },
-  ];
 
   const handleChange = (e: any) => {
     const newvalue = e.value;
