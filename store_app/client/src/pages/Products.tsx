@@ -11,21 +11,28 @@ import {
 import { IoAppsSharp, IoReorderFourSharp } from "react-icons/io5";
 import { useLoaderData } from "react-router-dom";
 import { ProductsEntity, ProductsType } from "../types/interface";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Select from "react-select";
 import { options } from "../helperfunctions/options";
+// import Context from "../Context/context";
+// import ContextProduct from "../Context/context";
+// import { ProductState } from "../Context/context";
 
 type LoaderData = {
   data?: ProductsType;
 };
 
 function Products() {
+  // const currentUser = useContext(ProductState);
   const { data } = useLoaderData() as LoaderData;
   const [newLoSorted, setLoSorted] = useState(data?.data);
+  // const { ShowIn } = useContext(ProductState);
   const [gridUI, setGridUI] = useState({
     w: "250px",
     show: true,
   });
+  // console.log(currentUser, "currentUser");
+  // console.log(ShowIn, "ShowIn");
 
   const handleChange = (e: any) => {
     const newvalue = e.value;
