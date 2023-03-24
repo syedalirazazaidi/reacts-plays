@@ -14,23 +14,23 @@ import { ProductsEntity, ProductsType } from "../types/interface";
 import { useContext, useState } from "react";
 import Select from "react-select";
 import { options } from "../helperfunctions/options";
-// import Context from "../Context/context";
-// import ContextProduct from "../Context/context";
-// import { ProductState } from "../Context/context";
+// import { ProductContext } from "../Context/context";
+import { ProductContext } from "../context/ProductContext";
 
 type LoaderData = {
   data?: ProductsType;
 };
 
 function Products() {
-  // const currentUser = useContext(ProductState);
+  // const currentUser = useContext(ProductContext);
   const { data } = useLoaderData() as LoaderData;
   const [newLoSorted, setLoSorted] = useState(data?.data);
-  // const { ShowIn } = useContext(ProductState);
+  // const { ShowIn } = useContext(ProductContext);
   const [gridUI, setGridUI] = useState({
     w: "250px",
     show: true,
   });
+  // console.log(ShowIn, "???");
   // console.log(currentUser, "currentUser");
   // console.log(ShowIn, "ShowIn");
 

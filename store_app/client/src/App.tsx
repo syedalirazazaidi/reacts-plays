@@ -5,6 +5,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { getProducts } from "./api/getProducts";
+// import ProductProvider from "./context/ProductContext";
 import RootLayout from "./layouts/RootLayoout";
 import Products from "./pages/Products";
 import Testing from "./pages/Testing";
@@ -20,6 +21,11 @@ const router = createBrowserRouter(
 
 function App() {
   return <RouterProvider router={router} />;
+  // <ProductProvider>
+
+  ({
+    /* </ProductProvider> */
+  });
 }
 
 export default App;

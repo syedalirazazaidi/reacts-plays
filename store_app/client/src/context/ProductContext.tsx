@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import { useLoaderData } from "react-router-dom";
 import { ProductsType } from "../types/interface";
 interface IProductContext {
@@ -15,20 +15,20 @@ type LoaderData = {
 const { data } = useLoaderData() as LoaderData;
 const defaultState = {
   ShowIn: false,
-  data,
+  // data,
 };
 
-export const ProductState = createContext<any>(defaultState);
+export const ProductContext = createContext<any>({});
 
-const ContextProduct = ({ children }: ProductProviderProps) => {
+export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [ShowIn, setShowIn] = useState<boolean>(false);
-  const [newLoSorted, setLoSorted] = useState(data?.data);
+  // const [newLoSorted, setLoSorted] = useState(data?.data ?? []);
 
   return (
-    <ProductState.Provider value={{ ShowIn, newLoSorted, setLoSorted }}>
+    <ProductContext.Provider value={{ ShowIn }}>
       {children}
-    </ProductState.Provider>
+    </ProductContext.Provider>
   );
 };
 
-export default ContextProduct;
+// export default ProductProvider;
