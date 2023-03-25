@@ -124,8 +124,10 @@
 
 // export default App;
 import React, { useState } from "react";
-import { ThemeContext } from "./Theme/ThemeContext";
+// import { ThemeContext } from "./Theme/ThemeContext";
 import Header from "./header";
+import Test from "./text";
+import { DataProvider } from "./Theme/DataContext";
 function App() {
   // sum of array in the object using reduce
   // const material = [
@@ -174,9 +176,15 @@ function App() {
   const [theme, setTheme] = useState("light");
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Header />
-    </ThemeContext.Provider>
+    // <ThemeContext.Provider value={{ theme, setTheme }}>
+    <div>
+      <DataProvider>
+        <Header />
+        <Test />
+      </DataProvider>
+    </div>
+
+    // </ThemeContext.Provider>
   );
 }
 

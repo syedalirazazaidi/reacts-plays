@@ -6,7 +6,7 @@ type ThemeContextType = {
 };
 
 const initialThemeContext: ThemeContextType = {
-  theme: "yellow",
+  theme: "light",
   setTheme: () => {},
 };
 

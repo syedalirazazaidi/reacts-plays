@@ -1,18 +1,16 @@
 import { useContext } from "react";
-import { ThemeContext } from "./Theme/ThemeContext";
+import { DataContext } from "./Theme/DataContext";
 
 function Header() {
-  const { theme, setTheme } = useContext(ThemeContext);
-  console.log(theme, "themetheme");
-  function toggleTheme() {
-    const newTheme: any = theme === "red" ? "green" : "blue";
-    setTheme(newTheme);
-  }
-  console.log(theme);
+  const { nameMy, setNameMy }: any = useContext(DataContext);
+  console.log(nameMy, "???");
+  const changeName = () => {
+    setNameMy("developer");
+  };
   return (
     <header>
-      <h1 style={{ backgroundColor: `${theme}` }}>My App new</h1>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <h1>My App new{nameMy}</h1>
+      <button onClick={changeName}>Toggle Theme</button>
     </header>
   );
 }
