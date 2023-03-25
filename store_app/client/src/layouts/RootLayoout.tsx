@@ -9,7 +9,8 @@ export default function RootLayout() {
   const [gridUI, setGridUI] = useState();
   return (
     <Box>
-      {/* <ProductProvider> */} <Navbar />
+      {/* <ProductProvider> */}
+      <Navbar />
       <Container maxW="6xl" pb="20px">
         <Grid templateColumns="repeat(6,1fr)" marginTop={"90px"}>
           <GridItem

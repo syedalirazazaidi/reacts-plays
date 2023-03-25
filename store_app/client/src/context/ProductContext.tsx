@@ -11,21 +11,33 @@ interface ProductProviderProps {
 type LoaderData = {
   data?: ProductsType;
 };
-
+interface IThemeContext {
+  dark: boolean;
+  toggleDark?: () => void;
+}
+interface MyContextType {
+  value: string;
+  setValue: (value: string) => void;
+}
 const { data } = useLoaderData() as LoaderData;
-const defaultState = {
-  ShowIn: false,
-  // data,
-};
-
-export const ProductContext = createContext<any>({});
+// const defaultState = {
+//   dark: false,
+// };
+// export const ProductContext = createContext<IThemeContext>(defaultState);
+export const ProductContext = createContext<MyContextType>({
+  value: "",
+  setValue: () => {},
+});
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
-  const [ShowIn, setShowIn] = useState<boolean>(false);
+  // const [dark, setShowIn] = useState<boolean>(false);
+  // const [name, setName] = useState<string>("");
   // const [newLoSorted, setLoSorted] = useState(data?.data ?? []);
+  // const [dataNew, setData] = useState("Hello from App component!");
+  const [value, setValue] = useState("");
 
   return (
-    <ProductContext.Provider value={{ ShowIn }}>
+    <ProductContext.Provider value={{ value, setValue }}>
       {children}
     </ProductContext.Provider>
   );

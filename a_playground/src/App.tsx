@@ -123,8 +123,9 @@
 // }
 
 // export default App;
-import React from "react";
-
+import React, { useState } from "react";
+import { ThemeContext } from "./Theme/ThemeContext";
+import Header from "./header";
 function App() {
   // sum of array in the object using reduce
   // const material = [
@@ -170,15 +171,12 @@ function App() {
   // }, []);
 
   // console.log(doubled);
+  const [theme, setTheme] = useState("light");
+
   return (
-    <div
-      style={{
-        margin: "0 auto",
-        width: "50%",
-      }}
-    >
-      App
-    </div>
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      <Header />
+    </ThemeContext.Provider>
   );
 }
 
