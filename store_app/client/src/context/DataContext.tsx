@@ -41,15 +41,19 @@ export function loader() {
 export const DataContext = createContext({});
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
-  // const { data } = useLoaderData() as LoaderData;
-  // console.log(data, "?????");
-  // const [newLoSorted, setLoSorted] = useState();
-  const { data } = useLoaderData() as LoaderData;
+  const [newLoSorted, setLoSorted] = useState([]);
 
-  const [value, setValue] = useState("aliraza");
+  useEffect(() => {
+    async function fetchData() {
+      const response = await getProducts();
+      const newData: any = await response;
+      setLoSorted(newData?.data?.data);
+    }
+    fetchData();
+  }, []);
 
   return (
-    <DataContext.Provider value={{ value, setValue }}>
+    <DataContext.Provider value={{ setLoSorted, newLoSorted }}>
       {children}
     </DataContext.Provider>
   );

@@ -14,36 +14,31 @@ import { ProductsEntity, ProductsType } from "../types/interface";
 import { useContext, useState } from "react";
 import Select from "react-select";
 import { options } from "../helperfunctions/options";
-import { DataContext, ProductProvider } from "../context/DataContext";
+import { DataContext } from "../context/DataContext";
 
-type LoaderData = {
-  data?: ProductsType;
-};
+// type LoaderData = {
+//   data?: ProductsType;
+// };
 
 function Products() {
-  const { data } = useLoaderData() as LoaderData;
-  // const { value, setValue }: any = useContext(DataContext);
-  // const { newLoSorted, setLoSorted }: any = useContext(DataContext);
-  const [newLoSorted, setLoSorted] = useState(data?.data);
+  const { newLoSorted, setLoSorted }: any = useContext(DataContext);
   const [gridUI, setGridUI] = useState({
     w: "250px",
     show: true,
   });
-
   const handleChange = (e: any) => {
     const newvalue = e.value;
+
     if (newvalue === "az") {
       const copyData = newLoSorted;
       const sort: any =
         copyData &&
         [...copyData]?.sort((a: any, b: any) => (a.name > b.name ? 1 : -1));
-
       setLoSorted(sort);
     } else if (newvalue === "za") {
       const copyData = newLoSorted;
       const sort: any =
         copyData && [...copyData]?.sort((a, b) => (a.name > b.name ? -1 : 1));
-
       setLoSorted(sort);
     } else if (newvalue === "lowest") {
       const copyData = newLoSorted;
