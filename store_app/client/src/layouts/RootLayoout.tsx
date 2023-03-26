@@ -3,13 +3,12 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../componets/Navbar";
 import Sidebar from "../componets/Sidebar";
 import { useState } from "react";
-import { ProductProvider } from "../context/ProductContext";
+import { ProductProvider } from "../context/DataContext";
 
 export default function RootLayout() {
   const [gridUI, setGridUI] = useState();
   return (
     <Box>
-      {/* <ProductProvider> */}
       <Navbar />
       <Container maxW="6xl" pb="20px">
         <Grid templateColumns="repeat(6,1fr)" marginTop={"90px"}>
@@ -20,13 +19,11 @@ export default function RootLayout() {
           >
             <Sidebar />
           </GridItem>
-
           <GridItem as="aside" colSpan={5}>
             <Outlet />
           </GridItem>
         </Grid>
       </Container>
-      {/* </ProductProvider> */}
     </Box>
   );
 }

@@ -53,7 +53,12 @@ function Sidebar() {
           Category
         </Text>
         {categories.map((category: string) => (
-          <ListItem fontWeight={300} fontSize={14} color="#8b9fb3">
+          <ListItem
+            fontWeight={300}
+            fontSize={14}
+            color="#8b9fb3"
+            key={category}
+          >
             <Button
               variant="link"
               _focus={{

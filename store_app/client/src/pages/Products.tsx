@@ -14,7 +14,7 @@ import { ProductsEntity, ProductsType } from "../types/interface";
 import { useContext, useState } from "react";
 import Select from "react-select";
 import { options } from "../helperfunctions/options";
-import { ProductContext } from "../context/ProductContext";
+import { DataContext, ProductProvider } from "../context/DataContext";
 
 type LoaderData = {
   data?: ProductsType;
@@ -22,8 +22,8 @@ type LoaderData = {
 
 function Products() {
   const { data } = useLoaderData() as LoaderData;
-  // const { value, setValue } = useContext(ProductContext);
-
+  // const { value, setValue }: any = useContext(DataContext);
+  // const { newLoSorted, setLoSorted }: any = useContext(DataContext);
   const [newLoSorted, setLoSorted] = useState(data?.data);
   const [gridUI, setGridUI] = useState({
     w: "250px",
@@ -74,65 +74,62 @@ function Products() {
 
   return (
     <Box>
-      {/* <p>{value}</p> */}
-      sadasd
-      {/* <button onClick={() => setValue("Hello world!")}>Set value</button> */}
-    </Box>
-    // <Box>
-    //   <Flex textAlign="center" alignItems="center" gap="2" p={2} m={2}>
-    //     <Box
-    //       _hover={{ cursor: "pointer" }}
-    //       border={"1px solid black"}
-    //       borderRadius="2px"
-    //       onClick={() => changeGrid("button1")}
-    //       bg={gridUI.show ? "black" : "white"}
-    //       color={gridUI.show ? "white" : "black"}
-    //     >
-    //       <IoAppsSharp />
-    //     </Box>
+      <Box>
+        <Flex textAlign="center" alignItems="center" gap="2" p={2} m={2}>
+          <Box
+            _hover={{ cursor: "pointer" }}
+            border={"1px solid black"}
+            borderRadius="2px"
+            onClick={() => changeGrid("button1")}
+            bg={gridUI.show ? "black" : "white"}
+            color={gridUI.show ? "white" : "black"}
+          >
+            <IoAppsSharp />
+          </Box>
+          <Box
+            border={"1px solid black"}
+            _hover={{ cursor: "pointer" }}
+            bg={!gridUI.show ? "black" : "white"}
+            color={!gridUI.show ? "white" : "black"}
+            borderRadius="2px"
+            onClick={() => changeGrid("button2")}
+          >
+            <IoReorderFourSharp />
+          </Box>
+          <Text>9 Products Found </Text>
+          <Divider m={4} w="350px" />
+          <Spacer />
+          <Text fontWeight={"550"}>Sort By</Text>
 
-    //     <Box
-    //       border={"1px solid black"}
-    //       _hover={{ cursor: "pointer" }}
-    //       bg={!gridUI.show ? "black" : "white"}
-    //       color={!gridUI.show ? "white" : "black"}
-    //       borderRadius="2px"
-    //       onClick={() => changeGrid("button2")}
-    //     >
-    //       <IoReorderFourSharp />
-    //     </Box>
-    //     <Text>9 Products Found </Text>
-    //     <Divider m={4} w="350px" />
-    //     <Spacer />
-    //     <Text fontWeight={"550"}>Sort By</Text>
-    //     <Select
-    //       options={options}
-    //       placeholder="select a value"
-    //       onChange={handleChange}
-    //     />
-    //   </Flex>
-    //   <SimpleGrid my="20px" p="14px" spacing={10} minChildWidth={gridUI.w}>
-    //     {newLoSorted?.length &&
-    //       newLoSorted &&
-    //       newLoSorted?.map((product: ProductsEntity) => (
-    //         <Box>
-    //           <Card>
-    //             <Image
-    //               boxSize="200px"
-    //               objectFit="cover"
-    //               src={`${product?.image}`}
-    //               alt="tableimg"
-    //             />
-    //           </Card>
-    //           <Flex marginTop="10px">
-    //             <Text>{product.name}</Text>
-    //             <Spacer />
-    //             <Text>{product.price}</Text>
-    //           </Flex>
-    //         </Box>
-    //       ))}
-    //   </SimpleGrid>
-    // </Box>
+          <Select
+            options={options}
+            placeholder="select a value"
+            onChange={handleChange}
+          />
+        </Flex>
+        <SimpleGrid my="20px" p="14px" spacing={10} minChildWidth={gridUI.w}>
+          {newLoSorted?.length &&
+            newLoSorted &&
+            newLoSorted?.map((product: ProductsEntity) => (
+              <Box key={product?._id}>
+                <Card>
+                  <Image
+                    boxSize="200px"
+                    objectFit="cover"
+                    src={`${product?.image}`}
+                    alt="tableimg"
+                  />
+                </Card>
+                <Flex marginTop="10px">
+                  <Text>{product.name}</Text>
+                  <Spacer />
+                  <Text>{product.price}</Text>
+                </Flex>
+              </Box>
+            ))}
+        </SimpleGrid>
+      </Box>
+    </Box>
   );
 }
 
