@@ -1,8 +1,7 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
 // import { categories } from "../helperfunctions/categories";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import {
-  Flex,
   Slider,
   SliderTrack,
   SliderFilledTrack,
@@ -17,21 +16,26 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Colors from "./Colors";
-
-const categories: string[] = [
-  "All",
-  "Office",
-  "Living Room",
-  "Kitchen",
-  "Bedroom",
-  "Dining",
-  "Kids",
+import { DataContext } from "../context/DataContext";
+interface CatType {
+  id: number;
+  name: string;
+}
+const categories: CatType[] = [
+  { id: 1, name: "all" },
+  { id: 2, name: "office" },
+  { id: 3, name: "living room" },
+  { id: 4, name: "kitchen" },
+  { id: 5, name: "bedroom" },
+  { id: 6, name: "dining" },
+  { id: 7, name: "kids" },
 ];
 
 function Sidebar() {
   var checkmark = "✓";
   const [selectedColor, setSelectedColor] = useState(checkmark);
   const [selectedNum, setSelectedNum] = useState<number | string>(null ?? "");
+  const { newLoSorted, setLoSorted }: any = useContext(DataContext);
 
   const options = [
     { value: "all", label: "all" },
@@ -41,8 +45,36 @@ function Sidebar() {
     { value: "caressa", label: "caressa" },
   ];
 
-  function CategorySelected(category: string): void {
-    throw new Error("Function not implemented.");
+  function CategorySelected(category: any) {
+    console.log(category.name);
+    // let newSorteddata = [...newLoSorted];
+    if (category.name === "all") {
+      setLoSorted(newLoSorted);
+      return;
+    } else if (category.name === "office") {
+      const newdattype = [
+        ...newLoSorted.filter((fitData: any) => {
+          return fitData.type === category.name;
+        }),
+      ];
+      setLoSorted(newdattype);
+    } else if (category.name === "kitchen") {
+      const newdattype = [
+        ...newLoSorted?.filter((fitData: any) => {
+          return fitData.type === category.name;
+        }),
+      ];
+
+      setLoSorted(newdattype);
+    } else if (category.name === "dining") {
+      const newdattype = newLoSorted?.filter(
+        (fitData: any) => fitData.type === "dining"
+      );
+
+      setLoSorted(newdattype);
+    } else {
+      setLoSorted([...newLoSorted]);
+    }
   }
 
   return (
@@ -52,15 +84,17 @@ function Sidebar() {
         <Text fontWeight={500} marginTop="20px">
           Category
         </Text>
-        {categories.map((category: string) => (
+        {categories.map((category: CatType) => (
           <ListItem
             fontWeight={300}
             fontSize={14}
             color="#8b9fb3"
-            key={category}
+            key={category.id}
           >
             <Button
               variant="link"
+              type="button"
+              value={category.name}
               _focus={{
                 textDecoration: "underline",
                 textUnderlineOffset: "4px",
@@ -68,7 +102,7 @@ function Sidebar() {
               _hover={{ cursor: "pointer", textUnderlineOffset: "4px" }}
               onClick={() => CategorySelected(category)}
             >
-              <Text marginRight="60px"> {category}</Text>
+              <Text marginRight="60px"> {category.name}</Text>
             </Button>
           </ListItem>
         ))}

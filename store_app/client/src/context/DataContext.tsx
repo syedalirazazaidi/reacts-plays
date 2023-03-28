@@ -51,7 +51,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     }
     fetchData();
   }, []);
-
+  console.log(newLoSorted, "__%%___");
   return (
     <DataContext.Provider value={{ setLoSorted, newLoSorted }}>
       {children}

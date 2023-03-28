@@ -34,6 +34,7 @@ function Products() {
       const sort: any =
         copyData &&
         [...copyData]?.sort((a: any, b: any) => (a.name > b.name ? 1 : -1));
+      console.log(sort, "TESTING");
       setLoSorted(sort);
     } else if (newvalue === "za") {
       const copyData = newLoSorted;

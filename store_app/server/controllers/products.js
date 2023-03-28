@@ -10,8 +10,15 @@ const getAllProductsStatic = async (req, res) => {
   // res.status(200).json({ products, nbHits: products.length })
 }
 const getAllProducts = async (req, res) => {
-  console.log(req.body)
-  const { featured, company, name, sort, fields, numericFilters } = req.query
+  const {
+    name,
+    featured,
+    company,
+    sort,
+    fields,
+    numericFilters,
+    type,
+  } = req.query
   const queryObject = {}
 
   if (featured) {
@@ -19,6 +26,9 @@ const getAllProducts = async (req, res) => {
   }
   if (company) {
     queryObject.company = company
+  }
+  if (type) {
+    queryObject.type = type
   }
   if (name) {
     queryObject.name = { $regex: name, $options: 'i' }
