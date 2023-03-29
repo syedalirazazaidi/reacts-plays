@@ -42,6 +42,7 @@ export const DataContext = createContext({});
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [newLoSorted, setLoSorted] = useState([]);
+  const [filterCriteria, setFilterCriteria] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -51,9 +52,10 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     }
     fetchData();
   }, []);
-  console.log(newLoSorted, "__%%___");
   return (
-    <DataContext.Provider value={{ setLoSorted, newLoSorted }}>
+    <DataContext.Provider
+      value={{ filterCriteria, setFilterCriteria, setLoSorted, newLoSorted }}
+    >
       {children}
     </DataContext.Provider>
   );

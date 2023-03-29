@@ -46,34 +46,31 @@ function Sidebar() {
   ];
 
   function CategorySelected(category: any) {
-    console.log(category.name);
     // let newSorteddata = [...newLoSorted];
     if (category.name === "all") {
       setLoSorted(newLoSorted);
       return;
     } else if (category.name === "office") {
-      const newdattype = [
-        ...newLoSorted.filter((fitData: any) => {
-          return fitData.type === category.name;
-        }),
-      ];
+      // const copyData = [...newLoSorted];
+
+      const newdattype = newLoSorted?.filter((fitData: any) => {
+        return fitData.type === "office";
+      });
       setLoSorted(newdattype);
     } else if (category.name === "kitchen") {
-      const newdattype = [
-        ...newLoSorted?.filter((fitData: any) => {
-          return fitData.type === category.name;
-        }),
-      ];
-
+      // const copyData = [...newLoSorted];
+      const newdattype = newLoSorted?.filter((fitData: any) => {
+        return fitData.type === category.name;
+      });
       setLoSorted(newdattype);
     } else if (category.name === "dining") {
+      // const copyData = [...newLoSorted];
+
       const newdattype = newLoSorted?.filter(
         (fitData: any) => fitData.type === "dining"
       );
 
       setLoSorted(newdattype);
-    } else {
-      setLoSorted([...newLoSorted]);
     }
   }
 
