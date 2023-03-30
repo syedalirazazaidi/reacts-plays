@@ -42,8 +42,8 @@ export const DataContext = createContext({});
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [newLoSorted, setLoSorted] = useState([]);
-  const [filterCriteria, setFilterCriteria] = useState([]);
-
+  const [filteredCartItems, setFilteredCartItems] = useState<any>([]);
+  const [filterButton, setFilterButton] = useState("");
   useEffect(() => {
     async function fetchData() {
       const response = await getProducts();
@@ -52,9 +52,34 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     }
     fetchData();
   }, []);
+
+  const filterCartItems = () => {
+    let filteredItems: any;
+    if (filterButton === "men") {
+      return newLoSorted;
+    } else if (filterButton === "men") {
+      filteredItems = newLoSorted?.filter(
+        (item: any) => item.category === "men"
+      );
+    } else if (filterButton === "women") {
+      filteredItems = newLoSorted.filter(
+        (item: any) => item.category === "women"
+      );
+    } else if (filterButton === "kids") {
+      filteredItems = newLoSorted.filter(
+        (item: any) => item.category === "kids"
+      );
+    }
+    setFilteredCartItems(filteredItems);
+  };
   return (
     <DataContext.Provider
-      value={{ filterCriteria, setFilterCriteria, setLoSorted, newLoSorted }}
+      value={{
+        filteredCartItems,
+        setFilteredCartItems,
+        setLoSorted,
+        newLoSorted,
+      }}
     >
       {children}
     </DataContext.Provider>
