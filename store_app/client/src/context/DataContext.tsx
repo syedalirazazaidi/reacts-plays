@@ -1,36 +1,11 @@
 import React, { useState, createContext, useEffect } from "react";
 import { ProductsType } from "../types/interface";
 import { getProducts } from "../api/getProducts";
-import { useLoaderData } from "react-router-dom";
-// import { useLoaderData } from "react-router-dom";
-// import { ProductsType } from "../types/interface";
-// interface IProductContext {
-//   ShowIn: boolean;
-//   data?: ProductsType;
-// }
+
 interface ProductProviderProps {
   children: React.ReactNode;
 }
-// type LoaderData = {
-//   data?: ProductsType;
-// };
-// interface IThemeContext {
-//   dark: boolean;
-//   toggleDark?: () => void;
-// }
-// interface MyContextType {
-//   value: string;
-//   setValue: (value: string) => void;
-// }
-// const { data } = useLoaderData() as LoaderData;
-// const defaultState = {
-//   dark: false,
-// };
-// export const ProductContext = createContext<IThemeContext>(defaultState);
-// export const ProductContext = createContext<MyContextType>({
-//   value: "",
-//   setValue: () => {},
-// });
+
 type LoaderData = {
   data?: ProductsType;
 };
@@ -43,7 +18,10 @@ export const DataContext = createContext({});
 export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [newLoSorted, setLoSorted] = useState([]);
   const [filteredCartItems, setFilteredCartItems] = useState<any>([]);
-  const [filterButton, setFilterButton] = useState("");
+  const [filtervalue, setFilterValue] = useState("all");
+
+  const [filteredData, setFilteredData] = useState([]);
+  const [sortOrder, setSortOrder] = useState("asc");
   useEffect(() => {
     async function fetchData() {
       const response = await getProducts();
@@ -52,26 +30,34 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     }
     fetchData();
   }, []);
-
-  const filterCartItems = () => {
-    let filteredItems: any;
-    if (filterButton === "men") {
-      return newLoSorted;
-    } else if (filterButton === "men") {
-      filteredItems = newLoSorted?.filter(
-        (item: any) => item.category === "men"
-      );
-    } else if (filterButton === "women") {
-      filteredItems = newLoSorted.filter(
-        (item: any) => item.category === "women"
-      );
-    } else if (filterButton === "kids") {
-      filteredItems = newLoSorted.filter(
-        (item: any) => item.category === "kids"
-      );
-    }
-    setFilteredCartItems(filteredItems);
+  useEffect(() => {
+    setFilteredData(newLoSorted);
+  }, []);
+  const handleSort = () => {
+    const sorted = [...newLoSorted].sort((a: any, b: any) => {
+      if (a.name < b.name) {
+        return sortOrder === "asc" ? -1 : 1;
+      }
+      if (a.name > b.name) {
+        return sortOrder === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+    setFilteredData(sorted);
+    setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
+
+  const handleFilter = () => {
+    if (filtervalue === "all") {
+      setFilteredData(newLoSorted);
+    }
+
+    const filtered = newLoSorted.filter((item: any) =>
+      item?.type.includes(filtervalue)
+    );
+    setFilteredData(filtered);
+  };
+
   return (
     <DataContext.Provider
       value={{
@@ -79,6 +65,11 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
         setFilteredCartItems,
         setLoSorted,
         newLoSorted,
+        setFilterValue,
+        filtervalue,
+        handleFilter,
+        filteredData,
+        handleSort,
       }}
     >
       {children}

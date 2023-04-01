@@ -35,7 +35,16 @@ function Sidebar() {
   var checkmark = "✓";
   const [selectedColor, setSelectedColor] = useState(checkmark);
   const [selectedNum, setSelectedNum] = useState<number | string>(null ?? "");
-  const { newLoSorted, setLoSorted }: any = useContext(DataContext);
+  const {
+    newLoSorted,
+    filtervalue,
+    setFilterValue,
+    setLoSorted,
+    filteredCartItems,
+    filterCartItems,
+    handleFilter,
+  }: any = useContext(DataContext);
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   const options = [
     { value: "all", label: "all" },
@@ -45,37 +54,46 @@ function Sidebar() {
     { value: "caressa", label: "caressa" },
   ];
 
-  function CategorySelected(category: any) {
-    // let newSorteddata = [...newLoSorted];
-    let newdattype;
-    if (category.name === "all") {
-      // setLoSorted(newLoSorted);
-      return;
-    } else if (category.name === "office") {
-      // const copyData = [...newLoSorted];
+  // function CategorySelected(category: any) {
+  //   // let newSorteddata = [...newLoSorted];
+  //   let newdattype;
+  //   if (category.name === "all") {
+  //     // setLoSorted(newLoSorted);
+  //     return;
+  //   } else if (category.name === "office") {
+  //     // const copyData = [...newLoSorted];
 
-      newdattype = newLoSorted?.filter((fitData: any) => {
-        fitData.type === "office";
-      });
-      // setLoSorted(newdattype);
-    } else if (category.name === "kitchen") {
-      // const copyData = [...newLoSorted];
-      newdattype = newLoSorted?.filter((fitData: any) => {
-        return fitData.type === category.name;
-      });
-      console.log(newdattype, "KITCHEN");
-      // setLoSorted(newdattype);
-    } else if (category.name === "dining") {
-      // const copyData = [...newLoSorted];
+  //     newdattype = newLoSorted?.filter((fitData: any) => {
+  //       fitData.type === "office";
+  //     });
+  //     // setLoSorted(newdattype);
+  //   } else if (category.name === "kitchen") {
+  //     // const copyData = [...newLoSorted];
+  //     newdattype = newLoSorted?.filter((fitData: any) => {
+  //       return fitData.type === category.name;
+  //     });
+  //     console.log(newdattype, "KITCHEN");
+  //     // setLoSorted(newdattype);
+  //   } else if (category.name === "dining") {
+  //     // const copyData = [...newLoSorted];
 
-      newdattype = newLoSorted?.filter(
-        (fitData: any) => fitData.type === "dining"
-      );
-      console.log(newdattype, "DINING");
+  //     newdattype = newLoSorted?.filter(
+  //       (fitData: any) => fitData.type === "dining"
+  //     );
+  //     console.log(newdattype, "DINING");
+  //   }
+  //   setLoSorted(newdattype);
+  // }
+  const CategorySelected = (category: any) => {
+    // console.log(category.name, "???");
+    // setSelectedCategory(category.name);
+    if (category?.name) {
+      setFilterValue(category.name);
+      handleFilter();
     }
-    setLoSorted(newdattype);
-  }
+  };
 
+  console.log(selectedCategory, "////////");
   return (
     <Box>
       <Input placeholder="Search" border="none" bg="gray.50" />
@@ -98,8 +116,10 @@ function Sidebar() {
                 textDecoration: "underline",
                 textUnderlineOffset: "4px",
               }}
+              
               _hover={{ cursor: "pointer", textUnderlineOffset: "4px" }}
               onClick={() => CategorySelected(category)}
+              _selected={{}}
             >
               <Text marginRight="60px"> {category.name}</Text>
             </Button>

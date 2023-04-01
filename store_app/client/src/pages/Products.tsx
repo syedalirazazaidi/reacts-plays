@@ -21,7 +21,13 @@ import { DataContext } from "../context/DataContext";
 // };
 
 function Products() {
-  const { newLoSorted, setLoSorted }: any = useContext(DataContext);
+  const {
+    newLoSorted,
+    setLoSorted,
+    handleSort,
+    filteredData,
+    setFilteredData,
+  }: any = useContext(DataContext);
   const [gridUI, setGridUI] = useState({
     w: "250px",
     show: true,
@@ -30,29 +36,30 @@ function Products() {
     const newvalue = e.value;
 
     if (newvalue === "az") {
-      const copyData = newLoSorted;
+      const copyData = filteredData;
+      console.log(copyData, "copyDatacopyDatacopyData");
       const sort: any =
         copyData &&
         [...copyData]?.sort((a: any, b: any) => (a.name > b.name ? 1 : -1));
       console.log(sort, "TESTING");
-      setLoSorted(sort);
+      setFilteredData(sort);
     } else if (newvalue === "za") {
-      const copyData = newLoSorted;
+      const copyData = filteredData;
       const sort: any =
         copyData && [...copyData]?.sort((a, b) => (a.name > b.name ? -1 : 1));
-      setLoSorted(sort);
+      setFilteredData(sort);
     } else if (newvalue === "lowest") {
-      const copyData = newLoSorted;
+      const copyData = filteredData;
       const sort: any =
         copyData && [...copyData]?.sort((a: any, b: any) => a.price - b.price);
 
-      setLoSorted(sort);
+      setFilteredData(sort);
     } else if (newvalue === "highest") {
-      const copyData = newLoSorted;
+      const copyData = filteredData;
       const sort: any =
         copyData && [...copyData]?.sort((a: any, b: any) => b.price - a.price);
 
-      setLoSorted(sort);
+      setFilteredData(sort);
     }
   };
 
@@ -100,13 +107,13 @@ function Products() {
           <Select
             options={options}
             placeholder="select a value"
-            onChange={handleChange}
+            onChange={handleSort}
           />
         </Flex>
         <SimpleGrid my="20px" p="14px" spacing={10} minChildWidth={gridUI.w}>
-          {newLoSorted?.length &&
-            newLoSorted &&
-            newLoSorted?.map((product: ProductsEntity) => (
+          {filteredData?.length &&
+            filteredData &&
+            filteredData?.map((product: ProductsEntity) => (
               <Box key={product?._id}>
                 <Card>
                   <Image
