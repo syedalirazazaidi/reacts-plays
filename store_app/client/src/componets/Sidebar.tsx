@@ -43,6 +43,8 @@ function Sidebar() {
     filteredCartItems,
     filterCartItems,
     handleFilter,
+    setselctedCategory,
+    category,
   }: any = useContext(DataContext);
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -84,12 +86,17 @@ function Sidebar() {
   //   }
   //   setLoSorted(newdattype);
   // }
-  const CategorySelected = (category: any) => {
+  const CategorySelected = (categoryvalue: any) => {
     // console.log(category.name, "???");
     // setSelectedCategory(category.name);
-    if (category?.name) {
-      setFilterValue(category.name);
-      handleFilter();
+    // if (category?.name) {
+    //   setFilterValue(category.name);
+    //   handleFilter();
+    // }
+    console.log(categoryvalue.name, "ANWER");
+    if (categoryvalue.name) {
+      setselctedCategory(categoryvalue.name);
+      // handleFilter();
     }
   };
 

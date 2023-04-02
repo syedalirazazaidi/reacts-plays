@@ -16,23 +16,28 @@ export function loader() {
 export const DataContext = createContext({});
 
 export const ProductProvider = ({ children }: ProductProviderProps) => {
-  const [newLoSorted, setLoSorted] = useState([]);
+  const [allData, setAllData] = useState([]);
+  const [newLoSorted, setLoSorted] = useState(allData);
   const [filteredCartItems, setFilteredCartItems] = useState<any>([]);
   const [filtervalue, setFilterValue] = useState("all");
-
+  const [category, setselctedCategory] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
+  const [truevalue, setTrue] = useState(false);
   useEffect(() => {
     async function fetchData() {
       const response = await getProducts();
       const newData: any = await response;
+
+      // setLoSorted(newData?.data?.data);
+      setAllData(newData?.data?.data);
       setLoSorted(newData?.data?.data);
     }
     fetchData();
   }, []);
-  useEffect(() => {
-    setFilteredData(newLoSorted);
-  }, []);
+  // useEffect(() => {
+  //   setFilteredData(newLoSorted);
+  // }, []);
   const handleSort = () => {
     const sorted = [...newLoSorted].sort((a: any, b: any) => {
       if (a.name < b.name) {
@@ -47,16 +52,22 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
-  const handleFilter = () => {
-    if (filtervalue === "all") {
-      setFilteredData(newLoSorted);
-    }
+  useEffect(() => {
+    handleFilter();
+  }, [category]);
 
-    const filtered = newLoSorted.filter((item: any) =>
-      item?.type.includes(filtervalue)
-    );
-    setFilteredData(filtered);
+  const handleFilter = () => {
+    let updatedCategory = [...allData];
+    if (category !== "all") {
+      updatedCategory = updatedCategory.filter(
+        (item: any) => item?.type === category
+      );
+      setLoSorted(updatedCategory);
+    } else {
+      setLoSorted(updatedCategory);
+    }
   };
+  console.log(category, "?????==");
 
   return (
     <DataContext.Provider
@@ -70,6 +81,8 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
         handleFilter,
         filteredData,
         handleSort,
+        setselctedCategory,
+        category,
       }}
     >
       {children}

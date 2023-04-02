@@ -32,6 +32,7 @@ function Products() {
     w: "250px",
     show: true,
   });
+
   const handleChange = (e: any) => {
     const newvalue = e.value;
 
@@ -100,10 +101,10 @@ function Products() {
             <IoReorderFourSharp />
           </Box>
           <Text>9 Products Found </Text>
+
           <Divider m={4} w="350px" />
           <Spacer />
           <Text fontWeight={"550"}>Sort By</Text>
-
           <Select
             options={options}
             placeholder="select a value"
@@ -111,9 +112,9 @@ function Products() {
           />
         </Flex>
         <SimpleGrid my="20px" p="14px" spacing={10} minChildWidth={gridUI.w}>
-          {filteredData?.length &&
-            filteredData &&
-            filteredData?.map((product: ProductsEntity) => (
+          {newLoSorted?.length &&
+            newLoSorted &&
+            newLoSorted?.map((product: ProductsEntity) => (
               <Box key={product?._id}>
                 <Card>
                   <Image
