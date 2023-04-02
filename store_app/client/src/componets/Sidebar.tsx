@@ -116,7 +116,6 @@ function Sidebar() {
                 textDecoration: "underline",
                 textUnderlineOffset: "4px",
               }}
-              
               _hover={{ cursor: "pointer", textUnderlineOffset: "4px" }}
               onClick={() => CategorySelected(category)}
               _selected={{}}

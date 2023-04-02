@@ -117,10 +117,11 @@ function Products() {
               <Box key={product?._id}>
                 <Card>
                   <Image
-                    boxSize="200px"
+                    boxSize="280px"
                     objectFit="cover"
                     src={`${product?.image}`}
                     alt="tableimg"
+                    borderRadius={2}
                   />
                 </Card>
                 <Flex marginTop="10px">
