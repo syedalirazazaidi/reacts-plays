@@ -8,7 +8,6 @@ import {
   SliderThumb,
   Button,
   Box,
-  Checkbox,
   Input,
   List,
   ListItem,
@@ -56,51 +55,12 @@ function Sidebar() {
     { value: "caressa", label: "caressa" },
   ];
 
-  // function CategorySelected(category: any) {
-  //   // let newSorteddata = [...newLoSorted];
-  //   let newdattype;
-  //   if (category.name === "all") {
-  //     // setLoSorted(newLoSorted);
-  //     return;
-  //   } else if (category.name === "office") {
-  //     // const copyData = [...newLoSorted];
-
-  //     newdattype = newLoSorted?.filter((fitData: any) => {
-  //       fitData.type === "office";
-  //     });
-  //     // setLoSorted(newdattype);
-  //   } else if (category.name === "kitchen") {
-  //     // const copyData = [...newLoSorted];
-  //     newdattype = newLoSorted?.filter((fitData: any) => {
-  //       return fitData.type === category.name;
-  //     });
-  //     console.log(newdattype, "KITCHEN");
-  //     // setLoSorted(newdattype);
-  //   } else if (category.name === "dining") {
-  //     // const copyData = [...newLoSorted];
-
-  //     newdattype = newLoSorted?.filter(
-  //       (fitData: any) => fitData.type === "dining"
-  //     );
-  //     console.log(newdattype, "DINING");
-  //   }
-  //   setLoSorted(newdattype);
-  // }
   const CategorySelected = (categoryvalue: any) => {
-    // console.log(category.name, "???");
-    // setSelectedCategory(category.name);
-    // if (category?.name) {
-    //   setFilterValue(category.name);
-    //   handleFilter();
-    // }
-    console.log(categoryvalue.name, "ANWER");
     if (categoryvalue.name) {
       setselctedCategory(categoryvalue.name);
-      // handleFilter();
     }
   };
 
-  console.log(selectedCategory, "////////");
   return (
     <Box>
       <Input placeholder="Search" border="none" bg="gray.50" />

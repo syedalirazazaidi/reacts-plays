@@ -23,21 +23,17 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [category, setselctedCategory] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
-  const [truevalue, setTrue] = useState(false);
   useEffect(() => {
     async function fetchData() {
       const response = await getProducts();
       const newData: any = await response;
 
-      // setLoSorted(newData?.data?.data);
       setAllData(newData?.data?.data);
       setLoSorted(newData?.data?.data);
     }
     fetchData();
   }, []);
-  // useEffect(() => {
-  //   setFilteredData(newLoSorted);
-  // }, []);
+
   const handleSort = () => {
     const sorted = [...newLoSorted].sort((a: any, b: any) => {
       if (a.name < b.name) {
@@ -48,7 +44,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
       }
       return 0;
     });
-    setFilteredData(sorted);
+    setLoSorted(sorted);
     setSortOrder(sortOrder === "asc" ? "desc" : "asc");
   };
 
@@ -67,7 +63,6 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
       setLoSorted(updatedCategory);
     }
   };
-  console.log(category, "?????==");
 
   return (
     <DataContext.Provider
