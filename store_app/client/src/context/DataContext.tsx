@@ -23,7 +23,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [category, setselctedCategory] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
-  const [search, setInputSearch] = useState("");
+  const [searchitem, setInputSearch] = useState("");
   useEffect(() => {
     async function fetchData() {
       const response = await getProducts();
@@ -51,20 +51,26 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
 
   useEffect(() => {
     handleFilter();
-  }, [category]);
+  }, [category, searchitem]);
 
   const handleFilter = () => {
+    let updatedCategory = [...allData];
     if (category) {
-      let updatedCategory = [...allData];
       if (category !== "all") {
         updatedCategory = updatedCategory.filter(
           (item: any) => item?.type === category
         );
-        setLoSorted(updatedCategory);
       } else {
         setLoSorted(updatedCategory);
       }
     }
+    if (searchitem) {
+      updatedCategory = updatedCategory.filter(
+        (item: any) =>
+          item?.name.toLowerCase().indexOf(searchitem.toLowerCase()) !== -1
+      );
+    }
+    setLoSorted(updatedCategory);
   };
 
   return (
@@ -81,7 +87,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
         handleSort,
         setselctedCategory,
         category,
-        search,
+        searchitem,
         setInputSearch,
       }}
     >
