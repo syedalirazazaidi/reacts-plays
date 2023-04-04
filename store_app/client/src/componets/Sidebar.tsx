@@ -48,6 +48,7 @@ function Sidebar() {
     setInputSearch,
     handleChange,
     newvalue,
+    clearFilter,
     setValue,
   }: any = useContext(DataContext);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -145,7 +146,7 @@ function Sidebar() {
         <SliderThumb />
       </Slider>
       <Box marginTop="20px" />
-      <Button bg="red.600" colorScheme="#ffff" py="1px">
+      <Button bg="red.600" onClick={clearFilter} colorScheme="#ffff" py="1px">
         Clear Filter
       </Button>
     </Box>

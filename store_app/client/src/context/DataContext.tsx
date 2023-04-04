@@ -35,6 +35,11 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
     }
     fetchData();
   }, []);
+  const clearFilter = () => {
+    setValue("");
+    setInputSearch("");
+    setselctedCategory("");
+  };
 
   const handleSort = () => {
     const sorted = [...newLoSorted].sort((a: any, b: any) => {
@@ -94,6 +99,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
         setselctedCategory,
         category,
         searchitem,
+        clearFilter,
         setInputSearch,
         newvalue,
         setValue,
