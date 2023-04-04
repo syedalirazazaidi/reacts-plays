@@ -23,6 +23,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [category, setselctedCategory] = useState("");
   const [filteredData, setFilteredData] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
+  const [search, setInputSearch] = useState("");
   useEffect(() => {
     async function fetchData() {
       const response = await getProducts();
@@ -78,6 +79,8 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
         handleSort,
         setselctedCategory,
         category,
+        search,
+        setInputSearch,
       }}
     >
       {children}

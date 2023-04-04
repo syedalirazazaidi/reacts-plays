@@ -44,6 +44,9 @@ function Sidebar() {
     handleFilter,
     setselctedCategory,
     category,
+    search,
+    setInputSearch,
+    handleChange,
   }: any = useContext(DataContext);
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -63,7 +66,15 @@ function Sidebar() {
 
   return (
     <Box>
-      <Input placeholder="Search" border="none" bg="gray.50" />
+      <Input
+        type="text"
+        placeholder="Search"
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+          setInputSearch(event.target.value)
+        }
+        border="none"
+        bg="gray.50"
+      />
       <List color="black" fontSize="1.2em" spacing={2}>
         <Text fontWeight={500} marginTop="20px">
           Category
