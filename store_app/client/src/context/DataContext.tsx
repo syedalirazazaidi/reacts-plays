@@ -24,6 +24,7 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
   const [filteredData, setFilteredData] = useState([]);
   const [sortOrder, setSortOrder] = useState("asc");
   const [searchitem, setInputSearch] = useState("");
+  const [newvalue, setValue] = useState("");
   useEffect(() => {
     async function fetchData() {
       const response = await getProducts();
@@ -51,13 +52,10 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
 
   useEffect(() => {
     handleFilter();
-  }, [category, searchitem]);
+  }, [category, searchitem, newvalue]);
 
   const handleFilter = () => {
     let updatedCategory = [...allData];
-    // if (category === "all") {
-    //   setLoSorted(updatedCategory);
-    // }
 
     if (category) {
       if (category !== "all") {
@@ -65,14 +63,17 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
           (item: any) => item?.type === category
         );
       }
-      // else {
-      //   setLoSorted(updatedCategory);
-      // }
     }
+
     if (searchitem) {
       updatedCategory = updatedCategory.filter(
         (item: any) =>
           item?.name.toLowerCase().indexOf(searchitem.toLowerCase()) !== -1
+      );
+    }
+    if (newvalue) {
+      updatedCategory = updatedCategory.filter(
+        (item: any) => item?.company === newvalue
       );
     }
     setLoSorted(updatedCategory);
@@ -94,6 +95,8 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
         category,
         searchitem,
         setInputSearch,
+        newvalue,
+        setValue,
       }}
     >
       {children}

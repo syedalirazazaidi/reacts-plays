@@ -47,6 +47,8 @@ function Sidebar() {
     search,
     setInputSearch,
     handleChange,
+    newvalue,
+    setValue,
   }: any = useContext(DataContext);
   const [selectedCategory, setSelectedCategory] = useState("");
 
@@ -115,6 +117,8 @@ function Sidebar() {
         fontWeight="500"
         marginTop="14px"
         padding="1px 1px 1px 1px"
+        value={newvalue}
+        onChange={(event: any) => setValue(event.target.value)}
       >
         <option value="liddy">liddy</option>
         <option value="ikea">ikea</option>
