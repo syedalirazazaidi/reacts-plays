@@ -1,6 +1,7 @@
 # Reactjs Plays(Projects)
 projects to understand React.js , using MongoDB, Firebase,Express.js and node.js.
 
-|#         | Plays     | Description                       |
+|# | Plays        | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of item to fetch |
+|01| Task Manager | A Task Manager site using React.js, MongoDB and Nodejs. |
+|02| Store App    | A complete app example with a shopping cart using React.js, MongoDB|
