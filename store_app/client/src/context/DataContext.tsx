@@ -55,14 +55,19 @@ export const ProductProvider = ({ children }: ProductProviderProps) => {
 
   const handleFilter = () => {
     let updatedCategory = [...allData];
+    // if (category === "all") {
+    //   setLoSorted(updatedCategory);
+    // }
+
     if (category) {
       if (category !== "all") {
         updatedCategory = updatedCategory.filter(
           (item: any) => item?.type === category
         );
-      } else {
-        setLoSorted(updatedCategory);
       }
+      // else {
+      //   setLoSorted(updatedCategory);
+      // }
     }
     if (searchitem) {
       updatedCategory = updatedCategory.filter(
