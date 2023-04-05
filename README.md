@@ -7,4 +7,6 @@ projects to understand React.js , using MongoDB, Firebase,Express.js and node.js
 |02| Store App    | A cart app example with a shopping cart using React.js, MongoDB|
 
 
-1. A Task Manager App
+1. A Store App
+
+![App Screenshot](store_app/shop_app.png)
