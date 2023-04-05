@@ -23,3 +23,18 @@ A Shopping site using React.js, MongoDB and Node.js.
 - fetching events from Node.js and enabling page rendering for dynamic pages.
 - setting up a MongoDB database and getting comments for a specific event.
 
+
+ ## 2. A Task Manager App
+
+A TaskManager site using React.js, MongoDB and Node.js.
+
+![App Screenshot](task_manager/task_manager.png)
+
+
+## Features
+
+- creating a  layout,  and styling them with Chakra UI.
+- adding, editing and deleting task.
+- guarding routes to  edit,  task and create task.
+
+
