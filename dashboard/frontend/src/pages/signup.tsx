@@ -33,18 +33,17 @@ export const SignUp = () => (
       >
         <Stack spacing="6">
           <Stack spacing="5">
-            <FormControl>
+            <FormControl isRequired>
               <FormLabel htmlFor="user">User Name</FormLabel>
               <Input id="text" type="text" />
             </FormControl>
           </Stack>
           <Stack spacing="5">
-            <FormControl>
+            <FormControl isRequired>
               <FormLabel htmlFor="password">Password</FormLabel>
               <Input id="password" type="password" />
             </FormControl>
           </Stack>
-
           <Stack spacing="6">
             <Button variant="primary" bg="gray.200">
               Submit

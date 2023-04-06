@@ -10,5 +10,7 @@ function App() {
     </Box>
   );
 }
+// RuVC1puFUjClNWj6
+// mongodb+srv://auth:<password>@cluster0.qfzen0e.mongodb.net/?retryWrites=true&w=majority
 
 export default App;
