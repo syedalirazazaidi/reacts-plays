@@ -12,7 +12,7 @@ import {
 export const SignUp = () => (
   <Container
     maxW="lg"
-    py={{ base: "12", md: "24" }}
+    py={{ base: "12", md: "4" }}
     px={{ base: "0", sm: "8" }}
     bg="gray.60"
   >
@@ -25,6 +25,8 @@ export const SignUp = () => (
         </Stack>
       </Stack>
       <Box
+        w="400px"
+        h="350px"
         py={{ base: "0", sm: "8" }}
         px={{ base: "4", sm: "10" }}
         bg={{ base: "transparent", sm: "bg-surface" }}
@@ -45,7 +47,7 @@ export const SignUp = () => (
             </FormControl>
           </Stack>
           <Stack spacing="6">
-            <Button variant="primary" bg="gray.200">
+            <Button variant="primary" bg="gray.200" mt="40px">
               Submit
             </Button>
           </Stack>
