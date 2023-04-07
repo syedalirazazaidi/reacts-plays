@@ -9,8 +9,8 @@ function GetData() {
         <Text textAlign="left"> sadassdas</Text>
       </Container>
       <VStack mt="50px">
-        <Button w="400px" borderRadius="3px">
-          Get Data
+        <Button w="400px" borderRadius="3px" bg="blue.200">
+          Fetch Data
         </Button>
       </VStack>
     </Box>

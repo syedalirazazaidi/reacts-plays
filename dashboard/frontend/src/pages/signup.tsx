@@ -47,7 +47,7 @@ export const SignUp = () => (
             </FormControl>
           </Stack>
           <Stack spacing="6">
-            <Button variant="primary" bg="gray.200" mt="40px">
+            <Button variant="primary" bg="blue.200" mt="40px">
               Submit
             </Button>
           </Stack>
