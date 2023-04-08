@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const { BadRequestError } = require('../errors')
 
 const login = async (req, res) => {
+  console.log(req.body)
   const { username, password } = req.body
 
   if (!username || !password) {
