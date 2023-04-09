@@ -3,7 +3,7 @@ const { UnauthenticatedError, CustomAPIError } = require('../errors')
 
 const authenticationMiddleware = async (req, res, next) => {
   const authHeader = req.headers.authorization
-
+  console.log(authHeader)
   if (!authHeader || !authHeader.startsWith('Bearer ')) {
     // throw new CustomAPIError('No token provided', 400)
     res.send('No token provided')
