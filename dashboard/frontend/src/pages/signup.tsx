@@ -35,24 +35,14 @@ function SignUp() {
       name: login.name,
       password: login.password,
     };
-    fetch("http://localhost:5000/api/v1/login", {
-      method: "POST",
-      body: JSON.stringify(logindata),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Form submitted successfully:", data);
-        setLogin(initialFormState);
-      })
-      .catch((error) => {
-        console.error("Error submitting form:", error);
-      });
-    // axios
-    //   .post(`${API_URL}`, logindata)
-
+    // fetch("http://localhost:5000/api/v1/login", {
+    //   method: "POST",
+    //   body: JSON.stringify(logindata),
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then((response) => response.json())
     //   .then((data) => {
     //     console.log("Form submitted successfully:", data);
     //     setLogin(initialFormState);
@@ -60,6 +50,16 @@ function SignUp() {
     //   .catch((error) => {
     //     console.error("Error submitting form:", error);
     //   });
+    axios
+      .post(`${API_URL}`, logindata)
+
+      .then((data) => {
+        console.log("Form submitted successfully:", data);
+        setLogin(initialFormState);
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+      });
   };
 
   return (
