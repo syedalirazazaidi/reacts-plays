@@ -10,9 +10,9 @@ const login = async (req, res) => {
   console.log(req.body)
   const { username, password } = req.body
 
-  if (!username || !password) {
-    res.send('Please provide email and password')
-  }
+  //   if (!username || !password) {
+  //     res.send('Please provide email and password')
+  //   }
 
   const id = new Date().getDate()
 

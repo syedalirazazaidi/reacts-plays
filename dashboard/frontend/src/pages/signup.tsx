@@ -10,7 +10,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import React from "react";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 interface MyFormState {
   name: string;
   password: string;
@@ -22,6 +22,7 @@ const initialFormState: MyFormState = {
 const API_URL = "http://localhost:5000/api/v1/login";
 function SignUp() {
   const [login, setLogin] = useState(initialFormState);
+  const [token, setToken] = useState();
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setLogin((prevState) => ({
@@ -35,32 +36,20 @@ function SignUp() {
       name: login.name,
       password: login.password,
     };
-    // fetch("http://localhost:5000/api/v1/login", {
-    //   method: "POST",
-    //   body: JSON.stringify(logindata),
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log("Form submitted successfully:", data);
-    //     setLogin(initialFormState);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error submitting form:", error);
-    //   });
+
     axios
       .post(`${API_URL}`, logindata)
-
-      .then((data) => {
+      .then((data: any) => {
         console.log("Form submitted successfully:", data);
+        setToken(data?.data);
+        localStorage.setItem("token", JSON.stringify(data?.data));
         setLogin(initialFormState);
       })
       .catch((error) => {
         console.error("Error submitting form:", error);
       });
   };
+  console.log(token, "??");
 
   return (
     <Container
