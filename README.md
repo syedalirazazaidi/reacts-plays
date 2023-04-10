@@ -36,4 +36,10 @@ A TaskManager site using React.js, MongoDB and Node.js.
 - adding, editing and deleting task.
 - guarding routes to  edit,  task and create task.
 
+ ## 2. A Dashboard App
+
+A Authentication site using React.js, MongoDB and Node.js.
+
+![App Screenshot](dashboard/auth.png)
+
 
