@@ -15,8 +15,10 @@ function GetData() {
     }
   }, [stateToken]);
   const fetchData = () => {
+    const dat = `Bearer ${stateToken.token}`;
+    console.log(dat, "TOHEAER");
     const headers = {
-      Authorization: `Bearer ${stateToken.token}`,
+      Authorization: dat,
     };
 
     axios
@@ -24,7 +26,7 @@ function GetData() {
       .then((response) => setData(response.data))
       .catch((error) => console.error(error));
   };
-  console.log(data, "assdfsdfds");
+
   return (
     <Box>
       <Text fontWeight={600} fontSize="22px">
