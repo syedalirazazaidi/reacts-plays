@@ -16,7 +16,7 @@ function GetData() {
   }, [stateToken]);
   const fetchData = () => {
     const dat = `Bearer ${stateToken.token}`;
-    console.log(dat, "TOHEAER");
+
     const headers = {
       Authorization: dat,
     };
@@ -32,13 +32,22 @@ function GetData() {
       <Text fontWeight={600} fontSize="22px">
         Dashboard
       </Text>
-      {stateToken && <Text color="green"> Token Present</Text>}
+      {stateToken ? (
+        <Text color="green"> Token Present</Text>
+      ) : (
+        <Text color="red">No Token present</Text>
+      )}
 
-      <Container marginTop="45px" bg="gray.100" w="400px" h="50px">
-        {/* {stateToken && <Text textAlign="left"> {stateToken.token}</Text>} */}
+      {stateToken ? (
+        <Container marginTop="45px" bg="gray.100" w="400px" h="50px">
+          {/* {stateToken && <Text textAlign="left"> {stateToken.token}</Text>} */}
 
-        {data?.msg}
-      </Container>
+          {data?.msg}
+          {data?.secret}
+        </Container>
+      ) : (
+        <Text>undefined</Text>
+      )}
       <VStack mt="50px">
         <Button w="400px" borderRadius="3px" bg="blue.200" onClick={fetchData}>
           Fetch Data

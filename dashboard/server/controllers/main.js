@@ -20,11 +20,10 @@ const login = async (req, res) => {
     expiresIn: '30d',
   })
 
-  res.status(200).json({ msg: 'user created', token })
+  res.status(200).json({ msg: 'user created', token, username })
 }
 
 const dashboard = async (req, res) => {
-  console.log(req.body, 'REATR')
   const luckyNumber = Math.floor(Math.random() * 100)
 
   res.status(200).json({

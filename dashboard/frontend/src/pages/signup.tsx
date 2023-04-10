@@ -49,7 +49,7 @@ function SignUp() {
         console.error("Error submitting form:", error);
       });
   };
-  console.log(token, "??");
+  console.log(login, "login");
 
   return (
     <Container

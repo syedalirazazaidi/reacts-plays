@@ -13,7 +13,7 @@ const authenticationMiddleware = async (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, 'secret')
-    console.log(decoded, 'DECODD')
+
     const { id, username } = decoded
     req.user = { id, username }
 
