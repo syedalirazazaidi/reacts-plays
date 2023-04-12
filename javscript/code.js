@@ -1,4 +1,7 @@
 // export NODE_OPTIONS=--openssl-legacy-provider
+
+// export NODE_OPTIONS=--openssl-legacy-provider
+
 // const arr1 = [3, 1, 4, 99]
 // let max
 // let min
