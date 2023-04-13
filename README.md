@@ -3,10 +3,10 @@ projects to understand React.js , using MongoDB, Firebase,Express.js and node.js
 
 |# | Plays        | Description                       |
 | :-------- | :------- | :-------------------------------- |
-|01| Store App     | A cart app example with a shopping cart using React.js,Context ApI MongoDB |
+|01| Store App     | A Cart App example with a shopping cart using React.js,Context ApI MongoDB |
 |02| Task Manager  | A Task Manager site using React.js, MongoDB and Nodejs. |
 |03| Auth Dashboard  | A very simple dashboard to understand authentication with JWT |
-|04| Job App  | A Job App |
+|04| Job App  | A Job App by using tech Vite React.js,Context ApI,Nodejs and MongoDB |
 
 <!-- |02| |  | -->
  ## 1. A Store App
@@ -38,7 +38,7 @@ A TaskManager site using React.js, MongoDB and Node.js.
 - adding, editing and deleting task.
 - guarding routes to  edit,  task and create task.
 
- ## 2. A Dashboard App
+ ## 3. A Dashboard App
 
 A Authentication site using React.js, MongoDB and Node.js.
 
@@ -50,6 +50,9 @@ A Authentication site using React.js, MongoDB and Node.js.
 - using JsonWebToken.
 - protecting routes with client-side.
 - working with a localstorage auth provider with JWT token to log in users
+
+
+ ## 4. A Job App
 
 
 
