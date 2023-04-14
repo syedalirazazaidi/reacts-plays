@@ -7,10 +7,16 @@ const app = express()
 app.use(express.json())
 app.use(cors())
 
+// routers
+const authRouter = require('./routes/auth')
+const jobsRouter = require('./routes/jobs')
+
+// routes
+app.use('/api/v1/auth', authRouter)
+app.use('/api/v1/jobs', authenticateUser, jobsRouter)
+
 const PORT = process.env.PORT | 5000
-app.get('/', (req, res) => {
-  res.send('hi ')
-})
+
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI)
