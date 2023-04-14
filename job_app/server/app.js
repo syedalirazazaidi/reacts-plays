@@ -8,7 +8,9 @@ app.use(express.json())
 app.use(cors())
 
 const PORT = process.env.PORT | 5000
-
+app.get('/', (req, res) => {
+  res.send('hi ')
+})
 const start = async () => {
   try {
     await connectDB(process.env.MONGO_URI)
