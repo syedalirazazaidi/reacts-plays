@@ -1,9 +1,12 @@
+require('dotenv').config()
 const express = require('express')
 
 const cors = require('cors')
 const connectDB = require('./db/connect')
 const authenticateUser = require('./middleware/auth')
-require('dotenv').config()
+
+const authRouter = require('./routes/auth')
+const jobsRouter = require('./routes/jobs')
 const notFoundMiddleware = require('./middleware/not-found')
 const errorHandlerMiddleware = require('./middleware/errors-handler')
 
@@ -12,8 +15,6 @@ app.use(express.json())
 app.use(cors())
 
 // routers
-const authRouter = require('./routes/auth')
-const jobsRouter = require('./routes/jobs')
 
 // routes
 app.use('/api/v1/auth', authRouter)
