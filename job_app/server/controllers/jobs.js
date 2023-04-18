@@ -11,16 +11,18 @@ const getJob = async (req, res) => {
     user: { userId },
     params: { id: jobId },
   } = req
-
+  console.log(req.user.userId)
   const job = await Job.findOne({
     _id: jobId,
-    createdBy: userId,
+    // createdBy: userId,
   })
+
   if (!job) {
     // throw new NotFoundError(`No job with id ${jobId}`)
-    return res
-      .status(StatusCodes.CREATED)
-      .json({ msg: `No job with id ${jobId}` })
+    res.send(`No job with id ${jobId}`)
+    // return res
+    //   .status(StatusCodes.CREATED)
+    //   .json({ msg: `No job with id ${jobId}` })
   }
   res.status(StatusCodes.OK).json({ job })
 }
@@ -51,10 +53,7 @@ const updateJob = async (req, res) => {
     { new: true, runValidators: true },
   )
   if (!job) {
-    return res
-      .status(StatusCodes.CREATED)
-      .json({ msg: `No job with id ${jobId}` })
-    // throw new NotFoundError(`No job with id ${jobId}`)
+    res.send(`No job with id ${jobId}`)
   }
   res.status(StatusCodes.OK).json({ job })
 }
