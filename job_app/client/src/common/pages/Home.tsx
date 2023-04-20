@@ -1,13 +1,14 @@
 import React from "react";
 import MainLayout from "../layout/MainLayout";
 
-function NotFound404() {
+function Home() {
   return (
     <MainLayout>
-      <h1>Your page was found</h1>
-      <p>404 NOT FOUND</p>
+      <main>
+        <h1>Welcome to the website</h1>
+      </main>
     </MainLayout>
   );
 }
 
-export default NotFound404;
+export default Home;
