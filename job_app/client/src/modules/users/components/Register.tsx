@@ -1,11 +1,11 @@
 import React from "react";
 
-function Login() {
+function SignUpForm() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-sm">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-          <h2 className="h-20 text-center  font-semi text-3xl">Login</h2>
+          <h2 className="h-20 text-center  font-semi text-3xl">Register</h2>
           <div className="mb-4">
             <label
               className="block text-gray-700 font-bold mb-2"
@@ -18,6 +18,20 @@ function Login() {
               id="username"
               type="text"
               placeholder="Username"
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 font-bold mb-2"
+              htmlFor="email"
+            >
+              Email
+            </label>
+            <input
+              className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="email"
+              type="email"
+              placeholder="Email"
             />
           </div>
           <div className="mb-6">
@@ -52,12 +66,12 @@ function Login() {
           </div>
           <p className="text-center">
             {" "}
-            Not a member yet?
+            Already a member?
             <a
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 "
-              href="register"
+              href="/"
             >
-              Register
+              Login
             </a>
           </p>
         </form>
@@ -66,4 +80,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUpForm;
