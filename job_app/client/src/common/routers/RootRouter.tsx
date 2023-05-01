@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import StatRouter from "../../modules/stats/routers/StatRouter";
 import Login from "../../modules/users/components/Login";
 import SignUpForm from "../../modules/users/components/Register";
 import AddJob from "../pages/AddJob";
@@ -17,11 +18,11 @@ export default function RootRouter() {
         {/* <Route path="/" element={<Login />} /> */}
         <Route path="/register" element={<SignUpForm />} />
         <Route path="/sidebar" element={<Sidebar />} />
-
-        <Route path="/" element={<Stats />} />
+        <Route path="/" element={<StatRouter />} />
+        {/* <Route path="/" element={<Stats />} />
         <Route path="/all-jobs" element={<AllJobs />} />
         <Route path="/add-job" element={<AddJob />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile />} /> */}
         <Route path="*" element={<NotFound404 />} />
       </Routes>
     </BrowserRouter>
