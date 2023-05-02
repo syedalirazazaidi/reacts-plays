@@ -10,7 +10,7 @@ const Sidebar: React.FC = () => {
       <nav>
         <ul className="space-y-8 text-base ">
           <li className="mb-2 ">
-            <Link to="/all-jobs" className=" text-#dfe2e6 hover:text-#dfe2e6 ">
+            <Link to="/dashboard" className=" text-#dfe2e6 hover:text-#dfe2e6 ">
               <div className="flex gap-2">
                 <i className="ri-bar-chart-box-line "></i>
                 Stats
@@ -18,7 +18,7 @@ const Sidebar: React.FC = () => {
             </Link>
           </li>
           <li className="mb-2">
-            <Link to="/add-job" className="text-#dfe2e6 hover:text-#dfe2e6">
+            <Link to="/all-job" className="text-#dfe2e6 hover:text-#dfe2e6">
               <div className="flex gap-2">
                 <i className="ri-file-search-fill"></i>
                 All Jobs
@@ -26,7 +26,7 @@ const Sidebar: React.FC = () => {
             </Link>
           </li>
           <li className="mb-2">
-            <Link to="/profile" className="text-#dfe2e6 hover:text-#dfe2e6">
+            <Link to="/add-jobs" className="text-#dfe2e6 hover:text-#dfe2e6">
               <div className="flex gap-2">
                 <i className="ri-file-add-line"></i>
                 Add jobs

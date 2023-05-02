@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MainFeed() {
-  return (
-    <div>MainFeed</div>
-  )
+  return <div>MainFeed</div>;
 }
 
-export default MainFeed
+export default MainFeed;

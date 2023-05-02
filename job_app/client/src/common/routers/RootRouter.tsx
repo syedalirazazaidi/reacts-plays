@@ -22,8 +22,9 @@ export default function RootRouter() {
           {/* <Route path="/sidebar" element={<Sidebar />} /> */}
           {/* <Route path="/" element={<StatRouter />} /> */}
           {/* <Route path="/" element={<Stats />} /> */}
-          <Route path="/all-jobs" element={<AllJobs />} />
-          <Route path="/add-job" element={<AddJob />} />
+          <Route path="/dashboard" element={<Stats />} />
+          <Route path="/all-job" element={<AllJobs />} />
+          <Route path="/add-jobs" element={<AddJob />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<NotFound404 />} />
         </Route>
