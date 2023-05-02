@@ -15,7 +15,7 @@ function Dashboard() {
         <div className=" bg-red-500">
           <Sidebar />
         </div>
-        <div className="flex-1 bg-green-500 p-4">
+        <div className="flex-1 bg-gray-100 p-4">
           <Outlet />
         </div>
       </div>

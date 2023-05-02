@@ -3,25 +3,42 @@ import { Link } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
   return (
-    <div className="bg-gray-800 w-64 px-4 py-6 flex flex-col h-screen">
-      <div className="mb-8">
+    <div className="w-64 px-8 py-12  flex flex-col h-screen bg-white">
+      {/* <div className="mb-8">
         <h2 className="text-white text-lg font-medium">My Sidebar</h2>
-      </div>
+      </div> */}
       <nav>
-        <ul>
-          <li className="mb-2">
-            <Link to="/all-jobs" className="text-gray-300 hover:text-white">
-              Link 1
+        <ul className="space-y-8 text-base ">
+          <li className="mb-2 ">
+            <Link to="/all-jobs" className=" text-#dfe2e6 hover:text-#dfe2e6 ">
+              <div className="flex gap-2">
+                <i className="ri-bar-chart-box-line "></i>
+                Stats
+              </div>
             </Link>
           </li>
           <li className="mb-2">
-            <Link to="/add-job" className="text-gray-300 hover:text-white">
-              Link 2
+            <Link to="/add-job" className="text-#dfe2e6 hover:text-#dfe2e6">
+              <div className="flex gap-2">
+                <i className="ri-file-search-fill"></i>
+                All Jobs
+              </div>
             </Link>
           </li>
           <li className="mb-2">
-            <Link to="/profile" className="text-gray-300 hover:text-white">
-              Link 3
+            <Link to="/profile" className="text-#dfe2e6 hover:text-#dfe2e6">
+              <div className="flex gap-2">
+                <i className="ri-file-add-line"></i>
+                Add jobs
+              </div>
+            </Link>
+          </li>
+          <li className="mb-2">
+            <Link to="/profile" className="text-#dfe2e6 hover:text-#dfe2e6">
+              <div className="flex gap-2">
+                <i className="ri-profile-line"></i>
+                Profile
+              </div>
             </Link>
           </li>
         </ul>
