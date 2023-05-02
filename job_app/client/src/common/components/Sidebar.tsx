@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
   return (
@@ -9,19 +10,19 @@ const Sidebar: React.FC = () => {
       <nav>
         <ul>
           <li className="mb-2">
-            <a href="#" className="text-gray-300 hover:text-white">
+            <Link to="/all-jobs" className="text-gray-300 hover:text-white">
               Link 1
-            </a>
+            </Link>
           </li>
           <li className="mb-2">
-            <a href="#" className="text-gray-300 hover:text-white">
+            <Link to="/add-job" className="text-gray-300 hover:text-white">
               Link 2
-            </a>
+            </Link>
           </li>
           <li className="mb-2">
-            <a href="#" className="text-gray-300 hover:text-white">
+            <Link to="/profile" className="text-gray-300 hover:text-white">
               Link 3
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

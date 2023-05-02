@@ -8,22 +8,25 @@ import AllJobs from "../pages/AllJobs";
 import Home from "../pages/Home";
 import NotFound404 from "../pages/NotFound404";
 import Profile from "../pages/Profile";
-import Sidebar from "../pages/Sidebar";
+import Sidebar from "../components/Sidebar";
 import Stats from "../pages/Stats";
+import Dashboard from "../pages/Dashboard";
 
 export default function RootRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* <Route path="/" element={<Login />} /> */}
         <Route path="/register" element={<SignUpForm />} />
-        <Route path="/sidebar" element={<Sidebar />} />
-        <Route path="/" element={<StatRouter />} />
-        {/* <Route path="/" element={<Stats />} />
-        <Route path="/all-jobs" element={<AllJobs />} />
-        <Route path="/add-job" element={<AddJob />} />
-        <Route path="/profile" element={<Profile />} /> */}
-        <Route path="*" element={<NotFound404 />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Dashboard />}>
+          {/* <Route path="/sidebar" element={<Sidebar />} /> */}
+          {/* <Route path="/" element={<StatRouter />} /> */}
+          {/* <Route path="/" element={<Stats />} /> */}
+          <Route path="/all-jobs" element={<AllJobs />} />
+          <Route path="/add-job" element={<AddJob />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound404 />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
