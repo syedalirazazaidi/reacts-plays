@@ -11,7 +11,7 @@ function AddJob() {
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="input1"
           >
-            Input 1
+            Add job
           </label>
           <input
             className="w-80 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
