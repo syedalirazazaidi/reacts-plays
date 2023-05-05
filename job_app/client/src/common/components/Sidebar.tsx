@@ -8,7 +8,7 @@ const Sidebar: React.FC = () => {
   const { isOpen }: any = useContext(SidebarContext);
   console.log(isOpen);
   return (
-    <div>
+    <div className="ease-in-out duration-600">
       {!isOpen && !isOpen ? (
         <div>
           <div className="ml-48 -mt-30 "></div>

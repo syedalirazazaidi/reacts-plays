@@ -18,7 +18,9 @@ function Navbar() {
         onClick={() => isSetOpen(!isOpen)}
         alt="My Image"
       />
-      <p className="bg-#ffffff h-20 mr-16">Dashboard</p>
+      <p className="bg-#ffffff h-20 pt-2 mr-16 text-amber-600 font-medium ">
+        Dashboard
+      </p>
 
       <LogOutMenu />
     </div>

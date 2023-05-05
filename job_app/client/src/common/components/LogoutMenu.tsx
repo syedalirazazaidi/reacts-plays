@@ -90,10 +90,10 @@ const LogoutMenu = () => {
   return (
     <div className="relative">
       <button
-        className="bg-gray-800 text-white font-bold py-2 px-4 rounded"
+        className="bg-amber-600 text-white font-bold py-2 w-32 px-4 rounded"
         onClick={toggleDropdown}
       >
-        <i className="ri-user-line"></i>
+        <i className="ri-user-line">Test User</i>
       </button>
       {isOpen && (
         <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg">
@@ -101,9 +101,9 @@ const LogoutMenu = () => {
             <li>
               <a
                 href="#"
-                className="block px-4 py-2 text-gray-800 hover:bg-gray-300"
+                className="block px-4 py-2 text-gray-800  w-32 hover:bg-gray-400"
               >
-                Item 1
+                Log Out
               </a>
             </li>
           </ul>
