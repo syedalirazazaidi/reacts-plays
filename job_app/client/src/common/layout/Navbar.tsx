@@ -12,13 +12,13 @@ function Navbar() {
     <div className="flex justify-between  mt-8 -mb-4 px-4">
       <img
         className={`h-10 w-10 object-cover  rounded-full hover:cursor-pointer ease-in-out duration-300 ${
-          isOpen ? "ml-4" : "ml-64"
+          isOpen ? "ml-40" : "ml-64"
         }`}
         src={myMenu}
         onClick={() => isSetOpen(!isOpen)}
         alt="My Image"
       />
-      <p className="bg-#ffffff h-20 pt-2 mr-16 text-amber-600 font-medium ">
+      <p className="bg-#ffffff h-20 pt-2 mr-16 text-amber-600 font-medium text-3xl">
         Dashboard
       </p>
 

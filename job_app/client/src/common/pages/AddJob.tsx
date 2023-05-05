@@ -101,22 +101,6 @@ function AddJob() {
           </select>
         </div>
 
-        {/* <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-semibold mb-2"
-            htmlFor="input3"
-          >
-            job Type
-          </label>
-          <input
-            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
-              !isOpen ? "w-80" : "w-96"
-            }`}
-            id="input3"
-            type="text"
-            placeholder="job type"
-          />
-        </div> */}
         <button
           className={`{
   bg-gray-400  h-10 mt-7 hover:bg-gray-700 text-white font-medium  rounded" ${
