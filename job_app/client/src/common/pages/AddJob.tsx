@@ -1,20 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SidebarContext } from "../../contexts/SidebarContext";
 import MainLayout from "../layout/MainLayout";
 
 function AddJob() {
+  const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   return (
-    <div className="bg-white rounded-md shadow-lg p-4  ">
-      {/* <h2 className="text-lg font-semibold mb-2">Card Title</h2> */}
-      <form className="flex flex-wrap gap-4 justify-start mx-24 my-8">
+    <div
+      // className="bg-white rounded-md  shadow-lg p-4
+
+      // "
+      className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+        !isOpen
+          ? "bg-white rounded-md  shadow-lg p-4"
+          : "bg-white rounded-md  shadow-lg p-4 pl-16"
+      }`}
+    >
+      <p className="ml-24 mt-3 text-3xl">Add Job</p>
+      <form className="flex flex-wrap gap-4 content-center justify-start mx-24 my-8">
         <div className="mb-4 ">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input1"
+            className="block text-gray-700 text-sm font-semibold mb-2"
+            htmlFor="position"
           >
-            Add job
+            Position
           </label>
           <input
-            className="w-80 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
             id="input1"
             type="text"
             placeholder="Enter input 1"
@@ -22,13 +35,15 @@ function AddJob() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input2"
+            className="block text-gray-700 text-sm font-semibold mb-2"
+            htmlFor="company"
           >
-            Input 2
+            Company
           </label>
           <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
             id="input2"
             type="text"
             placeholder="Enter input 2"
@@ -36,13 +51,15 @@ function AddJob() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-semibold mb-2"
             htmlFor="input3"
           >
-            Input 3
+            Job Location
           </label>
           <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
             id="input3"
             type="text"
             placeholder="Enter input 3"
@@ -50,13 +67,15 @@ function AddJob() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-semibold mb-2"
             htmlFor="input3"
           >
-            Input 3
+            Status
           </label>
           <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
             id="input3"
             type="text"
             placeholder="Enter input 3"
@@ -64,23 +83,38 @@ function AddJob() {
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-gray-700 text-sm font-semibold mb-2"
             htmlFor="input3"
           >
-            Input 3
+            job Type
           </label>
           <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
             id="input3"
             type="text"
             placeholder="Enter input 3"
           />
         </div>
+        <button
+          className={`{
+  bg-gray-400  h-10 mt-7 hover:bg-gray-700 text-white font-medium  rounded" ${
+    !isOpen ? "w-36 rounded" : "w-44 rounded"
+  }`}
+        >
+          Clear
+        </button>
+        <button
+          className={`{
+          bg-amber-600  h-10 mt-7 hover:bg-amber-500 text-white font-medium  rounded" ${
+            !isOpen ? "w-36 rounded ml-4" : "w-44 rounded ml-4"
+          }`}
+        >
+          Submit
+        </button>
       </form>
     </div>
-    // <MainLayout>
-    //   <div>AddJob</div>
-    // </MainLayout>
   );
 }
 

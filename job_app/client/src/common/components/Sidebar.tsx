@@ -6,9 +6,9 @@ import { SidebarContext } from "../../contexts/SidebarContext";
 import { ISHow } from "../types/type";
 const Sidebar: React.FC = () => {
   const { isOpen }: any = useContext(SidebarContext);
-  console.log(isOpen);
+
   return (
-    <div className="ease-in-out duration-600">
+    <div className={` ${!isOpen ? "ease-in-out duration-900" : ""}`}>
       {!isOpen && !isOpen ? (
         <div>
           <div className="ml-48 -mt-30 "></div>
