@@ -1,3 +1,7 @@
+import SidebarProvider from "../../contexts/SidebarContext";
+import ThemeContextProvider, {
+  ThemeContext,
+} from "../../contexts/ThemeContext";
 import PostContextProvider from "../../modules/posts/Providers/PostContextProvider";
 import UserContextProvider from "../../modules/users/Providers/UserContextProvider";
 
@@ -7,7 +11,11 @@ const AppProvider = () => {
   return (
     <PostContextProvider>
       <UserContextProvider>
-        <RootRouter />
+        <ThemeContextProvider>
+          <SidebarProvider>
+            <RootRouter />
+          </SidebarProvider>
+        </ThemeContextProvider>
       </UserContextProvider>
     </PostContextProvider>
   );
