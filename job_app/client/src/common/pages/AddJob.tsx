@@ -6,9 +6,6 @@ function AddJob() {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   return (
     <div
-      // className="bg-white rounded-md  shadow-lg p-4
-
-      // "
       className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
         !isOpen
           ? "bg-white rounded-md  shadow-lg p-4"
@@ -30,7 +27,7 @@ function AddJob() {
             }`}
             id="input1"
             type="text"
-            placeholder="Enter input 1"
+            placeholder="position"
           />
         </div>
         <div className="mb-4">
@@ -46,7 +43,7 @@ function AddJob() {
             }`}
             id="input2"
             type="text"
-            placeholder="Enter input 2"
+            placeholder="company"
           />
         </div>
         <div className="mb-4">
@@ -62,26 +59,49 @@ function AddJob() {
             }`}
             id="input3"
             type="text"
-            placeholder="Enter input 3"
+            placeholder="job location"
           />
         </div>
+
         <div className="mb-4">
           <label
+            htmlFor="countries"
             className="block text-gray-700 text-sm font-semibold mb-2"
-            htmlFor="input3"
           >
             Status
           </label>
-          <input
-            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+          <select
+            id="status"
+            className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
               !isOpen ? "w-80" : "w-96"
             }`}
-            id="input3"
-            type="text"
-            placeholder="Enter input 3"
-          />
+          >
+            <option value="declined">declined</option>
+            <option value="interview">Interview</option>
+            <option value="FR">pending</option>
+          </select>
         </div>
         <div className="mb-4">
+          <label
+            htmlFor="countries"
+            className="block text-gray-700 text-sm font-semibold mb-2"
+          >
+            Job Type
+          </label>
+          <select
+            id="status"
+            className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
+          >
+            <option value="declined">full time</option>
+            <option value="interview">part time</option>
+            <option value="FR">remote</option>
+            <option value="FR">internship</option>
+          </select>
+        </div>
+
+        {/* <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-semibold mb-2"
             htmlFor="input3"
@@ -94,9 +114,9 @@ function AddJob() {
             }`}
             id="input3"
             type="text"
-            placeholder="Enter input 3"
+            placeholder="job type"
           />
-        </div>
+        </div> */}
         <button
           className={`{
   bg-gray-400  h-10 mt-7 hover:bg-gray-700 text-white font-medium  rounded" ${
