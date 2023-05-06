@@ -46,16 +46,16 @@ function AddJob() {
 
   return (
     <div
-      className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+      className={` shadow appearance-none border rounded mx-8 my-4 p-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
         !isOpen
           ? "bg-white rounded-md  shadow-lg p-4"
           : "bg-white rounded-md  shadow-lg p-4 pl-16"
       }`}
     >
-      <p className="ml-24 mt-3 text-3xl">Add Job</p>
+      <p className="ml-20 mt-3 text-3xl">Add Job</p>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-wrap gap-4 content-center justify-start mx-24 my-8"
+        className="flex flex-wrap gap-4 content-center justify-start mx-20 my-8"
       >
         <div className="mb-4 ">
           <label

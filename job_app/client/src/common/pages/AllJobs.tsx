@@ -1,81 +1,115 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SidebarContext } from "../../contexts/SidebarContext";
 import MainLayout from "../layout/MainLayout";
 
 function AllJobs() {
+  const { isSetOpen, isOpen }: any = useContext(SidebarContext);
+
   return (
-    <div className="bg-white rounded-md shadow-lg p-4  ">
-      {/* <h2 className="text-lg font-semibold mb-2">Card Title</h2> */}
-      <form className="flex flex-wrap gap-4 justify-start mx-24 my-8">
+    <div
+      className={` shadow appearance-none border rounded mx-8 my-4 p-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+        !isOpen
+          ? "bg-white rounded-md  shadow-lg p-4"
+          : "bg-white rounded-md  shadow-lg p-4 pl-16"
+      }`}
+    >
+      <p className="ml-20 mt-3 text-3xl">Search Form</p>
+      <form className="flex flex-wrap gap-4 justify-start mx-20 my-8">
         <div className="mb-4 ">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input1"
+            className="block text-gray-700 text-sm font-semibold mb-2"
+            htmlFor="search"
           >
-            Input 1
+            Search
           </label>
           <input
-            className="w-80 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input1"
+            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
+            id="search"
             type="text"
-            placeholder="Enter input 1"
+            placeholder="search"
           />
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input2"
+            className="block text-gray-700 text-sm font-semibold mb-2"
+            htmlFor="status"
           >
-            Input 2
+            Status
           </label>
-          <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input2"
-            type="text"
-            placeholder="Enter input 2"
-          />
+          <select
+            id="job_type"
+            className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
+            name="job_type"
+            // value={addJob.job_type}
+            // onChange={handleChange}
+            required
+          >
+            <option value="all">all</option>
+            <option value="interview">interview</option>
+            <option value="declined">declined</option>
+            <option value="pending">pending</option>
+          </select>
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input3"
+            className="block text-gray-700 text-sm font-semibold mb-2"
+            htmlFor="type"
           >
-            Input 3
+            Type
           </label>
-          <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input3"
-            type="text"
-            placeholder="Enter input 3"
-          />
+          <select
+            id="job_type"
+            className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
+            name="job_type"
+            // value={addJob.job_type}
+            // onChange={handleChange}
+            required
+          >
+            <option value="all">all</option>
+            <option value="full-time">full-time</option>
+            <option value="part-time">part-time</option>
+            <option value="remote">remote</option>
+            <option value="internship">internship</option>
+          </select>
         </div>
         <div className="mb-4">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input3"
+            className="block text-gray-700 text-sm font-semibold mb-2"
+            htmlFor="sort"
           >
-            Input 3
+            Sort
           </label>
-          <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input3"
-            type="text"
-            placeholder="Enter input 3"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input3"
+          <select
+            id="job_type"
+            className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+              !isOpen ? "w-80" : "w-96"
+            }`}
+            name="job_type"
+            // value={addJob.job_type}
+            // onChange={handleChange}
+            required
           >
-            Input 3
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input3"
-            type="text"
-            placeholder="Enter input 3"
-          />
+            <option value="latest">latest</option>
+            <option value="oldest">oldest</option>
+            <option value="a-z">a-z</option>
+            <option value="z-a">z-a</option>
+          </select>
         </div>
+        <button
+          type="submit"
+          className={`{
+          bg-amber-600  h-9 mt-7 hover:bg-amber-500 text-white font-medium  rounded" ${
+            !isOpen ? "w-80 rounded ml-1" : "w-96 rounded "
+          }`}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
