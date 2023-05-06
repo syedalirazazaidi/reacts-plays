@@ -23,7 +23,7 @@ function AllJobs() {
             Search
           </label>
           <input
-            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+            className={` shadow appearance-none border rounded h-10 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
               !isOpen ? "w-80" : "w-96"
             }`}
             id="search"
@@ -104,7 +104,7 @@ function AllJobs() {
         <button
           type="submit"
           className={`{
-          bg-amber-600  h-9 mt-7 hover:bg-amber-500 text-white font-medium  rounded" ${
+          bg-amber-600  h-10 mt-7 hover:bg-amber-500 text-white font-medium  rounded" ${
             !isOpen ? "w-80 rounded ml-1" : "w-96 rounded "
           }`}
         >

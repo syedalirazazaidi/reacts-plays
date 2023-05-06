@@ -65,7 +65,7 @@ function AddJob() {
             Position
           </label>
           <input
-            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+            className={` shadow appearance-none border rounded  py-2 px-3 h-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
               !isOpen ? "w-80" : "w-96"
             }`}
             value={addJob.position}
@@ -85,7 +85,7 @@ function AddJob() {
             Company
           </label>
           <input
-            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+            className={` shadow appearance-none border rounded py-2 px-3 h-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
               !isOpen ? "w-80" : "w-96"
             }`}
             id="company"
@@ -105,7 +105,7 @@ function AddJob() {
             Job Location
           </label>
           <input
-            className={` shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+            className={` shadow appearance-none border rounded py-2 px-3 h-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
               !isOpen ? "w-80" : "w-96"
             }`}
             id="location"
