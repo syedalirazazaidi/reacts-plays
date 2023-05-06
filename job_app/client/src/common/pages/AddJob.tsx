@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useContext, useState, ChangeEvent, FormEvent } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import MainLayout from "../layout/MainLayout";
@@ -23,8 +24,24 @@ function AddJob() {
     }));
   };
   const handleSubmit = (e: FormEvent) => {
+    const addjobdata = {
+      position: addJob.position,
+      company: addJob.company,
+      location: addJob.location,
+      status: addJob.status,
+      job_type: addJob.job_type,
+    };
+    console.log(addjobdata);
+
     e.preventDefault();
-    console.log(addJob);
+    axios
+      .post("http://localhost:5000/api/v1/jobs", addjobdata)
+      .then((data: any) => {
+        console.log("Form submitted successfully:", data);
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+      });
   };
 
   return (
