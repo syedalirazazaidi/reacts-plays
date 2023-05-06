@@ -18,8 +18,8 @@ app.use(cors())
 
 // routes
 app.use('/api/v1/auth', authRouter)
-app.use('/api/v1/jobs', authenticateUser, jobsRouter)
-
+app.use('/api/v1/jobs', jobsRouter)
+// authenticateUser
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
 

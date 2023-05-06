@@ -159,10 +159,10 @@ function AddJob() {
             required
           >
             <option value="">Select a job type</option>
-            <option value="declined">full time</option>
-            <option value="interview">part time</option>
-            <option value="FR">remote</option>
-            <option value="FR">internship</option>
+            <option value="full time">full time</option>
+            <option value="part time">part time</option>
+            <option value="remote">remote</option>
+            <option value="internship">internship</option>
           </select>
         </div>
 
