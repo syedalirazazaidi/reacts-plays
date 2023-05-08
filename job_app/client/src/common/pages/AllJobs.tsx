@@ -114,7 +114,7 @@ function AllJobs() {
           </button>
         </form>
       </div>
-      <div className="mx-8 my-16">
+      <div>
         <GetJob />
       </div>
     </>
