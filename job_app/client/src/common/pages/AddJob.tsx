@@ -55,7 +55,7 @@ function AddJob() {
       <p className="ml-20 mt-3 text-3xl">Add Job</p>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-wrap gap-4 content-center justify-start mx-20 my-8"
+        className="flex flex-wrap gap-2 content-center justify-start mx-20 my-8"
       >
         <div className="mb-4 ">
           <label

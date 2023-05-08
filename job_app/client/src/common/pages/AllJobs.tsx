@@ -1,11 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import GetJob from "../components/GetJob";
 import MainLayout from "../layout/MainLayout";
+import axios from "axios";
 
 function AllJobs() {
-  const { isSetOpen, isOpen }: any = useContext(SidebarContext);
+  const [job, setJob] = useState([]);
 
+  const { isSetOpen, isOpen }: any = useContext(SidebarContext);
+  useEffect(() => {
+    // Function to fetch data from the API
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/v1/jobs");
+        setJob(response.data ?? []);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData(); // Call the fetch data function
+  }, []);
   return (
     <>
       <div
@@ -16,7 +31,7 @@ function AllJobs() {
         }`}
       >
         <p className="ml-20 mt-3 text-3xl">Search Form</p>
-        <form className="flex flex-wrap gap-4 justify-start mx-20 my-8">
+        <form className="flex flex-wrap gap-2 justify-start mx-20 my-8">
           <div className="mb-4 ">
             <label
               className="block text-gray-700 text-sm font-semibold mb-2"
@@ -115,7 +130,7 @@ function AllJobs() {
         </form>
       </div>
       <div>
-        <GetJob />
+        <GetJob job={job} />
       </div>
     </>
   );
