@@ -26,7 +26,7 @@ function AllJobs() {
       <div
         className={` shadow appearance-none border rounded mx-8 my-4 p-2  text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
           !isOpen
-            ? "bg-white rounded-md  shadow-lg p-4"
+            ? "bg-white rounded-md  shadow-lg p-2"
             : "bg-white rounded-md  shadow-lg p-4 pl-16"
         }`}
       >
