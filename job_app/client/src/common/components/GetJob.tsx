@@ -27,7 +27,9 @@ function GetJob({ job }: any) {
 
   return (
     <div>
-      <p>{job?.jobs && job?.jobs.length} jobs Found</p>
+      <p className="text-gray-700 font-bold text-lg ml-10 mb-4">
+        {job?.jobs && job?.jobs.length} jobs Found
+      </p>
       <div className="grid grid-cols-2 gap-4">
         {job?.jobs &&
           job?.jobs &&
