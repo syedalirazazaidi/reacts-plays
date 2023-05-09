@@ -138,7 +138,7 @@ function AddJob() {
             <option value="">Select a status</option>
             <option value="declined">declined</option>
             <option value="interview">Interview</option>
-            <option value="FR">pending</option>
+            <option value="pending">pending</option>
           </select>
         </div>
         <div className="mb-4">
