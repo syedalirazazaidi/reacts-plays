@@ -79,11 +79,19 @@ function GetJob({ job }: any) {
                         <p>{data?.createdAt}</p>
                       </div>
                       <div>
-                        <button className="bg-teal-800">
+                        <button className="p-1 rounded px-3 bg-amber-300 text-amber-50">
                           <p>{data?.status}</p>
                         </button>
                       </div>
                     </div>
+                  </div>
+                  <div className="flex gap-5 mt-3">
+                    <button className="bg-green-50 text-green-300 px-6 py-1 rounded">
+                      edit
+                    </button>
+                    <button className="bg-red-50 text-red-300 px-6 py-1 rounded">
+                      delete
+                    </button>
                   </div>
                 </div>
               </div>
