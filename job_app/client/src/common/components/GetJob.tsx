@@ -36,7 +36,7 @@ function GetJob({ job }: any) {
           job?.jobs.map((data: any, index: any) => (
             <div
               key={index}
-              className="bg-white rounded-md  mx-8 shadow-md p-4"
+              className="bg-white rounded-md  mx-8 shadow-md p-4 px-12"
             >
               <div className="flex">
                 <div className="px-2">
@@ -88,10 +88,10 @@ function GetJob({ job }: any) {
                     </div>
                   </div>
                   <div className="flex gap-5 mt-3">
-                    <button className="bg-green-50 text-green-300 px-6 py-1 rounded">
+                    <button className="bg-green-50 text-green-300 px-6 py-1 rounded hover:bg-green-100 hover:text-green-500">
                       edit
                     </button>
-                    <button className="bg-red-50 text-red-300 px-6 py-1 rounded">
+                    <button className="bg-red-50 text-red-300 px-6 py-1 rounded hover:bg-red-100 hover:text-red-500">
                       delete
                     </button>
                   </div>
