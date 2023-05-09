@@ -62,13 +62,13 @@ const updateJob = async (req, res) => {
 
 const deleteJob = async (req, res) => {
   const {
-    user: { userId },
+    // user: { userId },
     params: { id: jobId },
   } = req
 
   const job = await Job.findByIdAndRemove({
     _id: jobId,
-    createdBy: userId,
+    // createdBy: userId,
   })
   if (!job) {
     return res

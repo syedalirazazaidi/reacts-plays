@@ -2,13 +2,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import axios from "axios";
 
-function GetJob({ job }: any) {
+function GetJob({ job, deleteJob }: any) {
   //   const [job, setJob] = useState<any>([]);
   const [jobget, Setjobget] = useState(job.jobs ?? []);
 
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
 
   console.log(job.jobs);
+
   //   console.log(job?.jobs[0]);
   //   if (job.jobs.length ?? []) {
   //     return <p>loading</p>;
@@ -91,7 +92,10 @@ function GetJob({ job }: any) {
                     <button className="bg-green-50 text-green-300 px-6 py-1 rounded hover:bg-green-100 hover:text-green-500">
                       edit
                     </button>
-                    <button className="bg-red-50 text-red-300 px-6 py-1 rounded hover:bg-red-100 hover:text-red-500">
+                    <button
+                      onClick={() => deleteJob(data._id)}
+                      className="bg-red-50 text-red-300 px-6 py-1 rounded hover:bg-red-100 hover:text-red-500"
+                    >
                       delete
                     </button>
                   </div>

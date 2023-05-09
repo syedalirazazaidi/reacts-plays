@@ -6,6 +6,7 @@ import axios from "axios";
 
 function AllJobs() {
   const [job, setJob] = useState([]);
+  const [deleteJobID, setDeleteJob] = useState(false);
 
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   useEffect(() => {
@@ -20,7 +21,17 @@ function AllJobs() {
     };
 
     fetchData(); // Call the fetch data function
-  }, []);
+  }, [deleteJobID]);
+  const deleteJob = async (id: number) => {
+    setDeleteJob(false);
+    try {
+      ("");
+      await axios.delete(`http://localhost:5000/api/v1/jobs/${id}`);
+      setDeleteJob(true);
+    } catch (error) {
+      console.error("Error deleting data:", error);
+    }
+  };
   return (
     <>
       <div
@@ -130,7 +141,7 @@ function AllJobs() {
         </form>
       </div>
       <div>
-        <GetJob job={job} />
+        <GetJob job={job} deleteJob={deleteJob} />
       </div>
     </>
   );
