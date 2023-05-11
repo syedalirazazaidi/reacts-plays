@@ -3,70 +3,56 @@ import React from "react";
 function Profile() {
   return (
     <div className="bg-white rounded-md shadow-lg p-4  ">
-      {/* <h2 className="text-lg font-semibold mb-2">Card Title</h2> */}
+      <p className="ml-20 mt-3 text-3xl">Profile</p>
       <form className="flex flex-wrap gap-4 justify-start mx-24 my-8">
         <div className="mb-4 ">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input1"
+            htmlFor="name"
           >
-            Profile
+            Name
           </label>
           <input
             className="w-80 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input1"
+            id="name"
             type="text"
-            placeholder="Enter input 1"
+            placeholder="Enter Name"
           />
         </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input2"
+            htmlFor="last_name"
           >
-            Input 2
+            Last Name
           </label>
           <input
             className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input2"
+            id="last_name"
             type="text"
-            placeholder="Enter input 2"
+            placeholder="Enter Last Name"
           />
         </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input3"
+            htmlFor="Email"
           >
-            Input 3
+            Email
           </label>
           <input
             className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input3"
+            id="email"
             type="text"
-            placeholder="Enter input 3"
+            placeholder="Email"
           />
         </div>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input3"
+            htmlFor="location"
           >
-            Input 3
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="input3"
-            type="text"
-            placeholder="Enter input 3"
-          />
-        </div>
-        <div className="mb-4">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="input3"
-          >
-            Input 3
+            Location
           </label>
           <input
             className="shadow appearance-none border rounded w-80 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
