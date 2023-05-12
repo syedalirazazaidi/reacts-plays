@@ -1,12 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import axios from "axios";
+import { EditButtonContext } from "../../contexts/EditButtonContext";
 
 function GetJob({ job, deleteJob, editJob }: any) {
   //   const [job, setJob] = useState<any>([]);
   const [jobget, Setjobget] = useState(job.jobs ?? []);
 
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
+  const { setEditFormData }: any = useContext(EditButtonContext);
 
   console.log(job.jobs);
 
@@ -91,7 +93,8 @@ function GetJob({ job, deleteJob, editJob }: any) {
                   </div>
                   <div className="flex gap-5 mt-3">
                     <button
-                      onClick={() => editJob(data)}
+                      // onClick={() => editJob(data)}
+                      onClick={() => setEditFormData(data)}
                       className="bg-green-50 text-green-300 px-6 py-1 rounded hover:bg-green-100 hover:text-green-500"
                     >
                       edit

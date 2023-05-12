@@ -4,6 +4,7 @@ import GetJob from "../components/GetJob";
 import MainLayout from "../layout/MainLayout";
 import axios from "axios";
 import { Job } from "../types/type";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   job: Job;
@@ -12,8 +13,9 @@ interface Props {
 function AllJobs() {
   const [job, setJob] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
-
-  const { isSetOpen, isOpen }: any = useContext(SidebarContext);
+  const navigate = useNavigate();
+  const { isSetOpen, isOpen, setEditFormData }: any =
+    useContext(SidebarContext);
   useEffect(() => {
     // Function to fetch data from the API
     const fetchData = async () => {
@@ -39,6 +41,7 @@ function AllJobs() {
   };
   const editJob = (data: Props) => {
     console.log(data, "??all-data??");
+    navigate("/add-jobs");
   };
   return (
     <>
