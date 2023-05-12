@@ -3,6 +3,11 @@ import { SidebarContext } from "../../contexts/SidebarContext";
 import GetJob from "../components/GetJob";
 import MainLayout from "../layout/MainLayout";
 import axios from "axios";
+import { Job } from "../types/type";
+
+interface Props {
+  job: Job;
+}
 
 function AllJobs() {
   const [job, setJob] = useState([]);
@@ -32,7 +37,7 @@ function AllJobs() {
       console.error("Error deleting data:", error);
     }
   };
-  const editJob = (data: any) => {
+  const editJob = (data: Props) => {
     console.log(data, "??all-data??");
   };
   return (

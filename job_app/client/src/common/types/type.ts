@@ -6,3 +6,14 @@ export interface AddJobType {
   status: string;
   job_type: string;
 }
+
+export interface Job {
+  _id: string;
+  company: string;
+  createdAt: string;
+  job_type: string;
+  location: string;
+  position: string;
+  status: string;
+  updatedAt: string;
+}

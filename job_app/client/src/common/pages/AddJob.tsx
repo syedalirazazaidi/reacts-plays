@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useContext, useState, ChangeEvent, FormEvent } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import MainLayout from "../layout/MainLayout";
-import { AddJobType } from "../types/type";
+import { AddJobType, Job } from "../types/type";
 
 function AddJob() {
   const [addJob, setAddJob] = useState<AddJobType>({
