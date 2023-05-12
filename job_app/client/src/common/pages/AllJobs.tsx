@@ -32,6 +32,9 @@ function AllJobs() {
       console.error("Error deleting data:", error);
     }
   };
+  const editJob = (data: any) => {
+    console.log(data, "??all-data??");
+  };
   return (
     <>
       <div
@@ -141,7 +144,7 @@ function AllJobs() {
         </form>
       </div>
       <div>
-        <GetJob job={job} deleteJob={deleteJob} />
+        <GetJob job={job} deleteJob={deleteJob} editJob={editJob} />
       </div>
     </>
   );

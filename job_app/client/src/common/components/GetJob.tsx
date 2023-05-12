@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import axios from "axios";
 
-function GetJob({ job, deleteJob }: any) {
+function GetJob({ job, deleteJob, editJob }: any) {
   //   const [job, setJob] = useState<any>([]);
   const [jobget, Setjobget] = useState(job.jobs ?? []);
 
@@ -90,7 +90,10 @@ function GetJob({ job, deleteJob }: any) {
                     </div>
                   </div>
                   <div className="flex gap-5 mt-3">
-                    <button className="bg-green-50 text-green-300 px-6 py-1 rounded hover:bg-green-100 hover:text-green-500">
+                    <button
+                      onClick={() => editJob(data)}
+                      className="bg-green-50 text-green-300 px-6 py-1 rounded hover:bg-green-100 hover:text-green-500"
+                    >
                       edit
                     </button>
                     <button
