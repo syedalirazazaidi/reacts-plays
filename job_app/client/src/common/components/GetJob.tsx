@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import axios from "axios";
 import { EditButtonContext } from "../../contexts/EditButtonContext";
+import { useNavigate } from "react-router-dom";
 
 function GetJob({ job, deleteJob, editJob }: any) {
   //   const [job, setJob] = useState<any>([]);
@@ -9,7 +10,7 @@ function GetJob({ job, deleteJob, editJob }: any) {
 
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData }: any = useContext(EditButtonContext);
-
+  const navigate = useNavigate();
   console.log(job.jobs);
 
   //   console.log(job?.jobs[0]);
@@ -27,6 +28,10 @@ function GetJob({ job, deleteJob, editJob }: any) {
   //   } else {
   //     console.log("loading");
   //   }
+  const editClick = (data: any) => {
+    setEditFormData(data);
+    navigate("/add-jobs");
+  };
 
   return (
     <div>
@@ -94,7 +99,8 @@ function GetJob({ job, deleteJob, editJob }: any) {
                   <div className="flex gap-5 mt-3">
                     <button
                       // onClick={() => editJob(data)}
-                      onClick={() => setEditFormData(data)}
+                      // onClick={() => setEditFormData(data)}
+                      onClick={() => editClick(data)}
                       className="bg-green-50 text-green-300 px-6 py-1 rounded hover:bg-green-100 hover:text-green-500"
                     >
                       edit
