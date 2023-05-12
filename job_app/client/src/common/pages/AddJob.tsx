@@ -14,8 +14,8 @@ function AddJob() {
     job_type: "",
   });
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
-  const { setEditFormData }: any = useContext(EditButtonContext);
-  const [editFun, setEditFun] = useState(setEditFormData);
+  const { setEditFormData, editData }: any = useContext(EditButtonContext);
+  const [editFun, setEditFun] = useState(editData);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -27,6 +27,7 @@ function AddJob() {
   };
   console.log(editFun, ":::setEditFormData:");
   const handleSubmit = (e: FormEvent) => {
+    // if (editData._id !== 1) {
     const addjobdata = {
       position: addJob.position,
       company: addJob.company,
@@ -45,6 +46,28 @@ function AddJob() {
       .catch((error) => {
         console.error("Error submitting form:", error);
       });
+    // }
+    // else {
+    //   const editjobdata = {
+    //     position: editData.position,
+    //     company: editData.company,
+    //     location: editData.location,
+    //     status: editData.status,
+    //     job_type: editData.job_type,
+    //   };
+    //   e.preventDefault();
+    //   console.log(editjobdata);
+
+    // e.preventDefault();
+    // axios
+    //   .post("http://localhost:5000/api/v1/jobs", editjobdata)
+    //   .then((data: any) => {
+    //     console.log("Form submitted successfully:", data);
+    //   })
+    //   .catch((error) => {
+    //     console.error("Error submitting form:", error);
+    //   });
+    // }
   };
 
   return (
@@ -71,7 +94,7 @@ function AddJob() {
             className={` shadow appearance-none border rounded  py-2 px-3 h-10 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
               !isOpen ? "w-80" : "w-96"
             }`}
-            value={addJob.position}
+            value={editFun?.position}
             onChange={handleChange}
             name="position"
             id="position"
@@ -92,7 +115,7 @@ function AddJob() {
               !isOpen ? "w-80" : "w-96"
             }`}
             id="company"
-            value={addJob.company}
+            value={editFun?.company}
             onChange={handleChange}
             type="text"
             placeholder="company"
@@ -114,7 +137,7 @@ function AddJob() {
             id="location"
             type="text"
             name="location"
-            value={addJob.location}
+            value={editFun?.location}
             onChange={handleChange}
             placeholder="job location"
             required
@@ -134,7 +157,7 @@ function AddJob() {
               !isOpen ? "w-80" : "w-96"
             }`}
             name="status"
-            value={addJob.status}
+            value={editFun?.status}
             onChange={handleChange}
             required
           >
@@ -157,7 +180,7 @@ function AddJob() {
               !isOpen ? "w-80" : "w-96"
             }`}
             name="job_type"
-            value={addJob.job_type}
+            value={editFun?.job_type}
             onChange={handleChange}
             required
           >
