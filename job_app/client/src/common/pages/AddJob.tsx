@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useContext, useState, ChangeEvent, FormEvent } from "react";
+import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import MainLayout from "../layout/MainLayout";
 import { AddJobType, Job } from "../types/type";
@@ -12,8 +13,9 @@ function AddJob() {
     status: "",
     job_type: "",
   });
-
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
+  const { setEditFormData }: any = useContext(EditButtonContext);
+  const [editFun, setEditFun] = useState(setEditFormData);
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -23,6 +25,7 @@ function AddJob() {
       [e.target.name]: e.target.value,
     }));
   };
+  console.log(editFun, ":::setEditFormData:");
   const handleSubmit = (e: FormEvent) => {
     const addjobdata = {
       position: addJob.position,

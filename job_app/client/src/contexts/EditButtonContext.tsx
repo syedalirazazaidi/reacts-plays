@@ -1,5 +1,5 @@
 import React, { createContext, useState } from "react";
-import { ISHow } from "../common/types/type";
+
 interface ProductProviderProps {
   children: React.ReactNode;
 }
@@ -12,7 +12,6 @@ function EditButProvider({ children }: ProductProviderProps) {
   };
 
   const setEditFormData = (data: any) => {
-    console.log(data, "??????EDIT");
     setEditData(data);
   };
   return (
