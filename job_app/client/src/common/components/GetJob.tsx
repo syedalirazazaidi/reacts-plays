@@ -54,7 +54,7 @@ function GetJob({ job, deleteJob }: any) {
                     </div>
                     <div>
                       <p className="capitalize text-xl"> {data?.position}</p>
-                      <p className="capitalize text-base text-gray-600">
+                      <p className="capitalize text-base text-cyan-700">
                         {" "}
                         {data?.company}
                       </p>
@@ -65,8 +65,9 @@ function GetJob({ job, deleteJob }: any) {
                     <div>
                       <div className="flex gap-4">
                         <i className="ri-map-pin-line"></i>
-                        <p className="capitalize text-sm"> {data?.location}</p>
+                        <p className="capitalize text-sm "> {data?.location}</p>
                       </div>
+
                       <div className="flex gap-4">
                         <i className="ri-briefcase-2-line"></i>
 
