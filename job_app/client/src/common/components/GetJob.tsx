@@ -68,12 +68,12 @@ function GetJob({ job, deleteJob }: any) {
                         <p className="capitalize text-sm "> {data?.location}</p>
                       </div>
 
-                      <div className="flex gap-4">
+                      <div className="flex gap-4 mt-2">
                         <i className="ri-briefcase-2-line"></i>
 
                         <p className="capitalize text-base text-gray-600">
                           {" "}
-                          {data?.status}
+                          {data?.job_type}
                         </p>
                       </div>
                     </div>
@@ -83,7 +83,7 @@ function GetJob({ job, deleteJob }: any) {
                         <p>{data?.createdAt}</p>
                       </div>
                       <div>
-                        <button className="p-1 rounded px-3 bg-amber-300 text-amber-50">
+                        <button className="p-1 rounded px-3 bg-amber-300 text-amber-50 mt-2">
                           <p>{data?.status}</p>
                         </button>
                       </div>
