@@ -87,7 +87,11 @@ function GetJob({ job, deleteJob, editJob }: any) {
                     <div>
                       <div className="flex gap-4">
                         <i className="ri-calendar-2-line"></i>
-                        <p>{data?.createdAt}</p>
+                        <p>
+                          {" "}
+                          {new Date(data?.createdAt).toLocaleString("en-US")}
+                        </p>
+                        {/* <p>{data?.createdAt}</p> */}
                       </div>
                       <div>
                         <button className="p-1 rounded px-3 bg-amber-300 text-amber-50 mt-2">
