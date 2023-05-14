@@ -6,16 +6,18 @@ import MainLayout from "../layout/MainLayout";
 import { AddJobType, Job } from "../types/type";
 
 function AddJob() {
-  const [addJob, setAddJob] = useState<AddJobType>({
-    position: "",
-    company: "",
-    location: "",
-    status: "",
-    job_type: "",
-  });
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData, editData }: any = useContext(EditButtonContext);
+
   const [editFun, setEditFun] = useState(editData);
+  const [addJob, setAddJob] = useState<AddJobType>({
+    position: editData.position ?? "",
+    company: editData.company ?? "",
+    location: editData.location ?? "",
+    status: editData.status ?? "",
+    job_type: editData.job_type ?? "",
+  });
+
   const [currentId, setCurrentId] = useState(0);
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -25,7 +27,7 @@ function AddJob() {
       [e.target.name]: e.target.value,
     }));
   };
-  // console.log(editFun._id, ":::setEditFormData:");
+  console.log(editData.company, ":::setEditFormData:");
   const handleSubmit = (e: FormEvent) => {
     // if (editData._id !== 1) {
     e.preventDefault();
