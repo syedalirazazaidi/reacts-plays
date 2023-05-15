@@ -44,10 +44,8 @@ function AddJob() {
       _id: "",
     }));
   };
-  console.log(editData?._id, "||||||||");
 
   const handleSubmit = (e: FormEvent) => {
-    console.log(editData?._id, "??-?");
     e.preventDefault();
     if (editData && editData?._id) {
       const editjobdata = {

@@ -11,7 +11,6 @@ function GetJob({ job, deleteJob, editJob }: any) {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData }: any = useContext(EditButtonContext);
   const navigate = useNavigate();
-  console.log(job.jobs);
 
   //   console.log(job?.jobs[0]);
   //   if (job.jobs.length ?? []) {

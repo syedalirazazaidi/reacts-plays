@@ -40,7 +40,6 @@ function AllJobs() {
     }
   };
   const editJob = (data: Props) => {
-    console.log(data, "??all-data??");
     navigate("/add-jobs");
   };
   return (
