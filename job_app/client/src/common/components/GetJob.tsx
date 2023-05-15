@@ -12,21 +12,6 @@ function GetJob({ job, deleteJob, editJob }: any) {
   const { setEditFormData }: any = useContext(EditButtonContext);
   const navigate = useNavigate();
 
-  //   console.log(job?.jobs[0]);
-  //   if (job.jobs.length ?? []) {
-  //     return <p>loading</p>;
-  //   }
-
-  //   if (job.jobs.length !== 0) {
-  //     <p>loading</p>;
-  //     // return <p>loading...</p>;
-  //   }
-
-  //   if (job.jobs.length !== 0) {
-  //     console.log("first");
-  //   } else {
-  //     console.log("loading");
-  //   }
   const editClick = (data: any) => {
     setEditFormData(data);
     navigate("/add-jobs");
@@ -90,7 +75,6 @@ function GetJob({ job, deleteJob, editJob }: any) {
                           {" "}
                           {new Date(data?.createdAt).toLocaleString("en-US")}
                         </p>
-                        {/* <p>{data?.createdAt}</p> */}
                       </div>
                       <div>
                         <button className="p-1 rounded px-3 bg-amber-300 text-amber-50 mt-2">
@@ -101,8 +85,6 @@ function GetJob({ job, deleteJob, editJob }: any) {
                   </div>
                   <div className="flex gap-5 mt-3">
                     <button
-                      // onClick={() => editJob(data)}
-                      // onClick={() => setEditFormData(data)}
                       onClick={() => editClick(data)}
                       className="bg-green-50 text-green-300 px-6 py-1 rounded hover:bg-green-100 hover:text-green-500"
                     >

@@ -12,7 +12,7 @@ function Dashboard() {
   return (
     <MainLayout>
       <div className="flex">
-        <div className=" bg-red-500">
+        <div>
           <Sidebar />
         </div>
         <div className="flex-1 bg-gray-100 p-4">
