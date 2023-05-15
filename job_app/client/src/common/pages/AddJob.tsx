@@ -19,7 +19,6 @@ function AddJob() {
     job_type: editFun?.job_type ?? "",
   });
 
-  const [currentId, setCurrentId] = useState(0);
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
