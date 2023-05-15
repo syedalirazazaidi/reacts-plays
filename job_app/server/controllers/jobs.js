@@ -9,7 +9,7 @@ const getAllJobs = async (req, res) => {
 }
 const getJob = async (req, res) => {
   const {
-    user: { userId },
+    // user: { userId },
     params: { id: jobId },
   } = req
   console.log(req.user.userId)
@@ -37,23 +37,43 @@ const createJob = async (req, res) => {
 
 const updateJob = async (req, res) => {
   const {
-    body: { company, position },
-    user: { userId },
+    body: { company, position, location, status, job_type },
+    // user: { userId },
     params: { id: jobId },
   } = req
 
-  if (company === '' || position === '') {
+  if (
+    company === '' ||
+    position === '' ||
+    location === '' ||
+    status === '' ||
+    job_type === ''
+  ) {
     return res
       .status(StatusCodes.CREATED)
       .json({ msg: `Company or Position fields cannot be empty` })
 
     // throw new BadRequestError('Company or Position fields cannot be empty')
   }
+  const updatedPost = {
+    company,
+    position,
+    location,
+    status,
+    job_type,
+  }
+
+  // const newData = await Job.findByIdAndUpdate(jobId, updatedPost, { new: true })
+  // console.log(newData, '}}}')
   const job = await Job.findByIdAndUpdate(
-    { _id: jobId, createdBy: userId },
+    {
+      _id: jobId,
+      // createdBy: userIds
+    },
     req.body,
-    { new: true, runValidators: true },
+    { new: true },
   )
+  // console.log('ED JOB CREATED', job)
   if (!job) {
     res.send(`No job with id ${jobId}`)
   }

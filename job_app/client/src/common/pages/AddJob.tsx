@@ -2,12 +2,13 @@ import axios from "axios";
 import React, { useContext, useState, ChangeEvent, FormEvent } from "react";
 import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { SidebarContext } from "../../contexts/SidebarContext";
-import MainLayout from "../layout/MainLayout";
+
 import { AddJobType, Job } from "../types/type";
 
 function AddJob() {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
-  const { setEditFormData, editData }: any = useContext(EditButtonContext);
+  const { setEditFormData, editData, setEditData }: any =
+    useContext(EditButtonContext);
 
   const [editFun, setEditFun] = useState(editData);
   const [addJob, setAddJob] = useState<AddJobType>({
@@ -27,13 +28,45 @@ function AddJob() {
       [e.target.name]: e.target.value,
     }));
   };
+  const editid = {
+    _id: editData?._id,
+  };
+  const clearField = () => {
+    setAddJob((prevData) => ({
+      ...prevData,
+      position: "",
+      company: "",
+      location: "",
+      status: "",
+      job_type: "",
+    }));
+    setEditData((prev: any) => ({
+      ...prev,
+      _id: "",
+    }));
+  };
+  console.log(editData?._id, "||||||||");
 
-  console.log(editFun?._id, "IEDNT");
   const handleSubmit = (e: FormEvent) => {
-    // if (editData._id !== 1) {
+    console.log(editData?._id, "??-?");
     e.preventDefault();
-    if (editData && editData?._id !== 0) {
-      console.log("IDENTITY????", editData);
+    if (editData && editData?._id) {
+      const editjobdata = {
+        position: addJob.position,
+        company: addJob.company,
+        location: addJob.location,
+        status: addJob.status,
+        job_type: addJob.job_type,
+      };
+
+      axios
+        .put(`http://localhost:5000/api/v1/jobs/${editid._id}`, editjobdata)
+        .then((data: any) => {
+          console.log("Form submitted successfully:", data);
+        })
+        .catch((error) => {
+          console.error("Error submitting form:", error);
+        });
     } else {
       const addjobdata = {
         position: addJob.position,
@@ -42,7 +75,6 @@ function AddJob() {
         status: addJob.status,
         job_type: addJob.job_type,
       };
-      console.log(addjobdata);
 
       axios
         .post("http://localhost:5000/api/v1/jobs", addjobdata)
@@ -52,30 +84,6 @@ function AddJob() {
         .catch((error) => {
           console.error("Error submitting form:", error);
         });
-      // } else if (editFun._id) {
-      //   console.log("first???????????");
-      // }
-      // }
-      // else {
-      //   const editjobdata = {
-      //     position: editData.position,
-      //     company: editData.company,
-      //     location: editData.location,
-      //     status: editData.status,
-      //     job_type: editData.job_type,
-      //   };
-      //   e.preventDefault();
-      //   console.log(editjobdata);
-
-      // e.preventDefault();
-      // axios
-      //   .post("http://localhost:5000/api/v1/jobs", editjobdata)
-      //   .then((data: any) => {
-      //     console.log("Form submitted successfully:", data);
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error submitting form:", error);
-      //   });
     }
   };
 
@@ -201,6 +209,7 @@ function AddJob() {
           </select>
         </div>
         <button
+          onClick={clearField}
           className={`{
   bg-gray-400  h-10 mt-7 hover:bg-gray-700 text-white font-medium  rounded" ${
     !isOpen ? "w-36 rounded" : "w-44 rounded"

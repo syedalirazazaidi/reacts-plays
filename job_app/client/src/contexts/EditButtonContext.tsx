@@ -12,12 +12,18 @@ function EditButProvider({ children }: ProductProviderProps) {
   };
 
   const setEditFormData = (data: any) => {
-    console.log("first", data);
     setEditData(data);
   };
+  // console.log(editData._id, "DATAT");
   return (
     <EditButtonContext.Provider
-      value={{ editMode, toggleEditMode, editData, setEditFormData }}
+      value={{
+        editMode,
+        toggleEditMode,
+        editData,
+        setEditFormData,
+        setEditData,
+      }}
     >
       {children}
     </EditButtonContext.Provider>
