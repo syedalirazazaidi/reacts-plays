@@ -9,7 +9,7 @@ import { SidebarContext } from "../../contexts/SidebarContext";
 function Navbar() {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   return (
-    <div className="flex justify-between  mt-8 -mb-4 px-10">
+    <div className="flex justify-between  mt-8 -mb-4 px-10 relative">
       <img
         className={`h-10 w-10 object-cover  rounded-full hover:cursor-pointer ease-in-out duration-300 ${
           isOpen ? "ml-40" : "ml-64"

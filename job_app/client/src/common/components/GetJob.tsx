@@ -11,7 +11,7 @@ function GetJob({ job, deleteJob, editJob }: any) {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData }: any = useContext(EditButtonContext);
   const navigate = useNavigate();
-
+  
   const editClick = (data: any) => {
     setEditFormData(data);
     navigate("/add-jobs");
