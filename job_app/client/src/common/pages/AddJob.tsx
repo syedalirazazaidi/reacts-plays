@@ -11,11 +11,11 @@ function AddJob() {
 
   const [editFun, setEditFun] = useState(editData);
   const [addJob, setAddJob] = useState<AddJobType>({
-    position: editData.position ?? "",
-    company: editData.company ?? "",
-    location: editData.location ?? "",
-    status: editData.status ?? "",
-    job_type: editData.job_type ?? "",
+    position: editFun?.position ?? "",
+    company: editFun?.company ?? "",
+    location: editFun?.location ?? "",
+    status: editFun?.status ?? "",
+    job_type: editFun?.job_type ?? "",
   });
 
   const [currentId, setCurrentId] = useState(0);
@@ -27,54 +27,56 @@ function AddJob() {
       [e.target.name]: e.target.value,
     }));
   };
-  console.log(editData.company, ":::setEditFormData:");
+
+  console.log(editFun?._id, "IEDNT");
   const handleSubmit = (e: FormEvent) => {
     // if (editData._id !== 1) {
     e.preventDefault();
-    // if (!editFun._id) {
-    const addjobdata = {
-      position: addJob.position,
-      company: addJob.company,
-      location: addJob.location,
-      status: addJob.status,
-      job_type: addJob.job_type,
-    };
-    console.log(addjobdata);
+    if (editData && editData?._id !== 0) {
+      console.log("IDENTITY????", editData);
+    } else {
+      const addjobdata = {
+        position: addJob.position,
+        company: addJob.company,
+        location: addJob.location,
+        status: addJob.status,
+        job_type: addJob.job_type,
+      };
+      console.log(addjobdata);
 
-    axios
-      .post("http://localhost:5000/api/v1/jobs", addjobdata)
-      .then((data: any) => {
-        console.log("Form submitted successfully:", data);
-      })
-      .catch((error) => {
-        console.error("Error submitting form:", error);
-      });
-    // }
-    // else if (editFun._id) {
-    //   console.log("first???????????");
-    // }
-    // }
-    // else {
-    //   const editjobdata = {
-    //     position: editData.position,
-    //     company: editData.company,
-    //     location: editData.location,
-    //     status: editData.status,
-    //     job_type: editData.job_type,
-    //   };
-    //   e.preventDefault();
-    //   console.log(editjobdata);
+      axios
+        .post("http://localhost:5000/api/v1/jobs", addjobdata)
+        .then((data: any) => {
+          console.log("Form submitted successfully:", data);
+        })
+        .catch((error) => {
+          console.error("Error submitting form:", error);
+        });
+      // } else if (editFun._id) {
+      //   console.log("first???????????");
+      // }
+      // }
+      // else {
+      //   const editjobdata = {
+      //     position: editData.position,
+      //     company: editData.company,
+      //     location: editData.location,
+      //     status: editData.status,
+      //     job_type: editData.job_type,
+      //   };
+      //   e.preventDefault();
+      //   console.log(editjobdata);
 
-    // e.preventDefault();
-    // axios
-    //   .post("http://localhost:5000/api/v1/jobs", editjobdata)
-    //   .then((data: any) => {
-    //     console.log("Form submitted successfully:", data);
-    //   })
-    //   .catch((error) => {
-    //     console.error("Error submitting form:", error);
-    //   });
-    // }
+      // e.preventDefault();
+      // axios
+      //   .post("http://localhost:5000/api/v1/jobs", editjobdata)
+      //   .then((data: any) => {
+      //     console.log("Form submitted successfully:", data);
+      //   })
+      //   .catch((error) => {
+      //     console.error("Error submitting form:", error);
+      //   });
+    }
   };
 
   return (
@@ -198,7 +200,6 @@ function AddJob() {
             <option value="internship">internship</option>
           </select>
         </div>
-
         <button
           className={`{
   bg-gray-400  h-10 mt-7 hover:bg-gray-700 text-white font-medium  rounded" ${

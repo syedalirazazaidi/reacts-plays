@@ -6,12 +6,13 @@ interface ProductProviderProps {
 export const EditButtonContext = createContext({});
 function EditButProvider({ children }: ProductProviderProps) {
   const [editMode, setEditMode] = useState(false);
-  const [editData, setEditData] = useState(null);
+  const [editData, setEditData] = useState();
   const toggleEditMode = () => {
     setEditMode((prevMode) => !prevMode);
   };
 
   const setEditFormData = (data: any) => {
+    console.log("first", data);
     setEditData(data);
   };
   return (
