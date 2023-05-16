@@ -92,7 +92,9 @@ function AddJob() {
           : "bg-white rounded-md  shadow-lg p-4 pl-16"
       }`}
     >
-      <p className="ml-20 mt-3 text-3xl">Add Job</p>
+      <p className="ml-20 mt-3 text-3xl">
+        {editData?._id ? "Edit Job" : "Add Job"}
+      </p>
       <form
         onSubmit={handleSubmit}
         className="flex flex-wrap gap-2 content-center justify-start mx-20 my-8"
