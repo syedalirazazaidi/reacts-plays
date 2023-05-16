@@ -6,7 +6,12 @@ export interface AddJobType {
   status: string;
   job_type: string;
 }
-
+export interface SearchType {
+  search: string;
+  sort: string;
+  status: string;
+  job_type: string;
+}
 export interface Job {
   _id: string;
   company: string;

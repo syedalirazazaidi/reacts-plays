@@ -1,9 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useState,
+  ChangeEvent,
+  FormEvent,
+} from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import GetJob from "../components/GetJob";
 import MainLayout from "../layout/MainLayout";
 import axios from "axios";
-import { Job } from "../types/type";
+import { AddJobType, Job, SearchType } from "../types/type";
 import { useNavigate } from "react-router-dom";
 
 interface Props {
@@ -12,10 +18,18 @@ interface Props {
 
 function AllJobs() {
   const [job, setJob] = useState([]);
+
   const [deleteJobID, setDeleteJob] = useState(false);
   const navigate = useNavigate();
   const { isSetOpen, isOpen, setEditFormData }: any =
     useContext(SidebarContext);
+  const [addSearch, setAddSearch] = useState<SearchType>({
+    search: "",
+    sort: "",
+    status: "",
+    job_type: "",
+  });
+  console.log(addSearch, "SEARCH");
   useEffect(() => {
     // Function to fetch data from the API
     const fetchData = async () => {
@@ -38,6 +52,14 @@ function AllJobs() {
     } catch (error) {
       console.error("Error deleting data:", error);
     }
+  };
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setAddSearch((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
   };
   const editJob = (data: Props) => {
     navigate("/add-jobs");
@@ -67,6 +89,9 @@ function AllJobs() {
               id="search"
               type="text"
               placeholder="search"
+              value={addSearch?.search}
+              onChange={handleChange}
+              name="search"
             />
           </div>
           <div className="mb-4">
@@ -77,14 +102,14 @@ function AllJobs() {
               Status
             </label>
             <select
-              id="job_type"
+              id="status"
               className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
                 !isOpen ? "w-80" : "w-96"
               }`}
-              name="job_type"
-              // value={addJob.job_type}
-              // onChange={handleChange}
-              required
+              name="status"
+              placeholder="status"
+              value={addSearch?.status}
+              onChange={handleChange}
             >
               <option value="all">all</option>
               <option value="interview">interview</option>
@@ -105,9 +130,8 @@ function AllJobs() {
                 !isOpen ? "w-80" : "w-96"
               }`}
               name="job_type"
-              // value={addJob.job_type}
-              // onChange={handleChange}
-              required
+              value={addSearch?.job_type}
+              onChange={handleChange}
             >
               <option value="all">all</option>
               <option value="full-time">full-time</option>
@@ -124,14 +148,13 @@ function AllJobs() {
               Sort
             </label>
             <select
-              id="job_type"
+              id="sort"
               className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
                 !isOpen ? "w-80" : "w-96"
               }`}
-              name="job_type"
-              // value={addJob.job_type}
-              // onChange={handleChange}
-              required
+              name="sort"
+              value={addSearch?.sort}
+              onChange={handleChange}
             >
               <option value="latest">latest</option>
               <option value="oldest">oldest</option>
