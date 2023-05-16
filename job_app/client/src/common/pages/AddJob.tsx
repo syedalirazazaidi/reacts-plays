@@ -82,6 +82,7 @@ function AddJob() {
           console.error("Error submitting form:", error);
         });
     }
+    clearField();
   };
 
   return (
