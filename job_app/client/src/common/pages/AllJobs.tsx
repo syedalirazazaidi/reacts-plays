@@ -11,7 +11,6 @@ import MainLayout from "../layout/MainLayout";
 import axios from "axios";
 import { AddJobType, Job, JobType, SearchType } from "../types/type";
 import { useNavigate } from "react-router-dom";
-import { debounce } from "lodash";
 
 interface Props {
   job: Job[];
@@ -79,6 +78,20 @@ function AllJobs() {
     };
   }, [searchQuery, job]);
 
+  const clearSearch = () => {
+    setSearchQuery((prevData) => ({
+      ...prevData,
+      position: "",
+      sort: "",
+      status: "",
+      job_type: "",
+    }));
+    // setEditData((prev: any) => ({
+    //   ...prev,
+    //   _id: "",
+    // }));
+  };
+
   const handleSearch = () => {
     // Perform search logic
     const filteredResults = job?.jobs?.filter((item: any) => {
@@ -135,8 +148,6 @@ function AllJobs() {
               onChange={handleChange}
               name="position"
             />
-            {/* onChange={(e) => handleChange("name", e.target.value)} */}
-            {/*  */}
           </div>
           <div className="mb-4">
             <label
@@ -212,6 +223,7 @@ function AllJobs() {
           bg-red-200  h-10 mt-7 hover:bg-red-900 hover:text-white font-medium  rounded" ${
             !isOpen ? "w-80 rounded ml-1" : "w-96 rounded "
           }`}
+            onClick={clearSearch}
           >
             Clear Filters
           </button>
