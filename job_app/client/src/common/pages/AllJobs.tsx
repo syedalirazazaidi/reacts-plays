@@ -9,27 +9,32 @@ import { SidebarContext } from "../../contexts/SidebarContext";
 import GetJob from "../components/GetJob";
 import MainLayout from "../layout/MainLayout";
 import axios from "axios";
-import { AddJobType, Job, SearchType } from "../types/type";
+import { AddJobType, Job, JobType, SearchType } from "../types/type";
 import { useNavigate } from "react-router-dom";
+import { debounce } from "lodash";
 
 interface Props {
-  job: Job;
+  job: Job[];
 }
-
+interface SearchQuery {
+  name: string;
+  // category: string;
+  // location: string;
+}
 function AllJobs() {
-  const [job, setJob] = useState([]);
-
-  const [deleteJobID, setDeleteJob] = useState(false);
-  const navigate = useNavigate();
-  const { isSetOpen, isOpen, setEditFormData }: any =
-    useContext(SidebarContext);
-  const [addSearch, setAddSearch] = useState<SearchType>({
+  const [job, setJob] = useState<any>([]);
+  const [searchQuery, setSearchQuery] = useState<SearchType>({
     search: "",
     sort: "",
     status: "",
     job_type: "",
   });
-  console.log(addSearch, "SEARCH");
+  const [searchResults, setSearchResults] = useState([]);
+  const [deleteJobID, setDeleteJob] = useState(false);
+  const navigate = useNavigate();
+  const { isSetOpen, isOpen, setEditFormData }: any =
+    useContext(SidebarContext);
+
   useEffect(() => {
     // Function to fetch data from the API
     const fetchData = async () => {
@@ -43,6 +48,7 @@ function AllJobs() {
 
     fetchData(); // Call the fetch data function
   }, [deleteJobID]);
+
   const deleteJob = async (id: number) => {
     setDeleteJob(false);
     try {
@@ -53,17 +59,63 @@ function AllJobs() {
       console.error("Error deleting data:", error);
     }
   };
-  const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    setAddSearch((prevData) => ({
-      ...prevData,
-      [e.target.name]: e.target.value,
-    }));
+  const handleChange = debounce(
+    (
+      e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    ) => {
+      setSearchQuery((prevData) => ({
+        ...prevData,
+        [e.target.name]: e.target.value,
+      }));
+    },
+    300
+  );
+  // const handleChange = debounce((name: keyof SearchQuery, value: string) => {
+  //   setSearchQuery((prevState) => ({ ...prevState, [name]: value }));
+  // }, 300);
+
+  // const handleInputChange = debounce((name, value) => {
+  //   setSearchQuery((prevState) => ({ ...prevState, [name]: value }));
+  // }, 300);
+  useEffect(() => {
+    // Debounced search function
+    const debouncedSearch = debounce(handleSearch, 300);
+
+    // Call the debounced search function when searchQuery changes
+    debouncedSearch();
+
+    // Cleanup function to cancel the debounce
+    return () => {
+      debouncedSearch.cancel();
+    };
+  }, [searchQuery]);
+  // console.log(job.jobs, "JOOOOOOOOOO");
+  const handleSearch = () => {
+    // Perform search logic
+    // const filteredResults = job.jobs.filter((item: any) => {
+    //   const matchesSearch =
+    //     searchQuery.search === "" ||
+    //     item.search.toLowerCase().includes(searchQuery.search.toLowerCase());
+    // const matchesCategory =
+    //   searchQuery.category === "" ||
+    //   item.category
+    //     .toLowerCase()
+    //     .includes(searchQuery.category.toLowerCase());
+    // const matchesLocation =
+    //   searchQuery.location === "" ||
+    //   item.location
+    //     .toLowerCase()
+    //     .includes(searchQuery.location.toLowerCase());
+    // return matchesSearch;
+    // return matchesName && matchesCategory && matchesLocation;
+    // });
+    // setSearchResults(filteredResults);
   };
+
   const editJob = (data: Props) => {
     navigate("/add-jobs");
   };
+
   return (
     <>
       <div
@@ -89,10 +141,12 @@ function AllJobs() {
               id="search"
               type="text"
               placeholder="search"
-              value={addSearch?.search}
+              value={searchQuery?.search}
               onChange={handleChange}
               name="search"
             />
+            {/* onChange={(e) => handleChange("name", e.target.value)} */}
+            {/*  */}
           </div>
           <div className="mb-4">
             <label
@@ -108,7 +162,7 @@ function AllJobs() {
               }`}
               name="status"
               placeholder="status"
-              value={addSearch?.status}
+              value={searchQuery?.status}
               onChange={handleChange}
             >
               <option value="all">all</option>
@@ -130,7 +184,7 @@ function AllJobs() {
                 !isOpen ? "w-80" : "w-96"
               }`}
               name="job_type"
-              value={addSearch?.job_type}
+              value={searchQuery?.job_type}
               onChange={handleChange}
             >
               <option value="all">all</option>
@@ -153,7 +207,7 @@ function AllJobs() {
                 !isOpen ? "w-80" : "w-96"
               }`}
               name="sort"
-              value={addSearch?.sort}
+              value={searchQuery?.sort}
               onChange={handleChange}
             >
               <option value="latest">latest</option>

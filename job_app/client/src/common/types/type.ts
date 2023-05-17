@@ -22,3 +22,6 @@ export interface Job {
   status: string;
   updatedAt: string;
 }
+export interface JobType {
+  job: Job[];
+}
