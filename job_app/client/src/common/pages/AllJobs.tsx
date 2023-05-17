@@ -108,9 +108,7 @@ function AllJobs() {
         item?.job_type
           .toLowerCase()
           .includes(searchQuery.job_type.toLowerCase());
-      // const sortedResults = job?.jobs?.sort((a: any, b: any) =>
-      //   a.localeCompare(b)
-      // );
+
       return matchesSearch && matchesStautus && matchesJobTypes;
     });
 
