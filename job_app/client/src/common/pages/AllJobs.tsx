@@ -78,26 +78,7 @@ function AllJobs() {
       clearTimeout(debouncedSearch);
     };
   }, [searchQuery, job]);
-  // const handleChange = debounce((name: keyof SearchQuery, value: string) => {
-  //   setSearchQuery((prevState) => ({ ...prevState, [name]: value }));
-  // }, 300);
 
-  // const handleInputChange = debounce((name, value) => {
-  //   setSearchQuery((prevState) => ({ ...prevState, [name]: value }));
-  // }, 300);
-  // useEffect(() => {
-  //   // Debounced search function
-  //   const debouncedSearch = debounce(handleSearch, 300);
-
-  //   // Call the debounced search function when searchQuery changes
-  //   debouncedSearch();
-
-  //   // Cleanup function to cancel the debounce
-  //   return () => {
-  //     debouncedSearch.cancel();
-  //   };
-  // }, [searchQuery]);
-  // console.log(job.jobs, "JOOOOOOOOOO");
   const handleSearch = () => {
     // Perform search logic
     const filteredResults = job?.jobs?.filter((item: any) => {
@@ -106,19 +87,16 @@ function AllJobs() {
         item?.position
           .toLowerCase()
           .includes(searchQuery?.position.toLowerCase());
-      // const matchesCategory =
-      //   searchQuery.category === "" ||
-      //   item.category
-      //     .toLowerCase()
-      //     .includes(searchQuery.category.toLowerCase());
-      // const matchesLocation =
-      //   searchQuery.location === "" ||
-      //   item.location
-      //     .toLowerCase()
-      //     .includes(searchQuery.location.toLowerCase());
+      const matchesStautus =
+        searchQuery?.status === "all" ||
+        item?.status.toLowerCase().includes(searchQuery?.status.toLowerCase());
+      const matchesJobTypes =
+        searchQuery?.job_type === "all" ||
+        item?.job_type
+          .toLowerCase()
+          .includes(searchQuery.job_type.toLowerCase());
 
-      return matchesSearch;
-      // return matchesName && matchesCategory && matchesLocation;
+      return matchesSearch && matchesStautus && matchesJobTypes;
     });
 
     setSearchResults(filteredResults);
@@ -200,8 +178,8 @@ function AllJobs() {
               onChange={handleChange}
             >
               <option value="all">all</option>
-              <option value="full-time">full-time</option>
-              <option value="part-time">part-time</option>
+              <option value="full time">full-time</option>
+              <option value="part time">part-time</option>
               <option value="remote">remote</option>
               <option value="internship">internship</option>
             </select>
