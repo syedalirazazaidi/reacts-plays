@@ -7,7 +7,7 @@ export interface AddJobType {
   job_type: string;
 }
 export interface SearchType {
-  search: string;
+  position: string;
   sort: string;
   status: string;
   job_type: string;

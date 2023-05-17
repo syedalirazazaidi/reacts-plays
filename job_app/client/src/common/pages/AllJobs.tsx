@@ -24,7 +24,7 @@ interface SearchQuery {
 function AllJobs() {
   const [job, setJob] = useState<any>([]);
   const [searchQuery, setSearchQuery] = useState<SearchType>({
-    search: "",
+    position: "",
     sort: "",
     status: "",
     job_type: "",
@@ -92,24 +92,28 @@ function AllJobs() {
   // console.log(job.jobs, "JOOOOOOOOOO");
   const handleSearch = () => {
     // Perform search logic
-    // const filteredResults = job.jobs.filter((item: any) => {
-    //   const matchesSearch =
-    //     searchQuery.search === "" ||
-    //     item.search.toLowerCase().includes(searchQuery.search.toLowerCase());
-    // const matchesCategory =
-    //   searchQuery.category === "" ||
-    //   item.category
-    //     .toLowerCase()
-    //     .includes(searchQuery.category.toLowerCase());
-    // const matchesLocation =
-    //   searchQuery.location === "" ||
-    //   item.location
-    //     .toLowerCase()
-    //     .includes(searchQuery.location.toLowerCase());
-    // return matchesSearch;
-    // return matchesName && matchesCategory && matchesLocation;
-    // });
-    // setSearchResults(filteredResults);
+    const filteredResults = job?.jobs?.filter((item: any) => {
+      console.log(item, "ITEM");
+      const matchesSearch =
+        searchQuery?.position === "" ||
+        item?.position
+          .toLowerCase()
+          .includes(searchQuery?.position.toLowerCase());
+      // const matchesCategory =
+      //   searchQuery.category === "" ||
+      //   item.category
+      //     .toLowerCase()
+      //     .includes(searchQuery.category.toLowerCase());
+      // const matchesLocation =
+      //   searchQuery.location === "" ||
+      //   item.location
+      //     .toLowerCase()
+      //     .includes(searchQuery.location.toLowerCase());
+      return matchesSearch;
+      // return matchesName && matchesCategory && matchesLocation;
+    });
+
+    setSearchResults(filteredResults);
   };
 
   const editJob = (data: Props) => {
@@ -130,20 +134,20 @@ function AllJobs() {
           <div className="mb-4 ">
             <label
               className="block text-gray-700 text-sm font-semibold mb-2"
-              htmlFor="search"
+              htmlFor="position"
             >
-              Search
+              Position
             </label>
             <input
               className={` shadow appearance-none border rounded h-10 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
                 !isOpen ? "w-80" : "w-96"
               }`}
-              id="search"
+              id="position"
               type="text"
-              placeholder="search"
-              value={searchQuery?.search}
+              placeholder="position"
+              value={searchQuery?.position}
               onChange={handleChange}
-              name="search"
+              name="position"
             />
             {/* onChange={(e) => handleChange("name", e.target.value)} */}
             {/*  */}
