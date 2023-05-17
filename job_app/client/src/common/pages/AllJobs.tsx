@@ -59,17 +59,25 @@ function AllJobs() {
       console.error("Error deleting data:", error);
     }
   };
-  const handleChange = debounce(
-    (
-      e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-    ) => {
-      setSearchQuery((prevData) => ({
-        ...prevData,
-        [e.target.name]: e.target.value,
-      }));
-    },
-    300
-  );
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setSearchQuery((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  useEffect(() => {
+    // Debounced search function
+    const debouncedSearch = setTimeout(() => {
+      handleSearch();
+    }, 500);
+
+    // Cleanup function to cancel the debounce
+    return () => {
+      clearTimeout(debouncedSearch);
+    };
+  }, [searchQuery, job]);
   // const handleChange = debounce((name: keyof SearchQuery, value: string) => {
   //   setSearchQuery((prevState) => ({ ...prevState, [name]: value }));
   // }, 300);
@@ -77,23 +85,22 @@ function AllJobs() {
   // const handleInputChange = debounce((name, value) => {
   //   setSearchQuery((prevState) => ({ ...prevState, [name]: value }));
   // }, 300);
-  useEffect(() => {
-    // Debounced search function
-    const debouncedSearch = debounce(handleSearch, 300);
+  // useEffect(() => {
+  //   // Debounced search function
+  //   const debouncedSearch = debounce(handleSearch, 300);
 
-    // Call the debounced search function when searchQuery changes
-    debouncedSearch();
+  //   // Call the debounced search function when searchQuery changes
+  //   debouncedSearch();
 
-    // Cleanup function to cancel the debounce
-    return () => {
-      debouncedSearch.cancel();
-    };
-  }, [searchQuery]);
+  //   // Cleanup function to cancel the debounce
+  //   return () => {
+  //     debouncedSearch.cancel();
+  //   };
+  // }, [searchQuery]);
   // console.log(job.jobs, "JOOOOOOOOOO");
   const handleSearch = () => {
     // Perform search logic
     const filteredResults = job?.jobs?.filter((item: any) => {
-      console.log(item, "ITEM");
       const matchesSearch =
         searchQuery?.position === "" ||
         item?.position
@@ -109,6 +116,7 @@ function AllJobs() {
       //   item.location
       //     .toLowerCase()
       //     .includes(searchQuery.location.toLowerCase());
+
       return matchesSearch;
       // return matchesName && matchesCategory && matchesLocation;
     });
@@ -232,7 +240,11 @@ function AllJobs() {
         </form>
       </div>
       <div>
-        <GetJob job={job} deleteJob={deleteJob} editJob={editJob} />
+        <GetJob
+          searchResults={searchResults}
+          deleteJob={deleteJob}
+          editJob={editJob}
+        />
       </div>
     </>
   );
