@@ -30,6 +30,8 @@ function AllJobs() {
   });
   const [searchResults, setSearchResults] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
+  const [sortOrder, setSortOrder] = useState("");
+
   const navigate = useNavigate();
   const { isSetOpen, isOpen, setEditFormData }: any =
     useContext(SidebarContext);
@@ -76,7 +78,7 @@ function AllJobs() {
     return () => {
       clearTimeout(debouncedSearch);
     };
-  }, [searchQuery, job]);
+  }, [searchQuery, job, sortOrder]);
 
   const clearSearch = () => {
     setSearchQuery((prevData) => ({
@@ -91,6 +93,10 @@ function AllJobs() {
     //   _id: "",
     // }));
   };
+  const handleSortOrderChange = (e: { target: { value: any } }) => {
+    const { value } = e.target;
+    setSortOrder(value);
+  };
 
   const handleSearch = () => {
     // Perform search logic
@@ -100,7 +106,7 @@ function AllJobs() {
         item?.position
           .toLowerCase()
           .includes(searchQuery?.position.toLowerCase());
-      const matchesStautus =
+      const matchesStatus =
         searchQuery?.status === "all" ||
         item?.status.toLowerCase().includes(searchQuery?.status.toLowerCase());
       const matchesJobTypes =
@@ -108,12 +114,26 @@ function AllJobs() {
         item?.job_type
           .toLowerCase()
           .includes(searchQuery.job_type.toLowerCase());
-
-      return matchesSearch && matchesStautus && matchesJobTypes;
+      return matchesSearch && matchesStatus && matchesJobTypes;
     });
 
-    setSearchResults(filteredResults);
+    const sortedResults: any = [...filteredResults];
+
+    const sortedResultsnew: any = sortedResults.sort((a: any, b: any) => {
+      if (sortOrder === "ascending") {
+        return a.position.localeCompare(b.position);
+      } else if (sortOrder === "latest") {
+        return a.createdAt - b.createdAt;
+      } else if (sortOrder === "oldest") {
+        return b.createdAt - a.createdAt;
+      } else {
+        return b.position.localeCompare(a.position);
+      }
+    });
+
+    setSearchResults(sortedResultsnew);
   };
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     clearSearch();
@@ -202,7 +222,7 @@ function AllJobs() {
               <option value="internship">internship</option>
             </select>
           </div>
-          <div className="mb-4">
+          {/* <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-semibold mb-2"
               htmlFor="sort"
@@ -222,6 +242,28 @@ function AllJobs() {
               <option value="oldest">oldest</option>
               <option value="a-z">a-z</option>
               <option value="z-a">z-a</option>
+            </select>
+          </div> */}
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-semibold mb-2"
+              htmlFor="sort"
+            >
+              Sort
+            </label>
+            <select
+              id="sort"
+              className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
+                !isOpen ? "w-80" : "w-96"
+              }`}
+              name="sort"
+              value={sortOrder}
+              onChange={handleSortOrderChange}
+            >
+              <option value="latest">latest</option>
+              <option value="oldest">oldest</option>
+              <option value="ascending">a-z</option>
+              <option value="decending">z-a</option>
             </select>
           </div>
           <button

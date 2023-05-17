@@ -14,7 +14,7 @@ function EditButProvider({ children }: ProductProviderProps) {
   const setEditFormData = (data: any) => {
     setEditData(data);
   };
-  // console.log(editData._id, "DATAT");
+
   return (
     <EditButtonContext.Provider
       value={{
