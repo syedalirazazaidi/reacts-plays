@@ -1,13 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
-import axios from "axios";
 import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { useNavigate } from "react-router-dom";
+import Pagination from "./pagination";
 
 function GetJob({ deleteJob, editJob, searchResults }: any) {
-  //   const [job, setJob] = useState<any>([]);
-  // const [jobget, Setjobget] = useState(job.jobs ?? []);
-
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData }: any = useContext(EditButtonContext);
   const navigate = useNavigate();
@@ -16,8 +13,6 @@ function GetJob({ deleteJob, editJob, searchResults }: any) {
     setEditFormData(data);
     navigate("/add-jobs");
   };
-  console.log(searchResults, ":::");
-
   return (
     <div>
       <p className="text-gray-700 font-bold text-lg ml-10 mb-4">
@@ -103,6 +98,7 @@ function GetJob({ deleteJob, editJob, searchResults }: any) {
             </div>
           ))}
       </div>
+      <Pagination />
     </div>
   );
 }
