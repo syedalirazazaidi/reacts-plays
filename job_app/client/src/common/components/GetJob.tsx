@@ -10,7 +10,7 @@ function GetJob({ deleteJob, editJob, searchResults }: any) {
   const { setEditFormData }: any = useContext(EditButtonContext);
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
-  console.log(searchResults, "RESU");
+
   const editClick = (data: any) => {
     setEditFormData(data);
     navigate("/add-jobs");

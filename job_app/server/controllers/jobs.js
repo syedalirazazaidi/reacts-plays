@@ -12,7 +12,11 @@ const getAllJobs = async (req, res) => {
     .sort('createdAt')
     .limit(PAGE_SIZE)
     .skip(PAGE_SIZE * page)
-  res.status(StatusCodes.OK).json({ jobs, count: jobs.length, total })
+  res.status(StatusCodes.OK).json({
+    jobs,
+    count: jobs.length,
+    totalPages: Math.ceil(total / PAGE_SIZE),
+  })
 }
 const getJob = async (req, res) => {
   const {
