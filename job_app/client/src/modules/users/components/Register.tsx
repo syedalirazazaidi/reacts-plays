@@ -59,6 +59,7 @@ function SignUpForm() {
               name="name"
               value={signUpForm.name}
               onChange={handleInputChange}
+              required
             />
           </div>
           <div className="mb-4">
@@ -76,6 +77,7 @@ function SignUpForm() {
               name="email"
               value={signUpForm.email}
               onChange={handleInputChange}
+              required
             />
           </div>
           <div className="mb-6">
@@ -93,6 +95,7 @@ function SignUpForm() {
               placeholder="********"
               value={signUpForm.password}
               onChange={handleInputChange}
+              required
             />
           </div>
           <div className="flex items-center justify-between">

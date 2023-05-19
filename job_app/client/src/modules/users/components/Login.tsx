@@ -19,6 +19,7 @@ function Login() {
               id="email"
               type="email"
               placeholder="Email"
+              required
             />
           </div>
           <div className="mb-6">
@@ -33,6 +34,7 @@ function Login() {
               id="password"
               type="password"
               placeholder="********"
+              required
             />
           </div>
           <div className="flex items-center justify-between">
