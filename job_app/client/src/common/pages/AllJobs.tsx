@@ -160,7 +160,6 @@ function AllJobs() {
   const pageNumber = new Array(noOfPages).fill(null).map((v, i) => {
     return (
       <div
-        // className="cursor-pointer relative z-10 inline-flex items-center bg-grey-700 px-4 py-2 text-sm font-semibold text-black focus:z-20 border  border-black-300  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
         className={`
         cursor-pointer relative z-10 inline-flex items-center bg-grey-700 px-4 py-2 text-sm font-semibold text-black focus:z-20 border  border-black-300  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 
         bg-${page === i ? "blue" : "red"}-500 `}

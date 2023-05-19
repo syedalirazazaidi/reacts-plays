@@ -1,17 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { useNavigate } from "react-router-dom";
-import Pagination from "./pagination";
+
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 function GetJob({
   deleteJob,
-  editJob,
   searchResults,
   gotoNext,
   pageNumber,
-  id,
   gotoPrevious,
 }: any) {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
