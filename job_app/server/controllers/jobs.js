@@ -6,6 +6,7 @@ const getAllJobs = async (req, res) => {
   const PAGE_SIZE = 6
   const page = req.query.page
   const total = await Job.countDocuments({})
+
   // { createdBy: req.user.userId }
   const jobs = await Job.find()
     .sort('createdAt')
