@@ -37,7 +37,15 @@ function AllJobs() {
   const navigate = useNavigate();
   const { isSetOpen, isOpen, setEditFormData }: any =
     useContext(SidebarContext);
+  const gotoPrevious = () => {
+    setPage(Math.max(0, page - 1));
+  };
+  const gotoNext = () => {
+    setPage(Math.min(noOfPages - 1, page + 1));
+    // setPage(page + 1);
 
+    // setPageNumber(Math.min(numberOfPages - 1, pageNumber + 1));
+  };
   useEffect(() => {
     // Function to fetch data from the API
     const fetchData = async () => {
@@ -148,11 +156,16 @@ function AllJobs() {
   const editJob = (data: Props) => {
     navigate("/add-jobs");
   };
+
+  const changePage = (ident: any) => {
+    setPage(ident);
+  };
   const pageNumber = new Array(noOfPages).fill(null).map((v, i) => {
     return (
       <div
         className="cursor-pointer relative z-10 inline-flex items-center bg-grey-700 px-4 py-2 text-sm font-semibold text-black focus:z-20 border  border-black-300  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
-        onClick={() => setPage(i)}
+        onClick={() => changePage(i)}
+        key={i}
       >
         {i + 1}
       </div>
@@ -281,6 +294,8 @@ function AllJobs() {
           editJob={editJob}
           pageNumber={pageNumber}
           setPage={setPage}
+          gotoNext={gotoNext}
+          gotoPrevious={gotoPrevious}
         />
       </div>
     </>
