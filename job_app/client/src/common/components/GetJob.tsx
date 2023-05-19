@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Pagination from "./pagination";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
-function GetJob({ deleteJob, editJob, searchResults }: any) {
+function GetJob({ deleteJob, editJob, searchResults, pageNumber, id }: any) {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData }: any = useContext(EditButtonContext);
   const [page, setPage] = useState(1);
@@ -15,9 +15,12 @@ function GetJob({ deleteJob, editJob, searchResults }: any) {
     setEditFormData(data);
     navigate("/add-jobs");
   };
-  const changepagination = (changePagination: any) => {};
+  const changepagination = (changePagination: any) => {
+    console.log(changePagination);
+    setPage(2);
+  };
   const pagination = () => {};
-
+  console.log(pageNumber);
   return (
     <div>
       <p className="text-gray-700 font-bold text-lg ml-10 mb-4">
@@ -140,8 +143,16 @@ function GetJob({ deleteJob, editJob, searchResults }: any) {
                   <span className="sr-only">Previous</span>
                   <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
                 </a>
+                <span onClick={() => changepagination(pageNumber)}>
+                  <a
+                    aria-current="page"
+                    // className="cursor-pointer relative z-10 inline-flex items-center bg-grey-700 px-4 py-2 text-sm font-semibold text-black focus:z-20 border  border-black-300  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
+                  >
+                    {pageNumber}
+                  </a>
+                </span>
 
-                {[...Array(searchResults.length)].map((_, i: any) => {
+                {/* {[...Array(searchResults.length)].map((_, i: any) => {
                   return (
                     <span onClick={() => changepagination(i + 1)} key={i}>
                       <a
@@ -153,7 +164,7 @@ function GetJob({ deleteJob, editJob, searchResults }: any) {
                       </a>
                     </span>
                   );
-                })}
+                })} */}
                 <a className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
                   <span className="sr-only">Next</span>
                   <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />

@@ -31,7 +31,8 @@ function AllJobs() {
   const [searchResults, setSearchResults] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
   const [sortOrder, setSortOrder] = useState("");
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(0);
+  const [noOfPages, setNoOfPages] = useState(0);
 
   const navigate = useNavigate();
   const { isSetOpen, isOpen, setEditFormData }: any =
@@ -44,14 +45,16 @@ function AllJobs() {
         const response = await axios.get(
           `http://localhost:5000/api/v1/jobs?page=${page}`
         );
+
         setJob(response.data ?? []);
+        setNoOfPages(response.data.totalPages);
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData(); // Call the fetch data function
-  }, [deleteJobID]);
+  }, [deleteJobID, page]);
 
   const deleteJob = async (id: number) => {
     setDeleteJob(false);
@@ -145,6 +148,16 @@ function AllJobs() {
   const editJob = (data: Props) => {
     navigate("/add-jobs");
   };
+  const pageNumber = new Array(noOfPages).fill(null).map((v, i) => {
+    return (
+      <div
+        className="cursor-pointer relative z-10 inline-flex items-center bg-grey-700 px-4 py-2 text-sm font-semibold text-black focus:z-20 border  border-black-300  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 "
+        onClick={() => setPage(i)}
+      >
+        {i + 1}
+      </div>
+    );
+  });
 
   return (
     <>
@@ -156,6 +169,7 @@ function AllJobs() {
         }`}
       >
         <p className="ml-20 mt-3 text-3xl">Search Form</p>
+
         <form
           onSubmit={handleSubmit}
           className="flex flex-wrap gap-2 justify-start mx-20 my-8"
@@ -225,28 +239,7 @@ function AllJobs() {
               <option value="internship">internship</option>
             </select>
           </div>
-          {/* <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-semibold mb-2"
-              htmlFor="sort"
-            >
-              Sort
-            </label>
-            <select
-              id="sort"
-              className={`shadow  border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" ${
-                !isOpen ? "w-80" : "w-96"
-              }`}
-              name="sort"
-              value={searchQuery?.sort}
-              onChange={handleChange}
-            >
-              <option value="latest">latest</option>
-              <option value="oldest">oldest</option>
-              <option value="a-z">a-z</option>
-              <option value="z-a">z-a</option>
-            </select>
-          </div> */}
+
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-semibold mb-2"
@@ -286,6 +279,8 @@ function AllJobs() {
           searchResults={searchResults}
           deleteJob={deleteJob}
           editJob={editJob}
+          pageNumber={pageNumber}
+          setPage={setPage}
         />
       </div>
     </>
