@@ -3,9 +3,15 @@ const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError } = require('../errors')
 
 const getAllJobs = async (req, res) => {
+  const PAGE_SIZE = 6
+  const page = req.query.page
+  const total = await Job.countDocuments({})
   // { createdBy: req.user.userId }
-  const jobs = await Job.find().sort('createdAt')
-  res.status(StatusCodes.OK).json({ jobs, count: jobs.length })
+  const jobs = await Job.find()
+    .sort('createdAt')
+    .limit(PAGE_SIZE)
+    .skip(PAGE_SIZE * page)
+  res.status(StatusCodes.OK).json({ jobs, count: jobs.length, total })
 }
 const getJob = async (req, res) => {
   const {

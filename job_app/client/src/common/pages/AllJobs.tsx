@@ -31,6 +31,7 @@ function AllJobs() {
   const [searchResults, setSearchResults] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
   const [sortOrder, setSortOrder] = useState("");
+  const [page, setPage] = useState(1);
 
   const navigate = useNavigate();
   const { isSetOpen, isOpen, setEditFormData }: any =
@@ -40,7 +41,9 @@ function AllJobs() {
     // Function to fetch data from the API
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/v1/jobs");
+        const response = await axios.get(
+          `http://localhost:5000/api/v1/jobs?page=${page}`
+        );
         setJob(response.data ?? []);
       } catch (error) {
         console.error(error);
@@ -119,7 +122,7 @@ function AllJobs() {
 
     const sortedResults: any = [...filteredResults];
 
-    const sortedResultsnew: any = sortedResults.sort((a: any, b: any) => {
+    const sortedResultsnew: any = sortedResults?.sort((a: any, b: any) => {
       if (sortOrder === "ascending") {
         return a.position.localeCompare(b.position);
       } else if (sortOrder === "latest") {
