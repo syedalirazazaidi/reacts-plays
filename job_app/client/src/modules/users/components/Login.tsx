@@ -54,13 +54,13 @@ function Login() {
           <p className="text-center">
             {" "}
             Not a member yet?
-            <Link to="/dashboard">Login</Link>
-            {/* <a
+            {/* <Link to="/dashboard">Login</Link> */}
+            <a
               className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800 "
-              href="/"
+              href="/register"
             >
               Register
-            </a> */}
+            </a>
           </p>
         </form>
       </div>
