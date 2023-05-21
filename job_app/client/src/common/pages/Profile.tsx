@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { SidebarContext } from "../../contexts/SidebarContext";
 
 function Profile() {
+  const { isSetOpen, isOpen, setEditFormData }: any =
+    useContext(SidebarContext);
   return (
     <div className="bg-white rounded-md shadow-lg p-4  ">
       <p className="ml-20 mt-3 text-3xl">Profile</p>
@@ -61,6 +64,16 @@ function Profile() {
             placeholder="Enter input 3"
           />
         </div>
+        <button
+          type="submit"
+          className={`{
+          bg-cyan-200  h-10 mt-7 hover:bg-cyan-900 hover:text-white font-medium  rounded" ${
+            !isOpen ? "w-80 rounded ml-1" : "w-96 rounded "
+          }`}
+          // onClick={clearSearch}
+        >
+          Save Changes
+        </button>
       </form>
     </div>
   );
