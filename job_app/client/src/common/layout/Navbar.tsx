@@ -5,10 +5,11 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import LogOutMenu from "../components/LogoutMenu";
 import myMenu from "../../assets/menu-line.png";
 import { SidebarContext } from "../../contexts/SidebarContext";
+import { useAuthContext } from "../../modules/users/hooks/useUser";
 
 function Navbar() {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
-
+ 
   return (
     <div className="flex justify-between  mt-8 -mb-4 px-10 relative">
       <img

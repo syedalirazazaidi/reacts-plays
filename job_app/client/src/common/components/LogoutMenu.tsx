@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useLogout } from "../../modules/users/hooks/useLogout";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../modules/users/hooks/useUser";
 
 const LogoutMenu = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useLogout();
+  const { user }: any = useAuthContext();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -15,14 +17,17 @@ const LogoutMenu = () => {
     navigate("/");
   };
 
+  const { name } = user?.user;
+
   return (
     <div className="relative">
       <button
         className="bg-amber-600 text-white font-bold py-2 w-32 px-4 rounded"
         onClick={toggleDropdown}
       >
-        <i className="ri-user-line">Test User</i>
+        <i className="ri-user-line "> {name}</i>
       </button>
+      {user && user?.name}
       {isOpen && (
         <div className="absolute top-12 right-0 bg-white rounded-lg shadow-lg">
           <ul>
