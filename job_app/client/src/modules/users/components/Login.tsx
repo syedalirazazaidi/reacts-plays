@@ -1,11 +1,31 @@
-import React from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
-
+interface LoginInData {
+  email: string;
+  password: string;
+}
 function Login() {
+  const [loginInForm, setLogInForm] = useState<LoginInData>({
+    email: "",
+    password: "",
+  });
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setLogInForm((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    console.log(loginInForm, "///");
+  };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-sm">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          onSubmit={handleSubmit}
+        >
           <h2 className="h-20 text-center  font-semi text-3xl">Login</h2>
           <div className="mb-4">
             <label
@@ -19,6 +39,9 @@ function Login() {
               id="email"
               type="email"
               placeholder="Email"
+              name="email"
+              value={loginInForm.email}
+              onChange={handleInputChange}
               required
             />
           </div>
@@ -34,13 +57,16 @@ function Login() {
               id="password"
               type="password"
               placeholder="********"
+              name="password"
+              value={loginInForm.password}
+              onChange={handleInputChange}
               required
             />
           </div>
           <div className="flex items-center justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-medium py-1 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-              type="button"
+              type="submit"
             >
               Submit
             </button>
