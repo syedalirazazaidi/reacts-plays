@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { useLogout } from "../../modules/users/hooks/useLogout";
+import { useNavigate } from "react-router-dom";
 
 const LogoutMenu = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useLogout();
+
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
   const handleLogout = () => {
     logout();
+    navigate("/");
   };
-  useLogout;
+
   return (
     <div className="relative">
       <button
