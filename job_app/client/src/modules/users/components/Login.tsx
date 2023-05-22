@@ -1,10 +1,14 @@
+import axios from "axios";
 import React, { useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 interface LoginInData {
   email: string;
   password: string;
 }
 function Login() {
+  const navigate = useNavigate();
   const [loginInForm, setLogInForm] = useState<LoginInData>({
     email: "",
     password: "",
@@ -17,7 +21,17 @@ function Login() {
   };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    console.log(loginInForm, "///");
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/v1/auth/login",
+        loginInForm
+      );
+      console.log(response);
+      console.log(response.data); // Handle the response from the server
+    } catch (error) {
+      console.error(error);
+    } // You can perform form submission logic here
+    navigate("/dashboard");
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
