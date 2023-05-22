@@ -2,6 +2,7 @@ import { createContext, useReducer } from "react";
 interface AuthProviderProps {
   children: React.ReactNode;
 }
+
 export const AuthContext = createContext({});
 
 export const authReducer = (
@@ -18,12 +19,10 @@ export const authReducer = (
   }
 };
 
-export const AuthContextProvider = ({ children }: AuthProviderProps) => {
+const AuthContextProvider = ({ children }: AuthProviderProps) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
   });
-
-  console.log("AuthContext state:", state);
 
   return (
     <AuthContext.Provider value={{ ...state, dispatch }}>
@@ -31,3 +30,4 @@ export const AuthContextProvider = ({ children }: AuthProviderProps) => {
     </AuthContext.Provider>
   );
 };
+export default AuthContextProvider;

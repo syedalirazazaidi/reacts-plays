@@ -1,12 +1,14 @@
 import axios from "axios";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
+import { useSignup } from "../hooks/useSignUp";
 interface FormData {
   name: string;
   email: string;
   password: string;
 }
 function SignUpForm() {
+  const { signup, error, isLoading } = useSignup();
   const [signUpForm, setSignUpForm] = useState<FormData>({
     name: "",
     email: "",
@@ -22,17 +24,18 @@ function SignUpForm() {
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    await signup(signUpForm.name, signUpForm.email, signUpForm.password);
 
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/register",
-        signUpForm
-      );
-      console.log(response);
-      console.log(response.data); // Handle the response from the server
-    } catch (error) {
-      console.error(error);
-    } // You can perform form submission logic here
+    // try {
+    //   const response = await axios.post(
+    //     "http://localhost:5000/api/v1/auth/register",
+    //     signUpForm
+    //   );
+    //   console.log(response);
+    //   console.log(response.data); // Handle the response from the server
+    // } catch (error) {
+    //   console.error(error);
+    // } // You can perform form submission logic here
     navigate("/");
   };
 
