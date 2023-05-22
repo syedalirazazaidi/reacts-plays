@@ -8,6 +8,7 @@ import { SidebarContext } from "../../contexts/SidebarContext";
 
 function Navbar() {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
+
   return (
     <div className="flex justify-between  mt-8 -mb-4 px-10 relative">
       <img
