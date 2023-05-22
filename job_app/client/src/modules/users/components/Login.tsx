@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useLogin } from "../hooks/useLogin";
 
 interface LoginInData {
   email: string;
@@ -9,6 +10,8 @@ interface LoginInData {
 }
 function Login() {
   const navigate = useNavigate();
+  const { login, error, isLoading } = useLogin();
+
   const [token, setToken] = useState();
   const [loginInForm, setLogInForm] = useState<LoginInData>({
     email: "",
@@ -22,20 +25,21 @@ function Login() {
   };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        "http://localhost:5000/api/v1/auth/login",
-        loginInForm
-      );
-      console.log(response);
-      console.log(response.data); // Handle the response from the server
-      setToken(response.data);
+    await login(loginInForm.email, loginInForm.password);
+    // try {
+    //   const response = await axios.post(
+    //     "http://localhost:5000/api/v1/auth/login",
+    //     loginInForm
+    //   );
+    //   console.log(response);
+    //   console.log(response.data); // Handle the response from the server
+    //   setToken(response.data);
 
-      localStorage.setItem("token", JSON.stringify(response?.data));
-      // setLogin(initialFormState);
-    } catch (error) {
-      console.error(error);
-    } // You can perform form submission logic here
+    //   localStorage.setItem("token", JSON.stringify(response?.data));
+    //   // setLogin(initialFormState);
+    // } catch (error) {
+    //   console.error(error);
+    // } // You can perform form submission logic here
     navigate("/dashboard");
   };
   return (
