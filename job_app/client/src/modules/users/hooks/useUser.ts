@@ -1,18 +1,12 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/UserContextProvider";
 
-export default function usePosts() {
-  //   const [posts, setPosts] = useState<PostType[]>([]);
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch("/post.json");
-        const json = await response.json();
-        // setPosts(json);
-      } catch (error) {
-        // setError(error);
-      }
-    }
+export const useAuthContext = () => {
+  const context = useContext(AuthContext);
 
-    fetchData();
-  }, []);
-}
+  if (!context) {
+    throw Error("useAuthContext must be used inside an AuthContextProvider");
+  }
+
+  return context;
+};

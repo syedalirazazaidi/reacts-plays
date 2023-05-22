@@ -4,14 +4,14 @@ import ThemeContextProvider, {
   ThemeContext,
 } from "../../contexts/ThemeContext";
 import PostContextProvider from "../../modules/posts/Providers/PostContextProvider";
-import UserContextProvider from "../../modules/users/Providers/UserContextProvider";
+import AuthContextProvider from "../../modules/users/Providers/UserContextProvider";
 
 import RootRouter from "../routers/RootRouter";
 
 const AppProvider = () => {
   return (
     <PostContextProvider>
-      <UserContextProvider>
+      <AuthContextProvider>
         <ThemeContextProvider>
           <SidebarProvider>
             <EditButProvider>
@@ -19,7 +19,7 @@ const AppProvider = () => {
             </EditButProvider>
           </SidebarProvider>
         </ThemeContextProvider>
-      </UserContextProvider>
+      </AuthContextProvider>
     </PostContextProvider>
   );
 };

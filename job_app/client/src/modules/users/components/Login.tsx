@@ -9,6 +9,7 @@ interface LoginInData {
 }
 function Login() {
   const navigate = useNavigate();
+  const [token, setToken] = useState();
   const [loginInForm, setLogInForm] = useState<LoginInData>({
     email: "",
     password: "",
@@ -28,6 +29,10 @@ function Login() {
       );
       console.log(response);
       console.log(response.data); // Handle the response from the server
+      setToken(response.data);
+
+      localStorage.setItem("token", JSON.stringify(response?.data));
+      // setLogin(initialFormState);
     } catch (error) {
       console.error(error);
     } // You can perform form submission logic here
