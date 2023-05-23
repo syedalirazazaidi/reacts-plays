@@ -82,7 +82,7 @@ const updateJob = async (req, res) => {
   const job = await Job.findByIdAndUpdate(
     {
       _id: jobId,
-      createdBy: userIds,
+      createdBy: userId,
     },
     req.body,
     { new: true },
