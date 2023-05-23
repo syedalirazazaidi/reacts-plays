@@ -24,7 +24,7 @@ export default function RootRouter() {
         <Route
           path="/"
           // element={<Dashboard />}
-          element={user ? <Dashboard /> : <Navigate to="/" />}
+          element={user?.token ? <Dashboard /> : <Navigate to="/" />}
         >
           <Route path="/dashboard" element={<Stats />} />
           <Route path="/all-job" element={<AllJobs />} />

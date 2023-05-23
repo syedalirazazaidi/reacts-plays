@@ -40,7 +40,7 @@ function Login() {
     // } catch (error) {
     //   console.error(error);
     // } // You can perform form submission logic here
-    // navigate("/dashboard");
+    navigate("/dashboard");
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">

@@ -26,16 +26,6 @@ function SignUpForm() {
     e.preventDefault();
     await signup(signUpForm.name, signUpForm.email, signUpForm.password);
 
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:5000/api/v1/auth/register",
-    //     signUpForm
-    //   );
-    //   console.log(response);
-    //   console.log(response.data); // Handle the response from the server
-    // } catch (error) {
-    //   console.error(error);
-    // } // You can perform form submission logic here
     navigate("/");
   };
 

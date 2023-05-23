@@ -5,10 +5,14 @@ const { BadRequestError, NotFoundError } = require('../errors')
 const getAllJobs = async (req, res) => {
   const PAGE_SIZE = 6
   const page = req.query.page
-  const total = await Job.countDocuments({})
+
+  const queryObject = {
+    createdBy: req.user.userId,
+  }
+  const total = await Job.countDocuments(queryObject)
 
   // { createdBy: req.user.userId }
-  const jobs = await Job.find()
+  const jobs = await Job.find(queryObject)
     .sort('createdAt')
     .limit(PAGE_SIZE)
     .skip(PAGE_SIZE * page)
@@ -23,7 +27,7 @@ const getJob = async (req, res) => {
     user: { userId },
     params: { id: jobId },
   } = req
-  console.log(req.user.userId)
+
   const job = await Job.findOne({
     _id: jobId,
     createdBy: userId,

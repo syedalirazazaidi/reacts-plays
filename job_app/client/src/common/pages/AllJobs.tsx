@@ -11,6 +11,7 @@ import MainLayout from "../layout/MainLayout";
 import axios from "axios";
 import { AddJobType, Job, JobType, SearchType } from "../types/type";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../modules/users/hooks/useUser";
 
 interface Props {
   job: Job[];
@@ -22,6 +23,7 @@ interface SearchQuery {
 }
 function AllJobs() {
   const [job, setJob] = useState<any>([]);
+  const { user }: any = useAuthContext();
   const [searchQuery, setSearchQuery] = useState<SearchType>({
     position: "",
     sort: "",
@@ -48,7 +50,13 @@ function AllJobs() {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/v1/jobs?page=${page}`
+          `http://localhost:5000/api/v1/jobs?page=${page}`,
+          {
+            headers: {
+              Authorization: `Bearer ${user?.token}`,
+              "Content-Type": "application/json",
+            },
+          }
         );
 
         setJob(response.data ?? []);
@@ -65,7 +73,12 @@ function AllJobs() {
     setDeleteJob(false);
     try {
       ("");
-      await axios.delete(`http://localhost:5000/api/v1/jobs/${id}`);
+      await axios.delete(`http://localhost:5000/api/v1/jobs/${id}`, {
+        headers: {
+          Authorization: `Bearer ${user?.token}`,
+          "Content-Type": "application/json",
+        },
+      });
       setDeleteJob(true);
     } catch (error) {
       console.error("Error deleting data:", error);

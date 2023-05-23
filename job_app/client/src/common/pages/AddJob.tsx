@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState, ChangeEvent, FormEvent } from "react";
 import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { SidebarContext } from "../../contexts/SidebarContext";
+import { useAuthContext } from "../../modules/users/hooks/useUser";
 
 import { AddJobType, Job } from "../types/type";
 
@@ -9,7 +10,7 @@ function AddJob() {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData, editData, setEditData }: any =
     useContext(EditButtonContext);
-
+  const { user }: any = useAuthContext();
   const [editFun, setEditFun] = useState(editData);
   const [addJob, setAddJob] = useState<AddJobType>({
     position: editFun?.position ?? "",
@@ -18,6 +19,7 @@ function AddJob() {
     status: editFun?.status ?? "",
     job_type: editFun?.job_type ?? "",
   });
+  const { name } = user?.user;
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -45,7 +47,7 @@ function AddJob() {
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (editData && editData?._id) {
       const editjobdata = {
@@ -74,7 +76,12 @@ function AddJob() {
       };
 
       axios
-        .post("http://localhost:5000/api/v1/jobs", addjobdata)
+        .post("http://localhost:5000/api/v1/jobs", addjobdata, {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+            "Content-Type": "application/json",
+          },
+        })
         .then((data: any) => {
           console.log("Form submitted successfully:", data);
         })
