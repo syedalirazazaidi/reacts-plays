@@ -27,11 +27,11 @@ const JobSchema = new mongoose.Schema(
       enum: ['full time', 'part time', 'remote', 'internship'],
       // default: 'pending',
     },
-    // createdBy: {
-    //   type: mongoose.Types.ObjectId,
-    //   ref: 'User',
-    //   required: [true, 'Please provide user'],
-    // },
+    createdBy: {
+      type: mongoose.Types.ObjectId,
+      ref: 'User',
+      required: [true, 'Please provide user'],
+    },
   },
   { timestamps: true },
 )

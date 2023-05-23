@@ -20,13 +20,13 @@ const getAllJobs = async (req, res) => {
 }
 const getJob = async (req, res) => {
   const {
-    // user: { userId },
+    user: { userId },
     params: { id: jobId },
   } = req
   console.log(req.user.userId)
   const job = await Job.findOne({
     _id: jobId,
-    // createdBy: userId,
+    createdBy: userId,
   })
 
   if (!job) {
@@ -40,8 +40,7 @@ const getJob = async (req, res) => {
 }
 
 const createJob = async (req, res) => {
-  console.log(req.body)
-  // req.body.createdBy = req.user.userId
+  req.body.createdBy = req.user.userId
   const job = await Job.create(req.body)
   res.status(StatusCodes.CREATED).json({ job })
 }
@@ -49,7 +48,7 @@ const createJob = async (req, res) => {
 const updateJob = async (req, res) => {
   const {
     body: { company, position, location, status, job_type },
-    // user: { userId },
+    user: { userId },
     params: { id: jobId },
   } = req
 
@@ -79,7 +78,7 @@ const updateJob = async (req, res) => {
   const job = await Job.findByIdAndUpdate(
     {
       _id: jobId,
-      // createdBy: userIds
+      createdBy: userIds,
     },
     req.body,
     { new: true },
@@ -93,13 +92,13 @@ const updateJob = async (req, res) => {
 
 const deleteJob = async (req, res) => {
   const {
-    // user: { userId },
+    user: { userId },
     params: { id: jobId },
   } = req
 
   const job = await Job.findByIdAndRemove({
     _id: jobId,
-    // createdBy: userId,
+    createdBy: userId,
   })
   if (!job) {
     return res
