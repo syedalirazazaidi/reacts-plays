@@ -59,7 +59,12 @@ function AddJob() {
       };
 
       axios
-        .put(`http://localhost:5000/api/v1/jobs/${editid._id}`, editjobdata)
+        .put(`http://localhost:5000/api/v1/jobs/${editid._id}`, editjobdata, {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+            "Content-Type": "application/json",
+          },
+        })
         .then((data: any) => {
           console.log("Form submitted successfully:", data);
         })
