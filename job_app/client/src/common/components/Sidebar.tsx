@@ -23,7 +23,7 @@ const Sidebar: React.FC = () => {
                     to="/dashboard"
                     className=" text-#dfe2e6 hover:text-#dfe2e6 "
                   >
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 text-2xl text-amber-500 transition ease-in-out delay-150  hover:-translate-y-1 hover:translate-x-1 hover:scale-110  duration-300">
                       <i className="ri-bar-chart-box-line "></i>
                       Stats
                     </div>
@@ -34,8 +34,10 @@ const Sidebar: React.FC = () => {
                     to="/all-job"
                     className="text-#dfe2e6 hover:text-#dfe2e6"
                   >
-                    <div className="flex gap-2">
-                      <i className="ri-file-search-fill"></i>
+                    {/* absolute -bottom-1 left-0 w-0 h-2 bg-blue-400 transition-all
+                    group-hover:w-full */}
+                    <div className="flex gap-2 text-2xl text-amber-500 transition ease-in-out delay-150  hover:-translate-y-1 hover:translate-x-1 hover:scale-110  duration-300">
+                      <i className="ri-file-search-fill "></i>
                       All Jobs
                     </div>
                   </Link>
@@ -45,7 +47,7 @@ const Sidebar: React.FC = () => {
                     to="/add-jobs"
                     className="text-#dfe2e6 hover:text-#dfe2e6"
                   >
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 text-2xl text-amber-500 transition ease-in-out delay-150  hover:-translate-y-1 hover:translate-x-1 hover:scale-110  duration-300">
                       <i className="ri-file-add-line"></i>
                       Add jobs
                     </div>
@@ -56,7 +58,7 @@ const Sidebar: React.FC = () => {
                     to="/profile"
                     className="text-#dfe2e6 hover:text-#dfe2e6"
                   >
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 text-2xl text-amber-500 transition ease-in-out delay-150  hover:-translate-y-1 hover:translate-x-1 hover:scale-110  duration-300">
                       <i className="ri-profile-line"></i>
                       Profile
                     </div>
