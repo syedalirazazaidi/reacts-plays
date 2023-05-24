@@ -20,6 +20,7 @@ const getAllJobs = async (req, res) => {
     jobs,
     count: jobs.length,
     totalPages: Math.ceil(total / PAGE_SIZE),
+    total: total,
   })
 }
 const getJob = async (req, res) => {

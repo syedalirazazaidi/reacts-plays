@@ -12,6 +12,7 @@ import axios from "axios";
 import { AddJobType, Job, JobType, SearchType } from "../types/type";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../modules/users/hooks/useUser";
+import { StatisticsContext } from "../../contexts/StaticticsContext";
 
 interface Props {
   job: Job[];
@@ -24,6 +25,7 @@ interface SearchQuery {
 function AllJobs() {
   const [job, setJob] = useState<any>([]);
   const { user }: any = useAuthContext();
+  const { page, setPage }: any = useContext(StatisticsContext);
   const [searchQuery, setSearchQuery] = useState<SearchType>({
     position: "",
     sort: "",
@@ -33,7 +35,7 @@ function AllJobs() {
   const [searchResults, setSearchResults] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
   const [sortOrder, setSortOrder] = useState("");
-  const [page, setPage] = useState(0);
+  // const [page, setPage] = useState(0);
   const [noOfPages, setNoOfPages] = useState(0);
 
   const navigate = useNavigate();
@@ -60,6 +62,7 @@ function AllJobs() {
         );
 
         setJob(response.data ?? []);
+        console.log(response, "...");
         setNoOfPages(response.data.totalPages);
       } catch (error) {
         console.error(error);
@@ -308,6 +311,7 @@ function AllJobs() {
           setPage={setPage}
           gotoNext={gotoNext}
           gotoPrevious={gotoPrevious}
+          job={job}
         />
       </div>
     </>
