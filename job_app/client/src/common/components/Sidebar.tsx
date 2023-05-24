@@ -11,7 +11,7 @@ const Sidebar: React.FC = () => {
     <div className={` ${!isOpen ? "ease-in-out duration-900" : ""}`}>
       {!isOpen && !isOpen ? (
         <div>
-          <div className="absolute top-10 left-8 text-amber-600 font-bold text-2xl">
+          <div className="absolute top-10 left-8 text-amber-600 font-semibold text-3xl">
             Job App
           </div>
           <div className="ml-48 -mt-30 "></div>
