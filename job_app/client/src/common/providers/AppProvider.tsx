@@ -1,5 +1,6 @@
 import EditButProvider from "../../contexts/EditButtonContext";
 import SidebarProvider from "../../contexts/SidebarContext";
+import StaticProvider from "../../contexts/StaticticsContext";
 import ThemeContextProvider, {
   ThemeContext,
 } from "../../contexts/ThemeContext";
@@ -14,9 +15,11 @@ const AppProvider = () => {
       <AuthContextProvider>
         <ThemeContextProvider>
           <SidebarProvider>
-            <EditButProvider>
-              <RootRouter />
-            </EditButProvider>
+            <StaticProvider>
+              <EditButProvider>
+                <RootRouter />
+              </EditButProvider>
+            </StaticProvider>
           </SidebarProvider>
         </ThemeContextProvider>
       </AuthContextProvider>

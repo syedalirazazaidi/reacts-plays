@@ -21,7 +21,24 @@ function GetJob({
     setEditFormData(data);
     navigate("/add-jobs");
   };
+  const declined = [];
+  const pending = [];
+  const interview = [];
+  const newSearchR = searchResults.map((f: any) =>
+    f.status === "declined"
+      ? declined.push(f.status)
+      : f.status === "pending"
+      ? pending.push(f.status)
+      : f.status === "interview"
+      ? interview.push(f.status)
+      : null
+  );
 
+  console.log(declined.length, "DECLINDE");
+  console.log(pending.length, "pending");
+  console.log(interview.length, "interview");
+
+  console.log(declined.length, ",,", interview.length, "p", pending.length);
   return (
     <div>
       <p className="text-gray-700 font-bold text-lg ml-10 mb-4">
