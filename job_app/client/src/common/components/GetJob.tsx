@@ -22,7 +22,7 @@ function GetJob({
     setEditFormData(data);
     navigate("/add-jobs");
   };
-  console.log(job);
+
   return (
     <div>
       {job && (

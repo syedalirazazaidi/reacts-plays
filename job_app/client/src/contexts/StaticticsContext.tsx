@@ -14,7 +14,7 @@ function StaticProvider({ children }: ProductProviderProps) {
   const getJobStatic = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/api/v1/jobs`,
+        `http://localhost:5000/api/v1/jobs/getstats`,
         // ?page=${page}
         {
           headers: {
@@ -25,8 +25,8 @@ function StaticProvider({ children }: ProductProviderProps) {
       );
       //   const jsonData = await response.json();
       //   setStatistic(jsonData);
+
       setStatistic(response?.data.jobs ?? []);
-      console.log(statistic, "..>>.");
     } catch (error) {
       console.error("Error fetching data:", error);
     }
