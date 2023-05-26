@@ -27,20 +27,21 @@ function Stats() {
         </p>
       </div>
 
-      <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-yellow-600">
+      <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-cyan-600">
         <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
           <h2 className=" font-semibold mb-2 text-6xl">{interview.length}</h2>
-          <i className="ri-briefcase-line bg-yellow-100 p-3 rounded-md"></i>
+
+          <i className="ri-honour-line bg-cyan-100 p-3 rounded-md"></i>
         </div>
         <p className="text-gray-600 text-2xl text-center p-1 mt-10">
           Interviews Scheduled
         </p>
       </div>
 
-      <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-yellow-600">
+      <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-teal-600">
         <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
           <h2 className=" font-semibold mb-2 text-6xl">{declined.length}</h2>
-          <i className="ri-briefcase-line bg-yellow-100 p-3 rounded-md"></i>
+          <i className="ri-briefcase-line bg-teal-100 p-3 rounded-md"></i>
         </div>
         <p className="text-gray-600 text-2xl text-center p-1 mt-10">
           Jobs Declined
