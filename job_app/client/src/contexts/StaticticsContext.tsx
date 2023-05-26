@@ -44,7 +44,6 @@ function StaticProvider({ children }: ProductProviderProps) {
       : null
   );
 
-  console.log(declined.length, ",,", interview.length, "p", pending.length);
   return (
     <StatisticsContext.Provider
       value={{
