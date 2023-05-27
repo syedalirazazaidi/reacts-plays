@@ -25,7 +25,7 @@ function StaticProvider({ children }: ProductProviderProps) {
       );
       //   const jsonData = await response.json();
       //   setStatistic(jsonData);
-
+      console.log(statistic, "//////////////");
       setStatistic(response?.data.jobs ?? []);
     } catch (error) {
       console.error("Error fetching data:", error);

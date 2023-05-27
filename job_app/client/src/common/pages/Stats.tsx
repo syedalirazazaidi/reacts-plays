@@ -1,6 +1,15 @@
 import { useContext, useEffect } from "react";
 import { StatisticsContext } from "../../contexts/StaticticsContext";
 import myCase from "../../assets/pending.png";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 function Stats() {
   const { getJobStatic, statistic, declined, pending, interview }: any =
     useContext(StatisticsContext);
@@ -14,6 +23,7 @@ function Stats() {
         console.error("Error retrieving data:", error);
       });
   }, []); // Empty dependency array to run the effect only once
+  console.log(statistic, "////");
 
   return (
     <div className="flex justify-between gap-2 flex-wrap p-6">
@@ -47,6 +57,21 @@ function Stats() {
           Jobs Declined
         </p>
       </div>
+
+      <ResponsiveContainer width="100%" height={300}>
+        <AreaChart data={statistic}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="option" />
+          <YAxis />
+          <Tooltip />
+          <Area
+            type="monotone"
+            dataKey="position"
+            stroke="#8884d8"
+            fill="#8884d8"
+          />
+        </AreaChart>
+      </ResponsiveContainer>
     </div>
   );
 }

@@ -6,7 +6,6 @@ const getAllStatJobs = async (req, res) => {
   const jobs = await Job.find({ createdBy: req.user.userId }).sort('createdAt')
   res.status(StatusCodes.OK).json({ jobs, count: jobs.length })
 }
-
 const getAllJobs = async (req, res) => {
   const PAGE_SIZE = 6
   const page = req.query.page
