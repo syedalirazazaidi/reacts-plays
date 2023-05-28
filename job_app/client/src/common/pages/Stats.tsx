@@ -10,9 +10,12 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { MonthlyContext } from "../../contexts/MonthlyContext";
 function Stats() {
-  const { getJobStatic, statistic, declined, pending, interview }: any =
+  const { getJobStatic, month, statistic, declined, pending, interview }: any =
     useContext(StatisticsContext);
+  const { monthly, getMonthlyStatic }: any = useContext(MonthlyContext);
+  console.log(monthly, "????????????/");
   useEffect(() => {
     getJobStatic()
       .then((data: any) => {
@@ -22,8 +25,8 @@ function Stats() {
       .catch((error: any) => {
         console.error("Error retrieving data:", error);
       });
-  }, []); // Empty dependency array to run the effect only once
-  console.log(statistic, "////");
+  }, []);
+  console.log(month, "/month///");
 
   return (
     <div className="flex justify-between gap-2 flex-wrap p-6">

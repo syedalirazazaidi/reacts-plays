@@ -8,6 +8,7 @@ interface ProductProviderProps {
 export const StatisticsContext = createContext({});
 function StaticProvider({ children }: ProductProviderProps) {
   const [statistic, setStatistic] = useState<any>([]);
+  const [month, setMonth] = useState<any>([]);
   const { user }: any = useAuthContext();
   const [page, setPage] = useState(0);
 
@@ -25,8 +26,9 @@ function StaticProvider({ children }: ProductProviderProps) {
       );
       //   const jsonData = await response.json();
       //   setStatistic(jsonData);
-      console.log(statistic, "//////////////");
+
       setStatistic(response?.data.jobs ?? []);
+      setMonth(response?.data.monthlyApplications ?? []);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -54,6 +56,7 @@ function StaticProvider({ children }: ProductProviderProps) {
         declined,
         pending,
         interview,
+        month,
       }}
     >
       {children}

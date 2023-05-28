@@ -12,6 +12,7 @@ const {
 
 router.route('/').post(createJob).get(getAllJobs)
 router.route('/getstats').get(getAllStatJobs)
+
 router.route('/:id').get(getJob).delete(deleteJob).put(updateJob)
 
 module.exports = router

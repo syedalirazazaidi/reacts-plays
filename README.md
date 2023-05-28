@@ -66,3 +66,4 @@ A Complete Job App using React.js,Redux,ContextAPI MongoDB and Node.js.
 - Validate User Input: Add validation to ensure that the required fields are filled out and that the data meets any specific criteria. Validate the form inputs either on form submission or as the user types in the data.
 - Display Success/Error Messages: Provide visual feedback to the user after submitting the job listing. Display success or error messages based on the response from the server to inform the user about the status of their job listing submission.
 - Update Job List: Once the job listing has been successfully added, you can update the job list in your application by fetching the updated data from the server or adding the new job directly to the existing list in your React.js state.
+- Data Analysis on Monthly job Data using MongoDB Aggregation Pipelines ,worked on a database layer.

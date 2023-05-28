@@ -1,4 +1,5 @@
 import EditButProvider from "../../contexts/EditButtonContext";
+import MonthlyProvider from "../../contexts/MonthlyContext";
 import SidebarProvider from "../../contexts/SidebarContext";
 import StaticProvider from "../../contexts/StaticticsContext";
 import ThemeContextProvider, {
@@ -17,7 +18,9 @@ const AppProvider = () => {
           <SidebarProvider>
             <StaticProvider>
               <EditButProvider>
-                <RootRouter />
+                <MonthlyProvider>
+                  <RootRouter />
+                </MonthlyProvider>
               </EditButProvider>
             </StaticProvider>
           </SidebarProvider>
