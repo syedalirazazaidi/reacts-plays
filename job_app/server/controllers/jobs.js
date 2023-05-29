@@ -2,12 +2,15 @@ const Job = require('../models/Job')
 const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError } = require('../errors')
 const mongoose = require('mongoose')
-const ObjectId = require('mongodb').ObjectId
+const { ObjectId } = require('mongodb')
+// const ObjectId = require('mongodb').ObjectId
 const getAllStatJobs = async (req, res) => {
   const jobs = await Job.find({ createdBy: req.user.userId }).sort('createdAt')
-  console.log(mongoose.Types)
+  // console.log(mongoose.Types)
+  const objectId = new ObjectId(req.user.userId)
+
   let monthlyApplications = await Job.aggregate([
-    { $match: { createdBy: mongoose.Types.ObjectId(req.user.userId) } },
+    { $match: { createdBy: objectId } },
     {
       $group: {
         _id: { year: { $year: '$createdAt' }, month: { $month: '$createdAt' } },
