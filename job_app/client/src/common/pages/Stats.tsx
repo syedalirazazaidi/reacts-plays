@@ -1,6 +1,9 @@
 import { useContext, useEffect } from "react";
 import { StatisticsContext } from "../../contexts/StaticticsContext";
 import myCase from "../../assets/pending.png";
+interface count {
+  count: number;
+}
 import {
   AreaChart,
   Area,
@@ -14,8 +17,9 @@ import { MonthlyContext } from "../../contexts/MonthlyContext";
 function Stats() {
   const { getJobStatic, month, statistic, declined, pending, interview }: any =
     useContext(StatisticsContext);
-  const { monthly, getMonthlyStatic }: any = useContext(MonthlyContext);
-  console.log(monthly, "????????????/");
+  const { monthly, getMonthlyStatic, monthlyCounts }: any =
+    useContext(MonthlyContext);
+
   useEffect(() => {
     getJobStatic()
       .then((data: any) => {
@@ -27,6 +31,47 @@ function Stats() {
       });
   }, []);
   console.log(month, "/month///");
+
+  const xAxisData = month?.map((monthname: any) => {
+    const { month } = monthname?._id;
+
+    const monthNames = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    return monthNames[month - 1];
+  });
+
+  console.log(xAxisData, "???????///////");
+  const seriesData = month?.map((count: count) => count?.count);
+
+  const option = {
+    xAxis: {
+      type: "category",
+      data: xAxisData,
+    },
+    yAxis: {
+      type: "value",
+    },
+    series: [
+      {
+        type: "bar",
+        data: seriesData,
+      },
+    ],
+  };
+
+  // chart.setOption(option);
 
   return (
     <div className="flex justify-between gap-2 flex-wrap p-6">
@@ -62,7 +107,7 @@ function Stats() {
       </div>
 
       <ResponsiveContainer width="100%" height={300}>
-        <AreaChart data={statistic}>
+        <AreaChart data={xAxisData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="option" />
           <YAxis />

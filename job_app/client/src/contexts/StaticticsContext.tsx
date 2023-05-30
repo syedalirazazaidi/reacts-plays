@@ -11,6 +11,7 @@ function StaticProvider({ children }: ProductProviderProps) {
   const [month, setMonth] = useState<any>([]);
   const { user }: any = useAuthContext();
   const [page, setPage] = useState(0);
+  const [monthlyCounts, setMonthlyCounts] = useState([]);
 
   const getJobStatic = async () => {
     try {
@@ -57,6 +58,7 @@ function StaticProvider({ children }: ProductProviderProps) {
         pending,
         interview,
         month,
+        monthlyCounts,
       }}
     >
       {children}
