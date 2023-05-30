@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { StatisticsContext } from "../../contexts/StaticticsContext";
-import myCase from "../../assets/pending.png";
 interface count {
   count: number;
 }
@@ -13,12 +12,16 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-import { MonthlyContext } from "../../contexts/MonthlyContext";
 function Stats() {
-  const { getJobStatic, month, statistic, declined, pending, interview }: any =
-    useContext(StatisticsContext);
-  const { monthly, getMonthlyStatic, monthlyCounts }: any =
-    useContext(MonthlyContext);
+  const {
+    getJobStatic,
+    month,
+
+    monthlyname,
+    declined,
+    pending,
+    interview,
+  }: any = useContext(StatisticsContext);
 
   useEffect(() => {
     getJobStatic()
@@ -30,11 +33,8 @@ function Stats() {
         console.error("Error retrieving data:", error);
       });
   }, []);
-  console.log(month, "/month///");
 
-  const xAxisData = month?.map((monthname: any) => {
-    const { month } = monthname?._id;
-
+  const getMonthName = (monthNumber: any) => {
     const monthNames = [
       "January",
       "February",
@@ -49,30 +49,9 @@ function Stats() {
       "November",
       "December",
     ];
-    return monthNames[month - 1];
-  });
-
-  console.log(xAxisData, "???????///////");
-  const seriesData = month?.map((count: count) => count?.count);
-
-  const option = {
-    xAxis: {
-      type: "category",
-      data: xAxisData,
-    },
-    yAxis: {
-      type: "value",
-    },
-    series: [
-      {
-        type: "bar",
-        data: seriesData,
-      },
-    ],
+    return monthNames[monthNumber - 1];
   };
-
-  // chart.setOption(option);
-
+  const monthName = getMonthName(month._id?.month);
   return (
     <div className="flex justify-between gap-2 flex-wrap p-6">
       <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-yellow-600">
@@ -107,14 +86,15 @@ function Stats() {
       </div>
 
       <ResponsiveContainer width="100%" height={300}>
-        <AreaChart data={xAxisData}>
+        <AreaChart data={monthlyname}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="option" />
+
+          <XAxis dataKey="monthName" />
           <YAxis />
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="position"
+            dataKey="count"
             stroke="#8884d8"
             fill="#8884d8"
           />
