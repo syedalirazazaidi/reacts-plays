@@ -85,7 +85,11 @@ function Stats() {
         </p>
       </div>
 
-      <ResponsiveContainer width="100%" height={300}>
+      <ResponsiveContainer
+        width="90%"
+        height={300}
+        className="md:w-64 lg:w-96 sm:w-32 mx-8 my-6"
+      >
         <AreaChart data={monthlyname}>
           <CartesianGrid strokeDasharray="3 3" />
 

@@ -41,6 +41,9 @@ function StaticProvider({ children }: ProductProviderProps) {
       console.error("Error fetching data:", error);
     }
   };
+  React.useEffect(() => {
+    getJobStatic();
+  }, []);
   const getMonthName = (monthNumber: any) => {
     const monthNames = [
       "January",
