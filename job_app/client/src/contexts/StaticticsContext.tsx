@@ -31,9 +31,11 @@ function StaticProvider({ children }: ProductProviderProps) {
             (dataPoint: any) => ({
               ...dataPoint,
               monthName: getMonthName(dataPoint._id.month),
+              // yearName: getMonthName(dataPoint._id.year),
             })
           );
           setMonthlyName(formattedData);
+
           setStatistic(response?.data.jobs ?? []);
           setMonth(response?.data.monthlyApplications ?? []);
         });
@@ -41,6 +43,7 @@ function StaticProvider({ children }: ProductProviderProps) {
       console.error("Error fetching data:", error);
     }
   };
+
   React.useEffect(() => {
     getJobStatic();
   }, []);

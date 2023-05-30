@@ -33,7 +33,7 @@ function Stats() {
         console.error("Error retrieving data:", error);
       });
   }, []);
-
+  const handleClick = () => {};
   const getMonthName = (monthNumber: any) => {
     const monthNames = [
       "January",
@@ -53,38 +53,49 @@ function Stats() {
   };
   const monthName = getMonthName(month._id?.month);
   return (
-    <div className="flex justify-between gap-2 flex-wrap p-6">
-      <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-yellow-600">
-        <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
-          <h2 className=" font-semibold mb-2 text-6xl">{pending.length}</h2>
-          <i className="ri-briefcase-line bg-yellow-100 p-3 rounded-md"></i>
+    <div>
+      <div className="flex justify-between gap-2 flex-wrap p-6">
+        <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-yellow-600">
+          <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
+            <h2 className=" font-semibold mb-2 text-6xl">{pending.length}</h2>
+            <i className="ri-briefcase-line bg-yellow-100 p-3 rounded-md"></i>
+          </div>
+          <p className="text-gray-600 text-2xl text-center p-1 mt-10">
+            Pending Applications
+          </p>
         </div>
-        <p className="text-gray-600 text-2xl text-center p-1 mt-10">
-          Pending Applications
-        </p>
+
+        <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-cyan-600">
+          <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
+            <h2 className=" font-semibold mb-2 text-6xl">{interview.length}</h2>
+
+            <i className="ri-honour-line bg-cyan-100 p-3 rounded-md"></i>
+          </div>
+          <p className="text-gray-600 text-2xl text-center p-1 mt-10">
+            Interviews Scheduled
+          </p>
+        </div>
+
+        <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-teal-600">
+          <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
+            <h2 className=" font-semibold mb-2 text-6xl">{declined.length}</h2>
+            <i className="ri-briefcase-line bg-teal-100 p-3 rounded-md"></i>
+          </div>
+          <p className="text-gray-600 text-2xl text-center p-1 mt-10">
+            Jobs Declined
+          </p>
+        </div>
       </div>
 
-      <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-cyan-600">
-        <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
-          <h2 className=" font-semibold mb-2 text-6xl">{interview.length}</h2>
-
-          <i className="ri-honour-line bg-cyan-100 p-3 rounded-md"></i>
-        </div>
-        <p className="text-gray-600 text-2xl text-center p-1 mt-10">
-          Interviews Scheduled
-        </p>
+      <div className="text-center py-3">
+        <p className="text-2xl">Monthly Applications</p>
+        <button
+          className="hover:bg-teal-50 hover:underline py-2 hover: "
+          onClick={handleClick}
+        >
+          bar chart
+        </button>
       </div>
-
-      <div className="bg-white rounded-md shadow-lg px-10 py-5  w-96   border-b-4 border-teal-600">
-        <div className="flex justify-evenly gap-16 text-4xl	 text-yellow-600">
-          <h2 className=" font-semibold mb-2 text-6xl">{declined.length}</h2>
-          <i className="ri-briefcase-line bg-teal-100 p-3 rounded-md"></i>
-        </div>
-        <p className="text-gray-600 text-2xl text-center p-1 mt-10">
-          Jobs Declined
-        </p>
-      </div>
-
       <ResponsiveContainer
         width="90%"
         height={300}
