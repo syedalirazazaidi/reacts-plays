@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StatisticsContext } from "../../contexts/StaticticsContext";
 interface count {
   count: number;
@@ -11,6 +11,8 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
+  BarChart,
+  Bar,
 } from "recharts";
 function Stats() {
   const {
@@ -22,7 +24,7 @@ function Stats() {
     pending,
     interview,
   }: any = useContext(StatisticsContext);
-
+  const [barChart, isbarOpen] = useState(false);
   useEffect(() => {
     getJobStatic()
       .then((data: any) => {
@@ -33,7 +35,9 @@ function Stats() {
         console.error("Error retrieving data:", error);
       });
   }, []);
-  const handleClick = () => {};
+  const handleClick = () => {
+    isbarOpen(!barChart);
+  };
   const getMonthName = (monthNumber: any) => {
     const monthNames = [
       "January",
@@ -86,35 +90,57 @@ function Stats() {
           </p>
         </div>
       </div>
-
       <div className="text-center py-3">
         <p className="text-2xl">Monthly Applications</p>
         <button
           className="hover:bg-teal-50 hover:underline py-2 hover: "
           onClick={handleClick}
         >
-          bar chart
+          {barChart ? "Area Chart" : "Bar Chart"}
         </button>
       </div>
-      <ResponsiveContainer
-        width="90%"
-        height={300}
-        className="md:w-64 lg:w-96 sm:w-32 mx-8 my-6"
-      >
-        <AreaChart data={monthlyname}>
-          <CartesianGrid strokeDasharray="3 3" />
 
-          <XAxis dataKey="monthName" />
-          <YAxis />
-          <Tooltip />
-          <Area
-            type="monotone"
-            dataKey="count"
-            stroke="#8884d8"
-            fill="#8884d8"
-          />
-        </AreaChart>
-      </ResponsiveContainer>
+      {barChart ? (
+        <ResponsiveContainer
+          width="90%"
+          height={300}
+          className="md:w-64 lg:w-96 sm:w-32 mx-8 my-6"
+        >
+          <BarChart width={150} height={40} data={monthlyname}>
+            <XAxis dataKey="monthName" className="w-1" />
+            <YAxis />
+
+            <Tooltip />
+            <Bar
+              type="monotone"
+              dataKey="count"
+              className="w-1"
+              stroke="#1e3a8a"
+              fill="#3b82f6"
+            />
+          </BarChart>
+        </ResponsiveContainer>
+      ) : (
+        <ResponsiveContainer
+          width="90%"
+          height={300}
+          className="md:w-64 lg:w-96 sm:w-32 mx-8 my-6"
+        >
+          <AreaChart data={monthlyname}>
+            <CartesianGrid strokeDasharray="3 3" />
+
+            <XAxis dataKey="monthName" />
+            <YAxis />
+            <Tooltip />
+            <Area
+              type="monotone"
+              dataKey="count"
+              stroke="#1e3a8a"
+              fill="#3b82f6"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
+      )}
     </div>
   );
 }
