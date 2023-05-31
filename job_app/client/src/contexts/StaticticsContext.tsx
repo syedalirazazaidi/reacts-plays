@@ -43,7 +43,7 @@ function StaticProvider({ children }: ProductProviderProps) {
       console.error("Error fetching data:", error);
     }
   };
-
+  console.log(monthlyname, "?/////////////////");
   React.useEffect(() => {
     getJobStatic();
   }, []);

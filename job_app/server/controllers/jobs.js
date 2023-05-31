@@ -3,7 +3,8 @@ const { StatusCodes } = require('http-status-codes')
 const { BadRequestError, NotFoundError } = require('../errors')
 const mongoose = require('mongoose')
 const { ObjectId } = require('mongodb')
-// const ObjectId = require('mongodb').ObjectId
+const moment = require('moment')
+
 const getAllStatJobs = async (req, res) => {
   const jobs = await Job.find({ createdBy: req.user.userId }).sort('createdAt')
   // console.log(mongoose.Types)
@@ -20,9 +21,23 @@ const getAllStatJobs = async (req, res) => {
     { $sort: { '_id.year': -1, '_id.month': -1 } },
     { $limit: 6 },
   ])
+  monthlyApplications = monthlyApplications
+    .map((item) => {
+      const {
+        _id: { year, month },
+        count,
+      } = item
+      const date = moment()
+        .month(month - 1)
+        .year(year)
+        .format('MMM Y')
+      return { date, count }
+    })
+    .reverse()
   res
     .status(StatusCodes.OK)
     .json({ jobs, count: jobs.length, monthlyApplications })
+  console.log(monthlyApplications, '?///')
 }
 const getAllJobs = async (req, res) => {
   const PAGE_SIZE = 6
