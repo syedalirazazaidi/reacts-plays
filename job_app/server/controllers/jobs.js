@@ -21,23 +21,10 @@ const getAllStatJobs = async (req, res) => {
     { $sort: { '_id.year': -1, '_id.month': -1 } },
     { $limit: 6 },
   ])
-  monthlyApplications = monthlyApplications
-    .map((item) => {
-      const {
-        _id: { year, month },
-        count,
-      } = item
-      const date = moment()
-        .month(month - 1)
-        .year(year)
-        .format('MMM Y')
-      return { date, count }
-    })
-    .reverse()
+
   res
     .status(StatusCodes.OK)
     .json({ jobs, count: jobs.length, monthlyApplications })
-  console.log(monthlyApplications, '?///')
 }
 const getAllJobs = async (req, res) => {
   const PAGE_SIZE = 6
