@@ -47,6 +47,30 @@ const getAllJobs = async (req, res) => {
     total: total,
   })
 }
+const getDemoJob = async (req, res) => {
+  if (req.params.id === 'Test User') {
+    const PAGE_SIZE = 6
+    const page = req.query.page
+    console.log(page, '?/')
+
+    // const queryObject = {
+    //   createdBy: req.params.id,
+    // }
+    // const total = await Job.countDocuments(queryObject)
+    // console.log(total)
+    // { createdBy: req.user.userId }
+    // const jobs = await Job.find(queryObject)
+    //   .sort('createdAt')
+    //   .limit(PAGE_SIZE)
+    //   .skip(PAGE_SIZE * page)
+    // res.status(StatusCodes.OK).json({
+    //   jobs,
+    //   count: jobs.length,
+    //   totalPages: Math.ceil(total / PAGE_SIZE),
+    //   total: total,
+    // })
+  }
+}
 const getJob = async (req, res) => {
   const {
     user: { userId },
@@ -145,4 +169,5 @@ module.exports = {
   updateJob,
   getJob,
   getAllStatJobs,
+  getDemoJob,
 }

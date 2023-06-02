@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, ChangeEvent } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDemo } from "../hooks/useDemo";
 import { useLogin } from "../hooks/useLogin";
 
 interface LoginInData {
@@ -11,6 +12,7 @@ interface LoginInData {
 function Login() {
   const navigate = useNavigate();
   const { login, error, isLoading } = useLogin();
+  const { demo } = useDemo();
 
   const [token, setToken] = useState();
   const [loginInForm, setLogInForm] = useState<LoginInData>({
@@ -28,6 +30,24 @@ function Login() {
     await login(loginInForm.email, loginInForm.password);
 
     navigate("/dashboard");
+  };
+  const handleDemoClick = async (e: any) => {
+    const userRole = "Test User"; // Replace with actual user role retrieval logic
+
+    e.preventDefault();
+    axios
+      .get(`http://localhost:5000/api/v1/demo/${userRole}`)
+
+      .then((response) => {
+        // Handle the successful response from the backend
+        const data = response.data;
+        console.log(data, "DATA");
+        // Process and use the retrieved data as needed
+      })
+      .catch((error) => {
+        // Handle any errors that occur during the request
+        console.error("Error fetching data:", error);
+      });
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -84,7 +104,8 @@ function Login() {
           <div className="flex items-center justify-between py-4">
             <button
               className="bg-blue-200 hover:bg-blue-700 text-white font-medium py-1 px-4 rounded focus:outline-none focus:shadow-outline w-full"
-              type="button"
+              type="submit"
+              onClick={handleDemoClick}
             >
               Demo App
             </button>
