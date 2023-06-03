@@ -35,9 +35,8 @@ function AllJobs() {
   const [searchResults, setSearchResults] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
   const [sortOrder, setSortOrder] = useState("");
-  // const [page, setPage] = useState(0);
   const [noOfPages, setNoOfPages] = useState(0);
-
+  const [loader, setLoader] = useState(false);
   const navigate = useNavigate();
   const { isSetOpen, isOpen, setEditFormData }: any =
     useContext(SidebarContext);
@@ -50,6 +49,7 @@ function AllJobs() {
   useEffect(() => {
     // Function to fetch data from the API
     const fetchData = async () => {
+      setLoader((prev) => true);
       try {
         const response = await axios.get(
           `http://localhost:5000/api/v1/jobs?page=${page}`,
@@ -60,12 +60,12 @@ function AllJobs() {
             },
           }
         );
-
+        setLoader((prev) => false);
         setJob(response.data ?? []);
-
         setNoOfPages(response.data.totalPages);
       } catch (error) {
         console.error(error);
+        setLoader(false);
       }
     };
 
@@ -303,16 +303,30 @@ function AllJobs() {
         </form>
       </div>
       <div>
-        <GetJob
-          searchResults={searchResults}
-          deleteJob={deleteJob}
-          editJob={editJob}
-          pageNumber={pageNumber}
-          setPage={setPage}
-          gotoNext={gotoNext}
-          gotoPrevious={gotoPrevious}
-          job={job}
-        />
+        {loader ? (
+          //  space-x-2 animate-pulse
+          <div className="flex justify-center items-center h-56">
+            <div
+              className="  inline-block h-16 w-16 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] "
+              role="status"
+            >
+              <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+                Loading...
+              </span>
+            </div>
+          </div>
+        ) : (
+          <GetJob
+            searchResults={searchResults}
+            deleteJob={deleteJob}
+            editJob={editJob}
+            pageNumber={pageNumber}
+            setPage={setPage}
+            gotoNext={gotoNext}
+            gotoPrevious={gotoPrevious}
+            job={job}
+          />
+        )}
       </div>
     </>
   );

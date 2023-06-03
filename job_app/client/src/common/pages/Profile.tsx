@@ -70,7 +70,6 @@ function Profile() {
           bg-cyan-200  h-10 mt-7 hover:bg-cyan-900 hover:text-white font-medium  rounded" ${
             !isOpen ? "w-80 rounded ml-1" : "w-96 rounded "
           }`}
-          // onClick={clearSearch}
         >
           Save Changes
         </button>
