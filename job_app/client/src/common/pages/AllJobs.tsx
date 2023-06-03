@@ -34,6 +34,7 @@ function AllJobs() {
   });
   const [searchResults, setSearchResults] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
+  const [resultFound, setResultFound] = useState("");
   const [sortOrder, setSortOrder] = useState("");
   const [noOfPages, setNoOfPages] = useState(0);
   const [loader, setLoader] = useState(false);
@@ -157,8 +158,10 @@ function AllJobs() {
         return b.position.localeCompare(a.position);
       }
     });
-
-    setSearchResults(sortedResultsnew);
+    if (sortedResultsnew) {
+      setSearchResults(sortedResultsnew);
+    }
+    return setResultFound("sorry no result found...");
   };
 
   const handleSubmit = (e: FormEvent) => {
@@ -169,7 +172,6 @@ function AllJobs() {
   const editJob = (data: Props) => {
     navigate("/add-jobs");
   };
-
   const changePage = (ident: any) => {
     setPage(ident);
   };
@@ -329,7 +331,8 @@ function AllJobs() {
         ) : (
           <div className="flex justify-center items-center h-56">
             {" "}
-            <p className=""> sorry no result found...</p>
+            {resultFound}
+            {/* <p className=""> sorry no result found...</p> */}
           </div>
         )}
       </div>
