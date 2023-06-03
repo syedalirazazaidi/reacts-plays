@@ -53,7 +53,7 @@ A Authentication site using React.js, MongoDB and Node.js.
 
 ## 4. A Job App
 
-A Complete Job App using React.js,Redux,ContextAPI MongoDB and Node.js.
+A Complete Job App using Tailwind Css React.js,Redux,ContextAPI MongoDB and Node.js.
 
 ## Features
 
