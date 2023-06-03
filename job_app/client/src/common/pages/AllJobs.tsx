@@ -62,7 +62,7 @@ function AllJobs() {
         );
 
         setJob(response.data ?? []);
-        console.log(response, "...");
+
         setNoOfPages(response.data.totalPages);
       } catch (error) {
         console.error(error);
