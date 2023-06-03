@@ -315,7 +315,7 @@ function AllJobs() {
               </span>
             </div>
           </div>
-        ) : (
+        ) : searchResults.length ? (
           <GetJob
             searchResults={searchResults}
             deleteJob={deleteJob}
@@ -326,6 +326,11 @@ function AllJobs() {
             gotoPrevious={gotoPrevious}
             job={job}
           />
+        ) : (
+          <div className="flex justify-center items-center h-56">
+            {" "}
+            <p className=""> sorry no result found...</p>
+          </div>
         )}
       </div>
     </>
