@@ -83,11 +83,13 @@ function AllJobs() {
           "Content-Type": "application/json",
         },
       });
+
       setDeleteJob(true);
     } catch (error) {
       console.error("Error deleting data:", error);
     }
   };
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {

@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { SidebarContext } from "../../contexts/SidebarContext";
 import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { useNavigate } from "react-router-dom";
+import { Toast } from "flowbite-react";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
@@ -104,6 +105,15 @@ function GetJob({
                     >
                       delete
                     </button>
+                    {/* <Toast>
+                      <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-green-100 text-green-500 dark:bg-green-800 dark:text-green-200">
+                        <div className="h-5 w-5"></div>
+                      </div>
+                      <div className="ml-3 text-sm font-normal">
+                        Item deleted successfully.
+                      </div>
+                      <Toast.Toggle />
+                    </Toast> */}
                   </div>
                 </div>
               </div>
