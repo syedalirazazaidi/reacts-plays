@@ -114,7 +114,7 @@ function GetJob({
           ))}
       </div>
 
-      <div className="flex items-center justify-between  border-gray-200 bg-none px-4 py-8 mt-8 sm:px-6">
+      <div className="flex mb-8 items-center justify-between  border-gray-200 bg-none px-4 py-8 mt-8 sm:px-6">
         <div className="hidden sm:flex sm:flex-1 sm:items-center  sm:justify-between">
           <div>
             {searchResults?.length > 0 && (
