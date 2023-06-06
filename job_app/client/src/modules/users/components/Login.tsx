@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useContext } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { ToastContext } from "../../../contexts/ToastContext";
 import { useDemo } from "../hooks/useDemo";
 import { useLogin } from "../hooks/useLogin";
 
@@ -13,6 +14,7 @@ function Login() {
   const navigate = useNavigate();
   const { login, error, isLoading } = useLogin();
   const { demo } = useDemo();
+  const { showToast }: any = useContext(ToastContext);
 
   const [token, setToken] = useState();
   const [loginInForm, setLogInForm] = useState<LoginInData>({
@@ -27,6 +29,7 @@ function Login() {
   };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
+    showToast("login success", "success");
     await login(loginInForm.email, loginInForm.password);
 
     navigate("/dashboard");
