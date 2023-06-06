@@ -4,6 +4,7 @@ import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { useNavigate } from "react-router-dom";
 
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
+import { ToastContext } from "../../contexts/ToastContext";
 
 function GetJob({
   deleteJob,
@@ -15,6 +16,8 @@ function GetJob({
 }: any) {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData }: any = useContext(EditButtonContext);
+  const { showToast }: any = useContext(ToastContext);
+
   const [page, setPage] = useState(1);
   const navigate = useNavigate();
 

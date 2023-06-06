@@ -1,19 +1,23 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useLogout } from "../../modules/users/hooks/useLogout";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../modules/users/hooks/useUser";
+import { ToastContext } from "../../contexts/ToastContext";
 
 const LogoutMenu = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useLogout();
   const { user }: any = useAuthContext();
+  const { showToast }: any = useContext(ToastContext);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
   const handleLogout = () => {
     logout();
+    showToast("Logout successfully", "success");
+
     navigate("/");
   };
 

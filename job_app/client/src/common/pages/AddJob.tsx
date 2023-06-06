@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useState, ChangeEvent, FormEvent } from "react";
 import { EditButtonContext } from "../../contexts/EditButtonContext";
 import { SidebarContext } from "../../contexts/SidebarContext";
+import { ToastContext } from "../../contexts/ToastContext";
 import { useAuthContext } from "../../modules/users/hooks/useUser";
 
 import { AddJobType, Job } from "../types/type";
@@ -10,6 +11,8 @@ function AddJob() {
   const { isSetOpen, isOpen }: any = useContext(SidebarContext);
   const { setEditFormData, editData, setEditData }: any =
     useContext(EditButtonContext);
+  const { showToast }: any = useContext(ToastContext);
+
   const { user }: any = useAuthContext();
   const [editFun, setEditFun] = useState(editData);
   const [addJob, setAddJob] = useState<AddJobType>({
@@ -66,6 +69,7 @@ function AddJob() {
           },
         })
         .then((data: any) => {
+          showToast("Edited job successfully", "success");
           console.log("Form submitted successfully:", data);
         })
         .catch((error) => {
@@ -88,6 +92,7 @@ function AddJob() {
           },
         })
         .then((data: any) => {
+          showToast("Saved job successfully", "success");
           console.log("Form submitted successfully:", data);
         })
         .catch((error) => {
