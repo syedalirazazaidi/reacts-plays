@@ -13,6 +13,7 @@ import { AddJobType, Job, JobType, SearchType } from "../types/type";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../modules/users/hooks/useUser";
 import { StatisticsContext } from "../../contexts/StaticticsContext";
+import { ToastContainer, toast } from "react-toastify";
 
 interface Props {
   job: Job[];
@@ -32,6 +33,7 @@ function AllJobs() {
     status: "",
     job_type: "",
   });
+  const [toastMessage, setToastMessage] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [deleteJobID, setDeleteJob] = useState(false);
   const [resultFound, setResultFound] = useState("");
@@ -83,7 +85,8 @@ function AllJobs() {
           "Content-Type": "application/json",
         },
       });
-
+      setToastMessage("Your message has been submitted!");
+      toast.success(toastMessage);
       setDeleteJob(true);
     } catch (error) {
       console.error("Error deleting data:", error);
