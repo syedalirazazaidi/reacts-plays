@@ -10,6 +10,7 @@ const MainLayout = ({ children }: MainLayouProps) => {
     <>
       <Navbar />
       {children}
+
       <Footer />
     </>
   );
