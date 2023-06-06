@@ -5,6 +5,7 @@ import StaticProvider from "../../contexts/StaticticsContext";
 import ThemeContextProvider, {
   ThemeContext,
 } from "../../contexts/ThemeContext";
+import { ToastProvider } from "../../contexts/ToastContext";
 import PostContextProvider from "../../modules/posts/Providers/PostContextProvider";
 import AuthContextProvider from "../../modules/users/Providers/UserContextProvider";
 
@@ -16,13 +17,15 @@ const AppProvider = () => {
       <AuthContextProvider>
         <ThemeContextProvider>
           <SidebarProvider>
-            <StaticProvider>
-              <EditButProvider>
-                <MonthlyProvider>
-                  <RootRouter />
-                </MonthlyProvider>
-              </EditButProvider>
-            </StaticProvider>
+            <ToastProvider>
+              <StaticProvider>
+                <EditButProvider>
+                  <MonthlyProvider>
+                    <RootRouter />
+                  </MonthlyProvider>
+                </EditButProvider>
+              </StaticProvider>
+            </ToastProvider>
           </SidebarProvider>
         </ThemeContextProvider>
       </AuthContextProvider>

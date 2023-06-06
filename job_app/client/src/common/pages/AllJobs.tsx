@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../modules/users/hooks/useUser";
 import { StatisticsContext } from "../../contexts/StaticticsContext";
 import { ToastContainer, toast } from "react-toastify";
+import { ToastContext } from "../../contexts/ToastContext";
 
 interface Props {
   job: Job[];
@@ -26,6 +27,8 @@ interface SearchQuery {
 function AllJobs() {
   const [job, setJob] = useState<any>([]);
   const { user }: any = useAuthContext();
+  const { showToast }: any = useContext(ToastContext);
+
   const { page, setPage }: any = useContext(StatisticsContext);
   const [searchQuery, setSearchQuery] = useState<SearchType>({
     position: "",
@@ -85,8 +88,9 @@ function AllJobs() {
           "Content-Type": "application/json",
         },
       });
-      setToastMessage("Your message has been submitted!");
-      toast.success(toastMessage);
+      // setToastMessage("Your message has been submitted!");
+      // toast.success(toastMessage);
+      showToast("Item deleted successfully", "warning");
       setDeleteJob(true);
     } catch (error) {
       console.error("Error deleting data:", error);
