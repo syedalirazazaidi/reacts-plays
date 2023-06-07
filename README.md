@@ -2,13 +2,13 @@
 
 projects to understand React.js , using MongoDB, Firebase,Express.js and node.js.
 
-| #   | Plays          | Description                                                                                          |
-| :-- | :------------- | :--------------------------------------------------------------------------------------------------- |
-| 01  | Store App      | A Cart App example with a shopping cart using React.js,Context ApI MongoDB                           |
-| 02  | Task Manager   | A Task Manager site using React.js, MongoDB and Nodejs.                                              |
-| 03  | Auth Dashboard | A very simple dashboard to understand authentication with JWT                                        |
-| 04  | Job App        | A Job App by using tech Vite React.js,Context ApI,Nodejs and MongoDB                                 |
-| 05  | Online Store   | A  Online Store by using Nextjs 13 App Router with server components, parallel and intercepting routes as well as Drizzle ORM |
+| #   | Plays          | Description                                                                                                                  |
+| :-- | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
+| 01  | Store App      | A Cart App example with a shopping cart using React.js,Context ApI MongoDB                                                   |
+| 02  | Task Manager   | A Task Manager site using React.js, MongoDB and Nodejs.                                                                      |
+| 03  | Auth Dashboard | A very simple dashboard to understand authentication with JWT                                                                |
+| 04  | Job App        | A Job App by using tech Vite React.js,Context ApI,Nodejs and MongoDB                                                         |
+| 05  | Online Store   | A Online Store by using Nextjs 13 App Router with server components, parallel and intercepting routes as well as Drizzle ORM |
 
 <!-- |02| |  | -->
 
@@ -73,5 +73,16 @@ A Complete Job App using Tailwind Css React.js,Redux,ContextAPI MongoDB and Node
 
 ## 5. A Online Markit App
 
-A Complete Online App By using using Next.js 13.4+ Tailwind CSS, and Shadcn UI with database Postgres SQL and Drizzle ORM and Connecting to Sanity as back end CMS 
+A Complete Online App By using using Next.js 13.4+ Tailwind CSS, and Shadcn UI with database Postgres SQL and Drizzle ORM and Connecting to Sanity as back end CMS
 
+## Features
+
+- functionality of the login component
+- including the UI elements, form validation, and handling of signUp requests.
+- Build out the project given the Live Site using Next.js 13.4+ Tailwind CSS, and Shadcn UI
+- Implementing cart functionality using Vercel Postgres SQL and Drizzle ORM
+- Connecting to Sanity as back end CMS with all the product Data
+- Connecting Stripe APIs to power online payment processing for e-commerce
+- Use React-hot-toast library to adds beautiful notifications
+- Use Icons from Lucid (default from Shadcn-UI)
+  Stripe Test Credit Cards
