@@ -46,6 +46,7 @@ function AllJobs() {
   const navigate = useNavigate();
   const { isSetOpen, isOpen, setEditFormData }: any =
     useContext(SidebarContext);
+  const { name } = user?.user;
   const gotoPrevious = () => {
     setPage(Math.max(0, page - 1));
   };
@@ -80,21 +81,23 @@ function AllJobs() {
 
   const deleteJob = async (id: number) => {
     setDeleteJob(false);
-    try {
-      ("");
-      await axios.delete(`http://localhost:5000/api/v1/jobs/${id}`, {
-        headers: {
-          Authorization: `Bearer ${user?.token}`,
-          "Content-Type": "application/json",
-        },
-      });
-      // setToastMessage("Your message has been submitted!");
-      // toast.success(toastMessage);
-      showToast("Item deleted successfully", "warning");
-      setDeleteJob(true);
-    } catch (error) {
-      console.error("Error deleting data:", error);
-    }
+    if (name !== "aliraza") {
+      try {
+        ("");
+        await axios.delete(`http://localhost:5000/api/v1/jobs/${id}`, {
+          headers: {
+            Authorization: `Bearer ${user?.token}`,
+            "Content-Type": "application/json",
+          },
+        });
+        // setToastMessage("Your message has been submitted!");
+        // toast.success(toastMessage);
+        showToast("Item deleted successfully", "warning");
+        setDeleteJob(true);
+      } catch (error) {
+        console.error("Error deleting data:", error);
+      }
+    } else showToast("Demo User Unable to delete the job:");
   };
 
   const handleChange = (

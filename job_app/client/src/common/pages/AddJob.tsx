@@ -60,21 +60,22 @@ function AddJob() {
         status: addJob.status,
         job_type: addJob.job_type,
       };
-
-      axios
-        .put(`http://localhost:5000/api/v1/jobs/${editid._id}`, editjobdata, {
-          headers: {
-            Authorization: `Bearer ${user?.token}`,
-            "Content-Type": "application/json",
-          },
-        })
-        .then((data: any) => {
-          showToast("Edited job successfully", "success");
-          console.log("Form submitted successfully:", data);
-        })
-        .catch((error) => {
-          console.error("Error submitting form:", error);
-        });
+      if (name !== "aliraza") {
+        axios
+          .put(`http://localhost:5000/api/v1/jobs/${editid._id}`, editjobdata, {
+            headers: {
+              Authorization: `Bearer ${user?.token}`,
+              "Content-Type": "application/json",
+            },
+          })
+          .then((data: any) => {
+            showToast("Edited job successfully", "success");
+            console.log("Form submitted successfully:", data);
+          })
+          .catch((error) => {
+            console.error("Error submitting form:", error);
+          });
+      } else showToast("Demo User Unable to edit the job:");
     } else {
       const addjobdata = {
         position: addJob.position,
