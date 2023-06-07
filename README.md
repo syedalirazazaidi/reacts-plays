@@ -2,12 +2,13 @@
 
 projects to understand React.js , using MongoDB, Firebase,Express.js and node.js.
 
-| #   | Plays          | Description                                                                |
-| :-- | :------------- | :------------------------------------------------------------------------- |
-| 01  | Store App      | A Cart App example with a shopping cart using React.js,Context ApI MongoDB |
-| 02  | Task Manager   | A Task Manager site using React.js, MongoDB and Nodejs.                    |
-| 03  | Auth Dashboard | A very simple dashboard to understand authentication with JWT              |
-| 04  | Job App        | A Job App by using tech Vite React.js,Context ApI,Nodejs and MongoDB       |
+| #   | Plays          | Description                                                                                          |
+| :-- | :------------- | :--------------------------------------------------------------------------------------------------- |
+| 01  | Store App      | A Cart App example with a shopping cart using React.js,Context ApI MongoDB                           |
+| 02  | Task Manager   | A Task Manager site using React.js, MongoDB and Nodejs.                                              |
+| 03  | Auth Dashboard | A very simple dashboard to understand authentication with JWT                                        |
+| 04  | Job App        | A Job App by using tech Vite React.js,Context ApI,Nodejs and MongoDB                                 |
+| 05  | Online Store   | Nextjs 13 App Router with server components, parallel and intercepting routes as well as Drizzle ORM |
 
 <!-- |02| |  | -->
 
