@@ -6,7 +6,11 @@ import "./index.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer, toast } from "react-toastify";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
+if (process.env.NODE_ENV === "production") {
+  disableReactDevTools();
+}
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ToastContainer autoClose={2000} />

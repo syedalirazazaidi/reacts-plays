@@ -104,7 +104,7 @@ function Stats() {
         <ResponsiveContainer
           width="90%"
           height={300}
-          className="md:w-64 lg:w-96 sm:w-32 mx-8 my-6"
+          className="md:w-64 lg:w-96 sm:w-20 mx-8 my-6"
         >
           <BarChart width={150} height={40} data={monthlyname}>
             <XAxis dataKey="monthName" className="w-1" />
@@ -124,7 +124,7 @@ function Stats() {
         <ResponsiveContainer
           width="90%"
           height={300}
-          className="md:w-64 lg:w-96 sm:w-32 mx-8 my-6"
+          className="md:w-64 lg:w-96 sm:w-20 mx-8 my-6"
         >
           <AreaChart data={monthlyname}>
             <CartesianGrid strokeDasharray="3 3" />
