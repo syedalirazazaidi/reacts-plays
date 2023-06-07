@@ -83,21 +83,22 @@ function AddJob() {
         status: addJob.status,
         job_type: addJob.job_type,
       };
-
-      axios
-        .post("http://localhost:5000/api/v1/jobs", addjobdata, {
-          headers: {
-            Authorization: `Bearer ${user?.token}`,
-            "Content-Type": "application/json",
-          },
-        })
-        .then((data: any) => {
-          showToast("Saved job successfully", "success");
-          console.log("Form submitted successfully:", data);
-        })
-        .catch((error) => {
-          console.error("Error submitting form:", error);
-        });
+      if (name !== "aliraza") {
+        axios
+          .post("http://localhost:5000/api/v1/jobs", addjobdata, {
+            headers: {
+              Authorization: `Bearer ${user?.token}`,
+              "Content-Type": "application/json",
+            },
+          })
+          .then((data: any) => {
+            showToast("Saved job successfully", "success");
+            console.log("Form submitted successfully:", data);
+          })
+          .catch((error) => {
+            console.error("Error submitting form:", error);
+          });
+      } else showToast("Demo User Unable to add the job:");
     }
     clearField();
   };

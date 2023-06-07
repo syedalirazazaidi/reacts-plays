@@ -18,7 +18,7 @@ function Profile() {
         className="flex flex-wrap gap-4 justify-start mx-24 my-8"
         onSubmit={handleSubmit}
       >
-        <div className="mb-4 ">
+        <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
             htmlFor="name"

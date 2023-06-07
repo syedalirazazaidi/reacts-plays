@@ -35,22 +35,31 @@ function Login() {
     navigate("/dashboard");
   };
   const handleDemoClick = async (e: any) => {
-    const userRole = "Test User"; // Replace with actual user role retrieval logic
-
+    const loginInForm = {
+      email: "ali@hotmail.com",
+      password: "123456",
+    };
     e.preventDefault();
-    axios
-      .get(`http://localhost:5000/api/v1/demo/${userRole}`)
+    showToast("login success", "success");
+    await login(loginInForm.email, loginInForm.password);
 
-      .then((response) => {
-        // Handle the successful response from the backend
-        const data = response.data;
-        console.log(data, "DATA");
-        // Process and use the retrieved data as needed
-      })
-      .catch((error) => {
-        // Handle any errors that occur during the request
-        console.error("Error fetching data:", error);
-      });
+    navigate("/dashboard");
+    // const userRole = "Test User"; // Replace with actual user role retrieval logic
+
+    // e.preventDefault();
+    // axios
+    //   .get(`http://localhost:5000/api/v1/demo/${userRole}`)
+
+    //   .then((response) => {
+    //     // Handle the successful response from the backend
+    //     const data = response.data;
+    //     console.log(data, "DATA");
+    //     // Process and use the retrieved data as needed
+    //   })
+    //   .catch((error) => {
+    //     // Handle any errors that occur during the request
+    //     console.error("Error fetching data:", error);
+    //   });
   };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-800">
