@@ -58,6 +58,8 @@ A Complete Job App using Tailwind Css React.js,Redux,ContextAPI MongoDB and Node
 
 ![App Screenshot](job_app/board.png)
 
+![App Screenshot](job_app/newboard.PNG)
+
 ## Features
 
 - functionality of the login component, including the UI elements, form validation, and handling of login requests.
