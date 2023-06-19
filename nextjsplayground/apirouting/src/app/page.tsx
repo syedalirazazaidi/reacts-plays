@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 
 export default function Home() {
@@ -12,6 +13,14 @@ export default function Home() {
           </p>
         </div>
       </div>
+      {/* <div className="w-1/3 aspect-1/1 bg-green-300 mb-24">box</div> */}
+      <button
+        className="bg-slate-700 mb-96 p-4 hover:bg-slate-500 pointer-events-none"
+        onClick={() => alert("'hi do you do")}
+      >
+        {" "}
+        change activity
+      </button>
     </main>
   );
 }
