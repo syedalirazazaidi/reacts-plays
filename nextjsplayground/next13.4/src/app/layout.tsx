@@ -1,8 +1,8 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Mulish, Roboto } from "next/font/google";
 import Header from "./components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const mulish = Mulish({ subsets: ["latin"], weight: "500", display: "swap" });
 
 // export const metadata = {
 //   title: "Create Next App",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={mulish.className}>
         <Header />
 
         {children}
