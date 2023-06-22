@@ -1,7 +1,10 @@
 import React from "react";
 // import getAllmovie from "../../app/lib/getAllmovie";
+import MovieCard from "../components/MovieCard";
 export default async function Movie() {
-  const url: any = process.env.RAPID_KEY;
+  const url: any =
+    "https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=10&limit_suggestions=20&lang=en";
+
   const options = {
     method: "GET",
     headers: {
@@ -11,11 +14,10 @@ export default async function Movie() {
   };
   const res = await fetch(url, options);
   const data = await res.json();
-  console.log(data, "/data");
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      Movie
+      <MovieCard data={data?.titles ?? []} />
     </div>
   );
 }
