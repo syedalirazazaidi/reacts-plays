@@ -1,7 +1,8 @@
 import React from "react";
-// import getAllmovie from "../../app/lib/getAllmovie";
-export default async function Movie() {
+
+export default async function getAllmovie() {
   const url: any = process.env.RAPID_KEY;
+
   const options = {
     method: "GET",
     headers: {
@@ -10,12 +11,10 @@ export default async function Movie() {
     },
   };
   const res = await fetch(url, options);
-  const data = await res.json();
-  console.log(data, "/data");
 
-  return (
-    <div className="flex min-h-screen flex-col items-center justify-between p-24">
-      Movie
-    </div>
-  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
 }
