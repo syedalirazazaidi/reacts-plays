@@ -2,11 +2,11 @@ import React from "react";
 // import getAllmovie from "../../app/lib/getAllmovie";
 import MovieCard from "../components/MovieCard";
 export default async function Movie() {
-  await new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve("Hi!");
-    }, 3000);
-  });
+  // await new Promise((resolve, reject) => {
+  //   setTimeout(() => {
+  //     resolve("Hi!");
+  //   }, 3000);
+  // });
   const url: any =
     "https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=10&limit_suggestions=20&lang=en";
 
