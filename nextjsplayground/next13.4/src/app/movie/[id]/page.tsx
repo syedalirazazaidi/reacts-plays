@@ -10,8 +10,7 @@ import React from "react";
 
 export default async function page({ params }: any) {
   const { id } = params;
-  const url: any = `https://netflix54.p.rapidapi.com/title/details/?ids=${id}&lang=en`;
-
+  const url: any = process.env.RAPID_KEY;
   const options = {
     method: "GET",
     headers: {
