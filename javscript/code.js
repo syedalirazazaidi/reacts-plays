@@ -111,10 +111,20 @@
 // const b = a.toString().split('').reverse().join('')
 // console.log(b)
 
-const fibonacci = (n) => {
-  if (n <= 1) {
-    return n
-  }
-  return fibonacci(n - 1) + fibonacci(n - 2)
+// const fibonacci = (n) => {
+//   if (n <= 1) {
+//     return n
+//   }
+//   return fibonacci(n - 1) + fibonacci(n - 2)
+// }
+// fibonacci(50)
+// find duplicate element in the array
+
+const array = [2, 1, 2, 0]
+// console.log(array.indexOf(0))
+const dupli = []
+for (let index = 0; index < array.length; index++) {
+  const element = array[index]
+  dupli.push(element)
 }
-fibonacci(50)
+console.log(dupli)
