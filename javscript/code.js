@@ -120,11 +120,68 @@
 // fibonacci(50)
 // find duplicate element in the array
 
-const array = [2, 1, 2, 0]
-// console.log(array.indexOf(0))
-const dupli = []
-for (let index = 0; index < array.length; index++) {
-  const element = array[index]
-  dupli.push(element)
-}
-console.log(dupli)
+// const array = [2, 1, 2, 0]
+// // console.log(array.indexOf(0))
+// const dupli = []
+// for (let index = 0; index < array.length; index++) {
+//   const element = array[index]
+//   dupli.push(element)
+// }
+// console.log(dupli)
+
+// find duplicate in an array
+
+// const arr = [3, 4, 6, 7, 1, 3, 1, 4]
+// const newarr = arr.filter((item, index) => arr.indexOf(item) !== index)
+// console.log(newarr)
+
+// const numbers = [1, 24, 3, 2, 4, 5, 5, 6, 6, 6]
+
+// let isDuplicate = false
+
+// // Outer for loop
+// for (let i = 0; i < numbers.length; i++) {
+//   // Inner for loop
+//   for (let j = 0; j < numbers.length; j++) {
+//     // Skip self comparison
+//     if (i == j) {
+//       // Check for duplicate
+//       if (numbers[i] === numbers[j]) {
+//         console.log(numbers[i])
+//         isDuplicate = true
+//         // Terminate inner loop
+//         break
+//       }
+//     }
+//     // Terminate outer loop
+//     if (isDuplicate) {
+//       break
+//     }
+//   }
+// }
+
+// if (!isDuplicate) {
+//   console.log(`Array doesn't contain duplicates.`)
+// } else {
+//   console.log(`Array contains duplicates.`)
+// }
+//
+
+// function findDuplicates(arr) {
+//   return [...new Set(arr.filter((item, index) => arr.indexOf(item) !== index))]
+// }
+
+// const array = [1, 2, 3, 4, 5, 3, 3, 2, 3, 6, 6]
+// const duplicates = findDuplicates(array)
+// console.log(duplicates)
+// const fltarr = [2, 3, 5]
+// const newflt = fltarr.filter((dat) => dat > 4)
+// console.log(newflt)
+// console.log(fltarr)
+
+const arr = [3, 5, 6, 4, 3, 6, 6, 6, 6]
+const newarr = [
+  ...new Set(arr.filter((item, index) => arr.indexOf(item) !== index)),
+]
+console.log(newarr)
+// console.log(arr1.filter((newarr1, index) => arr1.indexOf(newarr1) !== index))
