@@ -1,8 +1,9 @@
 import Image from "next/image";
 import HomeButton from "./components/btn";
-import CardComp from "./components/card";
+// import CardComp from "./components/card";
 import DialogueComp from "./components/dialogue";
 import Hero from "./components/hero";
+import { CardWithForm } from "./components/card";
 
 export default function Home() {
   return (
@@ -10,7 +11,8 @@ export default function Home() {
       {/* hi this is developer */}
       {/* <HomeButton /> */}
       {/* <DialogueComp /> */}
-      <Hero />
+      {/* <Hero /> */}
+      <CardWithForm />
       {/* <CardComp /> */}
     </main>
   );
