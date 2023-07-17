@@ -11,7 +11,7 @@ import {
 export default function CardComp() {
   return (
     <div>
-      <Card className="bg-gray-600 col">
+      <Card className="bg-gray-600 h-screen">
         <CardHeader>
           <CardTitle>Card Title Component</CardTitle>
           <CardDescription>Card Description</CardDescription>
