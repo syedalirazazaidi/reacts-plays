@@ -4,6 +4,7 @@ import HomeButton from "./components/btn";
 import DialogueComp from "./components/dialogue";
 import Hero from "./components/hero";
 import { CardWithForm } from "./components/card";
+import { SheetDemo } from "./components/sheets";
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
       {/* <HomeButton /> */}
       {/* <DialogueComp /> */}
       {/* <Hero /> */}
-      <CardWithForm />
+      {/* <CardWithForm /> */}
+      <SheetDemo />
       {/* <CardComp /> */}
     </main>
   );
