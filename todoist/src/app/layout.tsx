@@ -1,3 +1,4 @@
+import Nav from "@/commons/Nav";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className="bg-gradient-to-r from-teal-100 to-blue-200">
+          <Nav />
           {children}
         </div>
       </body>
