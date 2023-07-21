@@ -53,7 +53,7 @@ const Nav = () => {
         </button>
         <div className={`md:flex ${isMenuOpen ? "block" : "hidden"}`}>
           {isUserLoggedIn ? (
-            <div className="flex gap-2 sm:text-teal-100 flex-col lg:flex-row">
+            <div className="flex gap-2 sm:text-teal-100  flex-col lg:flex-row">
               <Link href="/">
                 <Button className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block w-36">
                   Create Post
