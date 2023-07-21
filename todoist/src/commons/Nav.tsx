@@ -1,32 +1,19 @@
 "use client";
-// import Image from "next/image";
-// import Link from "next/link";
-// import React, { useState, useEffect } from "react";
 
-// export default function Nav() {
-//   const [first, setfirst] = useState("second");
-//   useEffect(() => {
-//     return () => {
-//       "second";
-//     };
-//   }, []);
-
-//   return (
-//     <div>
-//       Nav
-//       <Link href=""></Link>
-//       <Image src="" alt="" />
-//     </div>
-//   );
-// }
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { UserImage } from "@/app/uicomponents/avatar";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [providers, setProviders] = useState(null);
   const isUserLoggedIn = true;
+
+  useEffect(() => {
+    return () => {};
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -34,7 +21,7 @@ const Nav = () => {
 
   return (
     <nav className="bg-gray-100 py-3">
-      <div className="container mx-auto px-4 flex items-center justify-between">
+      <div className="container mx-auto px-12 flex items-center justify-between">
         <Link href="/">
           <div className="text-teal text-xl font-bold">Agility</div>
         </Link>
@@ -58,7 +45,7 @@ const Nav = () => {
           </svg>
         </button>
         <div className={`md:flex ${isMenuOpen ? "block" : "hidden"}`}>
-          {!isUserLoggedIn ? (
+          {isUserLoggedIn ? (
             <div className="flex gap-2 sm:text-teal-100 flex-col lg:flex-row">
               <Link href="/">
                 <Button className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block w-36">
@@ -69,6 +56,9 @@ const Nav = () => {
                 <Button className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block w-36">
                   Sign Out
                 </Button>
+              </Link>
+              <Link href="/profile">
+                <UserImage />
               </Link>
             </div>
           ) : (
