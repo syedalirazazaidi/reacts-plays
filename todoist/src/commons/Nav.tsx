@@ -8,13 +8,20 @@ import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [providers, setProviders] = useState(null);
+  const [providers, setProviders] = useState<any>(null);
   const isUserLoggedIn = true;
 
   useEffect(() => {
-    return () => {};
+    const fetchProviders = async () => {
+      try {
+        const providersData = await getProviders();
+        setProviders(providersData);
+      } catch (error) {
+        console.error("Error fetching authentication providers:", error);
+      }
+    };
+    fetchProviders();
   }, []);
-
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -62,11 +69,19 @@ const Nav = () => {
               </Link>
             </div>
           ) : (
-            <Link href="/">
-              <Button className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block">
-                SignIn
-              </Button>
-            </Link>
+            <>
+              {" "}
+              {providers &&
+                Object?.values(providers).map((provider: any) => (
+                  <Button
+                    key={provider.name}
+                    className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block"
+                    onClick={() => signIn(provider.id)}
+                  >
+                    SignIn
+                  </Button>
+                ))}
+            </>
           )}
         </div>
       </div>
