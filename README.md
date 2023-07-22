@@ -2,13 +2,17 @@
 
 projects to understand React.js , using MongoDB, Firebase,Express.js and node.js.
 
-| #   | Plays          | Description                                                                                                                  |
-| :-- | :------------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| 01  | Store App      | A Cart App example with a shopping cart using React.js,Context ApI MongoDB                                                   |
-| 02  | Task Manager   | A Task Manager site using React.js, MongoDB and Nodejs.                                                                      |
-| 03  | Auth Dashboard | A very simple dashboard to understand authentication with JWT                                                                |
-| 04  | Job App        | A Job App by using tech Vite React.js,Context ApI,Nodejs and MongoDB                                                         |
-| 05  | Online Store   | A Online Store by using Nextjs 13 App Router with server components, parallel and intercepting routes as well as Drizzle ORM |
+| #   | Plays          | Description                                                                |
+| :-- | :------------- | :------------------------------------------------------------------------- |
+| 01  | Store App      | A Cart App example with a shopping cart using React.js,Context ApI MongoDB |
+| 02  | Task Manager   | A Task Manager site using React.js, MongoDB and Nodejs.                    |
+| 03  | Auth Dashboard | A very simple dashboard to understand authentication with JWT              |
+| 04  | Job App        | A Job App by using tech Vite React.js,Context ApI,Nodejs and MongoDB       |
+| 05  | Todest App     | A Todoet App by using                                                      |
+
+Shadcn,Nextjs 13.4 App Router with server components,
+next-auth with google and MongoDB |
+| 06 | Online Store | A Online Store by using Nextjs 13 App Router with server components, parallel and intercepting routes as well as Drizzle ORM |
 
 <!-- |02| |  | -->
 
@@ -57,7 +61,9 @@ A Authentication site using React.js, MongoDB and Node.js.
 A Complete Job App using Tailwind Css React.js,Redux,ContextAPI MongoDB and Node.js.
 
 ![App Screenshot](job_app/board.png)
-## 
+
+##
+
 ![App Screenshot](job_app/newboard.PNG)
 
 ## Features
