@@ -21,15 +21,17 @@ const handler = NextAuth({
       const sessionUser = await User.findOne({
         email: session?.user?.email ?? "",
       });
-      if (session && session?.user) {
-        console.log(session, "SESSION");
-        session.user = sessionUser._id.toString();
-      }
+      console.log(sessionUser, "ID");
+      session = sessionUser._id.toString();
+      // if (session && session?.user) {
+      //   console.log(session, "SESSION");
+      //   session.user = sessionUser._id.toString();
+      // }
 
       return session;
     },
     async signIn({ account, profile, user, credentials }) {
-      console.log(profile, "profileprofile");
+      console.log(account, ">>.>>.");
       try {
         await connectToDB();
 
@@ -37,7 +39,7 @@ const handler = NextAuth({
         const userExists = await User.findOne({ email: profile?.email });
 
         // if not, create a new document and save user in MongoDB
-        if (!userExists && profile) {
+        if (!userExists) {
           await User.create({
             email: profile?.email,
             username:

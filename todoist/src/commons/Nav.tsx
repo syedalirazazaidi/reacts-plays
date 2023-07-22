@@ -11,7 +11,7 @@ const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [providers, setProviders] = useState<any>(null);
   const isUserLoggedIn = true;
-
+  console.log(session, "/-----///");
   useEffect(() => {
     const fetchProviders = async () => {
       try {
@@ -66,7 +66,7 @@ const Nav = () => {
                 </Button>
               </Link>
               <Link href="/profile">
-                <UserImage />
+                <UserImage session={session} />
               </Link>
             </div>
           ) : (

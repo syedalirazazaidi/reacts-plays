@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-export function UserImage() {
+export function UserImage({ session }: any) {
   return (
     <Avatar>
       <AvatarImage
