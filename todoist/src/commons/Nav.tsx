@@ -7,6 +7,7 @@ import { UserImage } from "@/app/uicomponents/avatar";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
 const Nav = () => {
+  const { data: session } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [providers, setProviders] = useState<any>(null);
   const isUserLoggedIn = true;
@@ -52,7 +53,7 @@ const Nav = () => {
           </svg>
         </button>
         <div className={`md:flex ${isMenuOpen ? "block" : "hidden"}`}>
-          {isUserLoggedIn ? (
+          {session?.user ? (
             <div className="flex gap-2 sm:text-teal-100  flex-col lg:flex-row">
               <Link href="/">
                 <Button className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block w-36">
