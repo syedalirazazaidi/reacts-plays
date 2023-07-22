@@ -22,8 +22,8 @@ export default function RootLayout({
         <Provider>
           <div className="bg-gradient-to-r from-gray-100 to-gray-200">
             <Nav />
-            {children}
           </div>
+          {children}
         </Provider>
       </body>
     </html>

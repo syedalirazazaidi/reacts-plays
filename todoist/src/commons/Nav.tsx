@@ -11,7 +11,7 @@ const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [providers, setProviders] = useState<any>(null);
   const isUserLoggedIn = true;
-  console.log(session, "/-----///");
+
   useEffect(() => {
     const fetchProviders = async () => {
       try {
@@ -55,7 +55,7 @@ const Nav = () => {
         <div className={`md:flex ${isMenuOpen ? "block" : "hidden"}`}>
           {session?.user ? (
             <div className="flex gap-2 sm:text-teal-100  flex-col lg:flex-row">
-              <Link href="/">
+              <Link href="/create-prompt">
                 <Button className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block w-36">
                   Create Post
                 </Button>

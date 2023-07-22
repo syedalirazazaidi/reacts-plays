@@ -22,7 +22,6 @@ const handler = NextAuth({
         email: session?.user?.email ?? "",
       });
       if (session && session?.user) {
-        console.log(session, "SESSION");
         session.user = sessionUser._id.toString();
       }
 
