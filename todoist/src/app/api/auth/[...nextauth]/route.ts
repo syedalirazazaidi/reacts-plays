@@ -21,17 +21,14 @@ const handler = NextAuth({
       const sessionUser = await User.findOne({
         email: session?.user?.email ?? "",
       });
-      console.log(sessionUser, "ID");
-      session = sessionUser._id.toString();
-      // if (session && session?.user) {
-      //   console.log(session, "SESSION");
-      //   session.user = sessionUser._id.toString();
-      // }
+      if (session && session?.user) {
+        console.log(session, "SESSION");
+        session.user = sessionUser._id.toString();
+      }
 
       return session;
     },
     async signIn({ account, profile, user, credentials }) {
-      console.log(account, ">>.>>.");
       try {
         await connectToDB();
 

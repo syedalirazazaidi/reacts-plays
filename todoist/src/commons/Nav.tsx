@@ -60,11 +60,14 @@ const Nav = () => {
                   Create Post
                 </Button>
               </Link>
-              <Link href="/">
-                <Button className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block w-36">
-                  Sign Out
-                </Button>
-              </Link>
+              {/* <Link href="/"> */}
+              <Button
+                className="bg-gray-400 text-teal hover:text-gray-200 px-8 py-1 block w-36"
+                onClick={() => signOut()}
+              >
+                Sign Out
+              </Button>
+              {/* </Link> */}
               <Link href="/profile">
                 <UserImage session={session} />
               </Link>
