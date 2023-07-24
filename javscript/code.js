@@ -216,3 +216,12 @@
 // console.log(newstr.trim().indexOf('z'))
 // const str='hi this is raza!'
 // console.log(str.endsWith('!'))
+
+// const newstr='hi this is raza zaidi hi i m raza'
+// // console.log(newstr.substring(0,10))
+
+// console.log(newstr.toLowerCase())
+// console.log(newstr.t)
+const str=1
+console.log(typeof String(str))
+console.log(typeof str)
