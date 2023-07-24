@@ -222,6 +222,19 @@
 
 // console.log(newstr.toLowerCase())
 // console.log(newstr.t)
-const str=1
-console.log(typeof String(str))
-console.log(typeof str)
+// const str=1
+// console.log(typeof String(str))
+// console.log(typeof str)
+// const tobeconverted= {name : "aliraza"}
+// console.log(String(tobeconverted.name))
+//  console.log(JSON.stringify(tobeconverted))
+//  console.log(JSON.parse(tobeconverted))
+// const tobeconverted= {name : "aliraza",age:100}
+// console.log(JSON.stringify(tobeconverted))
+// console.log(JSON.JSON(tobeconverted))
+// JSON.JSON()
+const tobeconverted= {name : "aliraza",age:100}
+console.log(JSON.stringify(tobeconverted))
+console.log(JSON.parse(JSON.stringify(tobeconverted)))
+
+
