@@ -197,13 +197,22 @@
 //  const  newone=str[0]='l'
 // console.log(newone)
 // console.log(str[8].replace('asdsads'))
-const  strew='subscribe to aligarh'
+// const  strew='subscribe to aligarh'
 
 // console.log(strew[2].replace('0'))
 // strew[2].replace('z')
 // console.log(strew.replace('aligarh','aliraza'))
 // console.log(strew)
 
-console.log(strew.concat('000','raza'))
-console.log(strew)
+// console.log(strew.concat('000','raza'))
+// console.log(strew)
 
+// const newstr='   ali  raza    '
+// console.log(newstr.trim())
+// console.log(newstr)
+// console.log(newstr.trim())
+
+// const newstr='hi    this is aliraza'
+// console.log(newstr.trim().indexOf('z'))
+// const str='hi this is raza!'
+// console.log(str.endsWith('!'))
