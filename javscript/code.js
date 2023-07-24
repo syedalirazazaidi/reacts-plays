@@ -179,9 +179,31 @@
 // console.log(newflt)
 // console.log(fltarr)
 
-const arr = [3, 5, 6, 4, 3, 6, 6, 6, 6]
-const newarr = [
-  ...new Set(arr.filter((item, index) => arr.indexOf(item) !== index)),
-]
-console.log(newarr)
+// const arr = [3, 5, 6, 4, 3, 6, 6, 6, 6]
+// const newarr = [
+//   ...new Set(arr.filter((item, index) => arr.indexOf(item) !== index)),
+// ]
+// console.log(newarr)
 // console.log(arr1.filter((newarr1, index) => arr1.indexOf(newarr1) !== index))
+
+////ALl ABOUT STRINGS
+// const  str='subscribe to aliraza'
+//  console.log(str.length)
+// console.log(str.charAt(0))
+// console.log(str.indexOf('c'))
+// console.log(str[11])
+
+// modifying string
+//  const  newone=str[0]='l'
+// console.log(newone)
+// console.log(str[8].replace('asdsads'))
+const  strew='subscribe to aligarh'
+
+// console.log(strew[2].replace('0'))
+// strew[2].replace('z')
+// console.log(strew.replace('aligarh','aliraza'))
+// console.log(strew)
+
+console.log(strew.concat('000','raza'))
+console.log(strew)
+
