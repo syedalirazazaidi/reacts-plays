@@ -233,8 +233,10 @@
 // console.log(JSON.stringify(tobeconverted))
 // console.log(JSON.JSON(tobeconverted))
 // JSON.JSON()
-const tobeconverted= {name : "aliraza",age:100}
-console.log(JSON.stringify(tobeconverted))
-console.log(JSON.parse(JSON.stringify(tobeconverted)))
+// const tobeconverted= {name : "aliraza",age:100}
+// console.log(JSON.stringify(tobeconverted))
+// console.log(JSON.parse(JSON.stringify(tobeconverted)))
 
 
+const strmy='hi this is aliraza zaidi'
+console.log(strmy)
