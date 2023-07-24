@@ -238,5 +238,8 @@
 // console.log(JSON.parse(JSON.stringify(tobeconverted)))
 
 
-const strmy='hi this is aliraza zaidi'
-console.log(strmy)
+// const strmy='hi this is aliraza zaidi'
+// console.log(strmy)
+// console.log(strmy.includes('this'))
+const newstr='hi this is aliraza'
+console.log(newstr.split('a').join(''))
