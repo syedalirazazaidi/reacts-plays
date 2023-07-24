@@ -241,5 +241,45 @@
 // const strmy='hi this is aliraza zaidi'
 // console.log(strmy)
 // console.log(strmy.includes('this'))
-const newstr='hi this is aliraza'
-console.log(newstr.split('a').join(''))
+// const newstr='hi this is aliraza'
+// console.log(newstr.split('a').join(''))
+// const newstr= ['reactjs','angular','development',3]
+// // console.log(newstr.join('newdeveloepr'))
+// console.log(newstr.join(' and '))
+
+// const str='hi this is aliraza'
+// const newstr='strinn'
+// console.log(newstr.length)
+//  console.log(str.length)
+//  const newone=str.splice(str.length,0,'...')
+//  console.log(str.splice(str.length,0,'...'))
+
+//  const str='reactjsdeveloper'
+// if(str<str.length+10){
+// // console.log('first')
+//     console.log(str.concat('...'))
+// }
+//  const roadcode='reactjs angularJSNet devel '
+//  console.log(roadcode.length)
+//  if(roadcode.length>9){
+//     console.log(roadcode.slice(0,roadcode.length)+'...')
+//  }
+//  console.log(roadcode.trim().slice(0,roadcode.length))
+//  console.log(roadcode.slice(0,roadcode.length)+'...')
+
+// const newstr=122;
+
+// const str=String(newstr)
+// console.log(str.split('').reverse().join(''))
+// const charstr='abc'
+// charstr.s
+
+
+// let newnumb=10;
+// console.log(newnumb.toString(2))
+let numb=2
+let numbe=4
+let numbi=10
+console.log(numb.toString(2))
+console.log(numbe.toString(4))
+console.log(numbi.toString(2))
