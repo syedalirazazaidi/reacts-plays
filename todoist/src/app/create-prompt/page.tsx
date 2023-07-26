@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import Form from "@/commons/Form";
+import { CreateFormPrompt } from "@/commons/Form";
 
 // import Form from "@components/Form";
 
@@ -39,13 +39,16 @@ const CreatePrompt = () => {
   };
 
   return (
-    <Form
-      type="Create"
-      post={post}
-      setPost={setPost}
-      submitting={submitting}
-      handleSubmit={createPrompt}
-    />
+    <div className="bg-red-600">
+      <CreateFormPrompt />
+    </div>
+    // <Form
+    //   type="Create"
+    //   post={post}
+    //   setPost={setPost}
+    //   submitting={submitting}
+    //   handleSubmit={createPrompt}
+    // />
   );
 };
 
