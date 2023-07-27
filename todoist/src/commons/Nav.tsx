@@ -10,13 +10,12 @@ const Nav = () => {
   const { data: session } = useSession();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [providers, setProviders] = useState<any>(null);
-  const isUserLoggedIn = true;
 
   useEffect(() => {
     const fetchProviders = async () => {
       try {
         const providersData = await getProviders();
-        console.log(providersData, "DATTA");
+
         setProviders(providersData);
       } catch (error) {
         console.error("Error fetching authentication providers:", error);
