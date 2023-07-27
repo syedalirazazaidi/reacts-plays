@@ -16,6 +16,7 @@ const Nav = () => {
     const fetchProviders = async () => {
       try {
         const providersData = await getProviders();
+        console.log(providersData, "DATTA");
         setProviders(providersData);
       } catch (error) {
         console.error("Error fetching authentication providers:", error);

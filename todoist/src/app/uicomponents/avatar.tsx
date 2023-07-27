@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export function UserImage({ session }: any) {
+  console.log(session, "SESSIOSION");
   return (
     <Avatar>
       <AvatarImage
