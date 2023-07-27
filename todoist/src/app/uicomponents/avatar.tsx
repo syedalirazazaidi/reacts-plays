@@ -1,11 +1,11 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export function UserImage({ session }: any) {
-  console.log(session, "SESSIOSION");
+  console.log(session?.user.image, "SESSIOSION");
   return (
     <Avatar>
       <AvatarImage
-        src="/assets/mypicnew.jpg"
+        src={session && session?.user?.image}
         width={37}
         height={37}
         className="object-cover"

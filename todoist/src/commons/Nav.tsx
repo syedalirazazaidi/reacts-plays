@@ -11,21 +11,29 @@ const Nav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [providers, setProviders] = useState<any>(null);
 
-  useEffect(() => {
-    const fetchProviders = async () => {
-      try {
-        const providersData = await getProviders();
+  // useEffect(() => {
+  //   const fetchProviders = async () => {
+  //     try {
+  //       const providersData = await getProviders();
 
-        setProviders(providersData);
-      } catch (error) {
-        console.error("Error fetching authentication providers:", error);
-      }
-    };
-    fetchProviders();
+  //       setProviders(providersData);
+  //     } catch (error) {
+  //       console.error("Error fetching authentication providers:", error);
+  //     }
+  //   };
+  //   fetchProviders();
+  // }, []);
+  useEffect(() => {
+    (async () => {
+      const res = await getProviders();
+      setProviders(res);
+    })();
   }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  console.log(session, "SESSION?");
 
   return (
     <nav className="bg-gray-100 py-3">
