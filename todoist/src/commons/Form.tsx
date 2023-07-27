@@ -22,7 +22,7 @@ const formSchema = z.object({
   }),
 });
 
-export function PromptFrom({ namemy }: string) {
+export function PromptFrom() {
   return (
     <>
       <div className="w-1/2 p-4 mx-auto text-center my-[70px]">

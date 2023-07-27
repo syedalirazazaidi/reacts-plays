@@ -40,7 +40,7 @@ const CreatePrompt = () => {
 
   return (
     <div>
-      <PromptFrom namemy="ali" />
+      <PromptFrom />
     </div>
   );
 };
