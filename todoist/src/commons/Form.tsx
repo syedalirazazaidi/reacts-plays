@@ -59,7 +59,13 @@ export function PromptFrom({
             placeholder="Type your message here."
           />
         </div>
-        <Button className="mr-auto">Button</Button>;
+        <Button
+          type="submit"
+          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+        >
+          Submit
+        </Button>
+        ;
       </div>
     </>
   );

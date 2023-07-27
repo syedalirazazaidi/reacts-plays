@@ -21,7 +21,6 @@ const Nav = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  console.log(session, "%%%%SSSSS");
   return (
     <nav className="bg-gray-100 py-3">
       <div className="container mx-auto px-12 flex items-center justify-between">
