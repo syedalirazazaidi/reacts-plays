@@ -13,7 +13,7 @@ const CreatePrompt = () => {
 
   const [submitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
-  console.log(session, "SESSIOSIO");
+
   const createPrompt = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -23,7 +23,7 @@ const CreatePrompt = () => {
         method: "POST",
         body: JSON.stringify({
           prompt: post.prompt,
-          // userId: session?.user.id,
+          userId: session && session?._id,
           tag: post.tag,
         }),
       });

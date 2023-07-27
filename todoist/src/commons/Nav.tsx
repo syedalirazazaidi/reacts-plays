@@ -33,7 +33,7 @@ const Nav = () => {
           onClick={toggleMenu}
         >
           <svg
-            className="h-6 w-6"
+            className="h-7 w-7 fill-current text-blue-500"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
