@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { CreateFormPrompt } from "@/commons/Form";
+import { PromptFrom } from "@/commons/Form";
 
 // import Form from "@components/Form";
 
@@ -13,7 +13,7 @@ const CreatePrompt = () => {
 
   const [submitting, setIsSubmitting] = useState(false);
   const [post, setPost] = useState({ prompt: "", tag: "" });
-
+  console.log(session, "SESSIOSIO");
   const createPrompt = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -39,16 +39,9 @@ const CreatePrompt = () => {
   };
 
   return (
-    <div className="bg-red-600">
-      <CreateFormPrompt />
+    <div>
+      <PromptFrom namemy="ali" />
     </div>
-    // <Form
-    //   type="Create"
-    //   post={post}
-    //   setPost={setPost}
-    //   submitting={submitting}
-    //   handleSubmit={createPrompt}
-    // />
   );
 };
 
