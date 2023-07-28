@@ -42,7 +42,7 @@ export function PromptFrom({
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <div className="p-4 text-center md:w-1/2 md:mx-auto md:text-left md:my-70">
+        <div className="mt-[50px] p-4 text-center md:w-1/2 md:mx-auto md:text-left md:my-70">
           <div className="mb-4">
             <Input
               value={post.tag}
