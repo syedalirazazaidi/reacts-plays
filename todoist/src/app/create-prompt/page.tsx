@@ -5,8 +5,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { PromptFrom } from "@/commons/Form";
 
-// import Form from "@components/Form";
-
 const CreatePrompt = () => {
   const router = useRouter();
   const { data: session } = useSession();

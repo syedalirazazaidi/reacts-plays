@@ -76,8 +76,9 @@ export function PromptFrom({
             <Button
               type="submit"
               className="bg-teal-500 text-white py-2 px-4  rounded-md hover:bg-teal-600 focus:outline-none focus:bg-blue-600 w-1/2"
+              disabled={submitting}
             >
-              Submit
+              Create
             </Button>
             <div className="text-right mt-[-37px]">
               <Link
