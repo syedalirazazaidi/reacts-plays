@@ -24,7 +24,7 @@ interface PropsFormType {
   post: PropinputType;
   setPost: (post: PropinputType) => void;
   submitting: boolean;
-  handleSubmit: () => void;
+  handleSubmit: (e: any) => Promise<void>;
 }
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -41,32 +41,45 @@ export function PromptFrom({
 }: PropsFormType) {
   return (
     <>
-      <div className="w-1/2 p-4 mx-auto text-center my-[70px]">
-        <div className="mb-4">
-          <Input
-            value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            type="text"
-            placeholder="#Tag"
-            required
-          />
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-md mx-auto mt-8 p-4 shadow-md"
+      >
+        <div className="w-1/2 p-4 mx-auto text-center my-[70px]">
+          <div className="mb-4">
+            <Input
+              value={post.tag}
+              onChange={(e) => setPost({ ...post, tag: e.target.value })}
+              type="text"
+              placeholder="#Tag"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <Textarea
+              value={post.prompt}
+              onChange={(e) => setPost({ ...post, prompt: e.target.value })}
+              required
+              placeholder="Type your message here."
+            />
+            <label
+              htmlFor="message"
+              className="block font-semibold text-sm text-gray-700"
+            >
+              Field of Prompt{" "}
+              <span className=" text-sm text-start">
+                (#product, #webdevelopment, #idea, etc.)
+              </span>
+            </label>
+          </div>
+          <Button
+            type="submit"
+            className="bg-teal-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
+          >
+            Submit
+          </Button>
         </div>
-        <div className="mb-4">
-          <Textarea
-            value={post.prompt}
-            onChange={(e) => setPost({ ...post, prompt: e.target.value })}
-            required
-            placeholder="Type your message here."
-          />
-        </div>
-        <Button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:bg-blue-600"
-        >
-          Submit
-        </Button>
-        ;
-      </div>
+      </form>
     </>
   );
 }
