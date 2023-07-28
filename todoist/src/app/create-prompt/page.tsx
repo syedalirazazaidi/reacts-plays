@@ -17,7 +17,7 @@ const CreatePrompt = () => {
   const createPrompt = async (e: any) => {
     e.preventDefault();
     setIsSubmitting(true);
-
+   console.log('first',)
     try {
       const response = await fetch("/api/prompt/new", {
         method: "POST",

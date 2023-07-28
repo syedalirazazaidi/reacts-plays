@@ -41,10 +41,7 @@ export function PromptFrom({
 }: PropsFormType) {
   return (
     <>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-md mx-auto mt-8 p-4 shadow-md"
-      >
+      <form onSubmit={handleSubmit}>
         <div className="w-1/2 p-4 mx-auto text-center my-[70px]">
           <div className="mb-4">
             <Input
