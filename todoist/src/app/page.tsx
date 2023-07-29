@@ -1,5 +1,10 @@
 import Image from "next/image";
+import Feed from "../commons/Feed";
 
 export default function Home() {
-  return <main className="h-screen">hi developer</main>;
+  return (
+    <main className="h-screen">
+      <Feed />
+    </main>
+  );
 }
