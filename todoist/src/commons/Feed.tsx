@@ -2,6 +2,21 @@
 
 import { Input } from "@/components/ui/input";
 import { useState, useEffect, ChangeEvent } from "react";
+import PromptCard from "./PromptCard";
+
+const PromptCardList = ({ data, handleTagClick }: any) => {
+  return (
+    <div className="mt-16 prompt_layout">
+      {data.map((post: any) => (
+        <PromptCard
+          key={post._id}
+          post={post}
+          handleTagClick={handleTagClick}
+        />
+      ))}
+    </div>
+  );
+};
 
 export default function Feed() {
   const [allPosts, setAllPosts] = useState([]);
@@ -26,10 +41,17 @@ export default function Feed() {
     //   }, 500)
     // );
   };
+  const handleTagClick = (tagName: any) => {
+    setSearchText(tagName);
+
+    // const searchResult = filterPrompts(tagName);
+    // setSearchedResults(searchResult);
+  };
 
   useEffect(() => {
     fetchPosts();
   }, []);
+
   return (
     <section className="flex justify-center items-center  h-60">
       <form className="relative">
@@ -42,16 +64,15 @@ export default function Feed() {
           required
         />
       </form>
-
       {/* All Prompts */}
-      {/* {searchText ? (
+      {searchText ? (
         <PromptCardList
           data={searchedResults}
           handleTagClick={handleTagClick}
         />
       ) : (
         <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
-      )} */}
+      )}
     </section>
   );
 }
