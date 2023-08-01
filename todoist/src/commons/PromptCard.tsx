@@ -22,6 +22,13 @@ export default function PromptCard({ post, handleTagClick }: any) {
         </p>
         <p className=" font-mono  text-gray">{post?.creator?.email}</p>
       </div>
+      <Image
+        src={"/assets/copy.svg"}
+        alt="copy"
+        width={16}
+        height={16}
+        className="text"
+      />
     </div>
   );
 }
