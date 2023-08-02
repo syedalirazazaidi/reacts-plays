@@ -7,7 +7,13 @@ import { usePathname, useRouter } from "next/navigation";
 
 export default function PromptCard({ post, handleTagClick }: any) {
   const { data: session } = useSession();
-  const [copied, isSetCopied] = useState(false);
+  const [copied, isSetCopied] = useState("");
+
+  const handleCopied = () => {
+    console.log("first");
+    isSetCopied(post.prompt);
+    navigator.clipboard.writeText(copied);
+  };
 
   return (
     <div>
@@ -26,7 +32,7 @@ export default function PromptCard({ post, handleTagClick }: any) {
             </p>
             <p className="font-mono text-gray">{post?.creator?.email}</p>
           </div>
-          <div className="ml-[26px] cursor-pointer" onClick={() => {}}>
+          <div className="ml-[26px] cursor-pointer" onClick={handleCopied}>
             <Image
               src={
                 copied === post.prompt ? "/assets/copy.svg" : "/assets/tick.svg"
@@ -38,8 +44,9 @@ export default function PromptCard({ post, handleTagClick }: any) {
             />
           </div>
         </div>
-        <div className="md:text-left mt-4 text-center">
+        <div className="md:text-left mt-1 text-center">
           <p>{post.prompt}</p>
+          <p>{post.tag}</p>
         </div>
       </div>
     </div>
