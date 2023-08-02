@@ -6,7 +6,7 @@ import PromptCard from "./PromptCard";
 
 const PromptCardList = ({ data, handleTagClick }: any) => {
   return (
-    <div className="grid grid-cols-2 gap-4 ml-[200px]">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mx-auto md:ml-[400px] max-w-[800px]">
       {data.map((post: any) => (
         <PromptCard
           key={post._id}
@@ -15,6 +15,16 @@ const PromptCardList = ({ data, handleTagClick }: any) => {
         />
       ))}
     </div>
+
+    // <div className="grid grid-cols-2 gap-4 ml-[200px]">
+    //   {data.map((post: any) => (
+    //     <PromptCard
+    //       key={post._id}
+    //       post={post}
+    //       handleTagClick={handleTagClick}
+    //     />
+    //   ))}
+    // </div>\
   );
 };
 
