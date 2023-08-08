@@ -19,3 +19,11 @@
 
 // javascript quick tip checking a value is a number
 
+// isNaN() returns true if a value is NaN:
+const text = 'text'
+if(isNaN(text)){
+    console.log(text)
+}
+else{
+    console.log(text,"isNaN")
+}
