@@ -21,7 +21,8 @@
 
 // isNaN() returns true if a value is NaN:
 const text = 'text'
-if(isNaN(text)){
+const numb = 2
+if(isNaN(numb)){
     console.log(text)
 }
 else{
