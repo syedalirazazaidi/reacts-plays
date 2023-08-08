@@ -88,4 +88,42 @@
 // console.log(JSON.parse(myJSON))
 
 
+// const numbers=[1,3,4,5]
+// numbers.length=numbers.length-1
+// console.log(numbers)
 
+
+// const numbers = [1,2,3,4,5]
+// const newnumb=numbers.splice(0,2)
+// console.log(newnumb)
+// console.log(numbers)
+
+
+// const numb = [2,3,4,5]
+// const newnumb= numb.splice(0,numb.length-1)
+// console.log(newnumb)
+// console.log(numb)
+
+
+// const arr=[5,20,25]
+// // console.log(arr)
+
+// const newarr=Object.assign(arr,{})
+// console.log(newarr)
+
+// let widget = 
+//    [ 'color', 'red']
+
+
+// let clonedWidget = Object.assign({},widget);
+
+// console.log(clonedWidget[0]);
+
+
+// const arr=['name','days']
+// const arrnew = ['ali','365']
+// const ali= arrnew.map((value,i)=>({ [keys[i]]:value}));
+// console.log(ali)
+
+const output = [ 'John', 'Jane' ].map(name => ({name}));
+console.log(output);
