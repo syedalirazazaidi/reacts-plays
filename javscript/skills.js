@@ -37,13 +37,55 @@
 // console.log(a)
 
 // javascript debugger keyword
-fetch("https://fakestoreapi.com/products?limit=5")
-  .then((res) => res.json())
-  .then((json) => product(json));
+// fetch("https://fakestoreapi.com/products?limit=5")
+//   .then((res) => res.json())
+//   .then((json) => product(json));
 
-function product(params) {
-    console.log('1')
-    debugger
-  console.log(params);
-  console.log('2')
-}
+// function product(params) {
+//     console.log('1')
+//     debugger
+//   console.log(params);
+//   console.log('2')
+// }
+
+// var a = 'alo'
+// var a =1
+// console.log(a)
+// var a =[1,2,3]
+// var a =[12,3,6,8]
+// console.log(a)
+
+// // destructiring
+
+// const scorer = {
+//   surname: "zaidi",
+//   born: "1900",
+//   heigh: "50",
+// };
+
+// const { born } = scorer;
+// console.log(born);
+
+// how to swap two variable
+
+// let  a = "ali";
+// let  b = "raza";
+// [a, b] = [b, a]
+// console.log(a);
+// console.log(b);
+
+// const names = ["Alex", "Bob", "Johny", "Atta"]
+// // const obj = Object.fromEntries(names)
+
+// console.log(Object.fromEntries(names))
+// console.log(obj)
+// const obj =(JSON.parse(Object.assign({}, names)))
+
+// console.log(JSON.stringify(obj))
+// var obj = { "name":"John", "age":30, "city":"New York"};
+// var myJSON = JSON.stringify(obj);
+// console.log(myJSON)
+// console.log(JSON.parse(myJSON))
+
+
+
