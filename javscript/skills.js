@@ -125,5 +125,9 @@
 // const ali= arrnew.map((value,i)=>({ [keys[i]]:value}));
 // console.log(ali)
 
-const output = [ 'John', 'Jane' ].map(name => ({name}));
-console.log(output);
+// const output = [ 'John', 'Jane' ].map(name => ({name}));
+// console.log(output);
+
+var a = b =1
+console.log(a)
+console.log(b)
