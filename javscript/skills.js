@@ -126,13 +126,23 @@
 // console.log(a)
 // console.log(b)
 
+// Object Destructure
 const obj1 = {
   username: "aliraza",
-  hobbibes: ["cricket", "football", "xyz"],
+  hobbies: ["cricket", "football", "xyz"],
+  education: {
+    bechlor: "bsc",
+    specialist: "master",
+    ssc: "fsc",
+  },
 };
 // const { hobbibes } = obj1;
 // console.log(hobbibes['1']);
 // console.log(obj1.username);
-const { hobbies,id=32} = obj1;
-console.log(id)
+// const { hobbibes = "newin", id = 32,olddata } = obj1;
 
+// console.log(olddata);
+const { username, hobbies: activity = [], education:{
+    ssc
+} } = obj1;
+console.log(ssc);
