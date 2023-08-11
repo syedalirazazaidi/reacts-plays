@@ -87,23 +87,19 @@
 // console.log(myJSON)
 // console.log(JSON.parse(myJSON))
 
-
 // const numbers=[1,3,4,5]
 // numbers.length=numbers.length-1
 // console.log(numbers)
-
 
 // const numbers = [1,2,3,4,5]
 // const newnumb=numbers.splice(0,2)
 // console.log(newnumb)
 // console.log(numbers)
 
-
 // const numb = [2,3,4,5]
 // const newnumb= numb.splice(0,numb.length-1)
 // console.log(newnumb)
 // console.log(numb)
-
 
 // const arr=[5,20,25]
 // // console.log(arr)
@@ -111,14 +107,12 @@
 // const newarr=Object.assign(arr,{})
 // console.log(newarr)
 
-// let widget = 
+// let widget =
 //    [ 'color', 'red']
-
 
 // let clonedWidget = Object.assign({},widget);
 
 // console.log(clonedWidget[0]);
-
 
 // const arr=['name','days']
 // const arrnew = ['ali','365']
@@ -128,6 +122,17 @@
 // const output = [ 'John', 'Jane' ].map(name => ({name}));
 // console.log(output);
 
-var a = b =1
-console.log(a)
-console.log(b)
+// var a = b =1
+// console.log(a)
+// console.log(b)
+
+const obj1 = {
+  username: "aliraza",
+  hobbibes: ["cricket", "football", "xyz"],
+};
+// const { hobbibes } = obj1;
+// console.log(hobbibes['1']);
+// console.log(obj1.username);
+const { hobbies,id=32} = obj1;
+console.log(id)
+
