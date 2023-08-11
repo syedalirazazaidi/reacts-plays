@@ -127,22 +127,49 @@
 // console.log(b)
 
 // Object Destructure
-const obj1 = {
-  username: "aliraza",
-  hobbies: ["cricket", "football", "xyz"],
-  education: {
-    bechlor: "bsc",
-    specialist: "master",
-    ssc: "fsc",
-  },
-};
+// const obj1 = {
+//   username: "aliraza",
+//   hobbies: ["cricket", "football", "xyz"],
+//   education: {
+//     bechlor: "bsc",
+//     specialist: "master",
+//     ssc: "fsc",
+//   },
+// };
 // const { hobbibes } = obj1;
 // console.log(hobbibes['1']);
 // console.log(obj1.username);
 // const { hobbibes = "newin", id = 32,olddata } = obj1;
-
 // console.log(olddata);
-const { username, hobbies: activity = [], education:{
-    ssc
-} } = obj1;
-console.log(ssc);
+// const {
+//   username,
+//   hobbies: activity = [],
+//   education: { ssc },
+// } = obj1;
+// console.log(ssc);
+// var objArr = [
+//   {
+//     name: "john",
+//     age: 12,
+//     gender: "male",
+//   },
+//   {
+//     name: "jane",
+//     age: 15,
+//     gender: "female",
+//   },
+// ];
+// for (const {age} of objArr) {
+  
+//   console.log(age);
+// }
+
+
+// const person ={
+//     name :'aliraza',
+//     year:'1900'
+// }
+// function objFunction({name}) {
+//     console.log(`hi this is raza ${name}`)
+// }
+// objFunction(person)
