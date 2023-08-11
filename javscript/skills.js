@@ -173,3 +173,6 @@
 //     console.log(`hi this is raza ${name}`)
 // }
 // objFunction(person)
+
+const trimstr='ali_raza '
+console.log(trimstr.trimEnd())
