@@ -174,5 +174,51 @@
 // }
 // objFunction(person)
 
-const trimstr='ali_raza '
-console.log(trimstr.trimEnd())
+// const trimstr='ali_raza '
+// console.log(trimstr.trimEnd())
+
+// const reverstr='raza is here'
+// console.log(reverstr.indexOf(""))
+// console.log(reverstr.split('').reverse('').join(''))
+// for (let index = 0; index < reverstr.length; index++) {
+//     const element = reverstr[index];
+//     // console.log(element,"element")
+//     if(indexOf(element)===-1){
+//         console.log('first')
+//     }
+// }
+
+//  const str='hi this is raza'
+// // console.log(str.indexOf(' '))
+// for (let index = 0; index < str.length; index++) {
+//     const mystr = str[0];
+//     console.log(mystr)
+    
+// }
+
+
+// program to reverse a string
+
+// function reverseString(str) {
+//     let newString = "";
+//     for (let i = str.length - 1; i >= 0; i--) {
+//         newString += str[i];
+//     }
+//     return newString;
+// }
+
+
+
+// const result = reverseString('hi this is raza ');
+// console.log(result);
+
+// const strmy='hi this is raza'
+
+// const newstr=strmy.split(' ').map((data)=>(data.split('').reverse().join('')))
+// console.log(newstr.join(' '))
+
+const checkarray=[]
+const checkobj={}
+
+console.log(Array.isArray(checkobj))
+console.log(Array.isArray(checkarray))
