@@ -240,5 +240,10 @@
 
 // console.log(varStr.split('').sort().join(''))
 
-const str='javascript'
-console.log(str.slice(0,1).toUpperCase()+str.slice(1))
+const str='javascript new developer'
+// console.log(str.slice(0,1).toUpperCase()+str.slice(1))
+// str.split(' ').map(data=>console.log(data))
+console.log(
+    str.split(' ').map(data=> data.charAt(0).toUpperCase()+data.slice(1).toLowerCase()).join(' '))
+    
+   
