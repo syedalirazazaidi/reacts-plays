@@ -233,5 +233,12 @@
 // // console.log(isNaN(numb))
 // console.log(Number.isInteger(numb))
 
-const arr=[1,2,3,4,5]
-console.log(arr.concat(arr))
+// const arr=[1,2,3,4,5]
+// console.log(arr.concat(arr))
+// const varStr=
+// 'harsh'
+
+// console.log(varStr.split('').sort().join(''))
+
+const str='javascript'
+console.log(str.slice(0,1).toUpperCase()+str.slice(1))
