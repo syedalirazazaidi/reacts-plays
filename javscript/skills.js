@@ -217,8 +217,21 @@
 // const newstr=strmy.split(' ').map((data)=>(data.split('').reverse().join('')))
 // console.log(newstr.join(' '))
 
-const checkarray=[]
-const checkobj={}
+// const checkarray=[]
+// const checkobj={}
 
-console.log(Array.isArray(checkobj))
-console.log(Array.isArray(checkarray))
+// console.log(Array.isArray(checkobj))
+// console.log(Array.isArray(checkarray))
+// const emtyarray=[3,4,5,8]
+// // emtyarray.length=0
+// emtyarray.pop()
+// console.log(emtyarray.length)
+
+// const numberMy='str'
+// console.log(isNaN(numberMy))
+// const numb=12
+// // console.log(isNaN(numb))
+// console.log(Number.isInteger(numb))
+
+const arr=[1,2,3,4,5]
+console.log(arr.concat(arr))
