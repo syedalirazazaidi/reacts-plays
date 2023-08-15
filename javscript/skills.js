@@ -160,10 +160,9 @@
 //   },
 // ];
 // for (const {age} of objArr) {
-  
+
 //   console.log(age);
 // }
-
 
 // const person ={
 //     name :'aliraza',
@@ -193,9 +192,8 @@
 // for (let index = 0; index < str.length; index++) {
 //     const mystr = str[0];
 //     console.log(mystr)
-    
-// }
 
+// }
 
 // program to reverse a string
 
@@ -206,8 +204,6 @@
 //     }
 //     return newString;
 // }
-
-
 
 // const result = reverseString('hi this is raza ');
 // console.log(result);
@@ -240,10 +236,35 @@
 
 // console.log(varStr.split('').sort().join(''))
 
-const str='javascript new developer'
-// console.log(str.slice(0,1).toUpperCase()+str.slice(1))
-// str.split(' ').map(data=>console.log(data))
-console.log(
-    str.split(' ').map(data=> data.charAt(0).toUpperCase()+data.slice(1).toLowerCase()).join(' '))
-    
+// const str='javascript new developer'
+// // console.log(str.slice(0,1).toUpperCase()+str.slice(1))
+// // str.split(' ').map(data=>console.log(data))
+// console.log(
+//     str.split(' ').map(data=> data.charAt(0).toUpperCase()+data.slice(1).toLowerCase()).join(' '))
+
+const apple = "applealiraza";
+let count = {};
+
+for (let index = 0; index < apple.length; index++) {
+  if(count.hasOwnProperty(apple)){
+    console.log(apple[index]++)
+    count[apple[index]] ++
    
+  
+  }
+  else{
+    count[apple[index]]=1
+  }
+}
+console.log(count)
+ 
+ 
+  // const element = apple[index];
+  // console.log(element)
+
+// const newarr='hithisisarray'
+// const  arraystr=(newarr.split(''))
+// for (let index = 0; index < arraystr.length; index++) {
+//     const element = arraystr[index];
+    
+// }
