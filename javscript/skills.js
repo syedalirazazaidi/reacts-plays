@@ -242,29 +242,27 @@
 // console.log(
 //     str.split(' ').map(data=> data.charAt(0).toUpperCase()+data.slice(1).toLowerCase()).join(' '))
 
-const apple = "applealiraza";
-let count = {};
+// const apple = "applealiraza";
+// let count = {};
 
-for (let index = 0; index < apple.length; index++) {
-  if(count.hasOwnProperty(apple)){
-    console.log(apple[index]++)
-    count[apple[index]] ++
-   
-  
-  }
-  else{
-    count[apple[index]]=1
-  }
-}
-console.log(count)
- 
- 
-  // const element = apple[index];
-  // console.log(element)
+// for (let index = 0; index < apple.length; index++) {
+//   if(count.hasOwnProperty(apple)){
+//     console.log(apple[index]++)
+//     count[apple[index]] ++
+
+//   }
+//   else{
+//     count[apple[index]]=1
+//   }
+// }
+// console.log(count)
+
+// const element = apple[index];
+// console.log(element)
 
 // const newarr='hithisisarray'
 // const  arraystr=(newarr.split(''))
 // for (let index = 0; index < arraystr.length; index++) {
 //     const element = arraystr[index];
-    
+
 // }
